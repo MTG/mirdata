@@ -6,12 +6,15 @@ annotations for 113 jazz songs. Details can be found in https://github.com/MTG/J
 
 """
 
+
+
 import csv
 import json
 
 import librosa
 import numpy as np
 import os
+import shutil
 
 from mirdata import download_utils
 from mirdata import jams_utils
@@ -24,7 +27,7 @@ REMOTES = {
         filename='JAAH-v0.1.zip',
         url='https://zenodo.org/record/1290737/files/MTG/JAAH-v0.1.zip?download=1',
         checksum='34f8311a270b9934cf2c9c0d6026ac71',
-        destination_dir='annotations',
+        destination_dir='',
     )
 }
 
@@ -173,6 +176,10 @@ def download(data_home=None, force_overwrite=False, cleanup=True):
         force_overwrite=force_overwrite,
         cleanup=cleanup,
     )
+    shutil.move(os.path.join(utils.get_default_dataset_path(DATASET_DIR), 'MTG-JAAH-7686b91', 'annotations'),
+                utils.get_default_dataset_path(DATASET_DIR))
+
+
 
 
 def validate(data_home=None, silence=False):
@@ -228,7 +235,7 @@ def load(data_home=None):
 
 
 def _fix_newpoint(beat_positions):
-    """Fills in missing beat position labels by inferring the beat position
+    """ Fills in missing beat position labels by inferring the beat position
         from neighboring beats.
 
     """
@@ -258,14 +265,18 @@ International Society for Music Information Retrieval Conference.
 
 ========== Bibtex ==========
 @conference {3896,
-	title = {Audio-aligned jazz harmony dataset for automatic chord transcription and corpus-based research},
-	booktitle = {International Society for Music Information Retrieval Conference},
-	year = {2018},
-	month = {23/09/2018},
-	address = {Paris},
-	url = {https://doi.org/10.5281/zenodo.1291834},
-	author = {Eremenko, Vsevolod and Demirel, Emir and Bozkurt, Bar{\i}{\c s} and Xavier Serra}
+    title = {Audio-aligned jazz harmony dataset for automatic chord transcription and corpus-based research},
+    booktitle = {International Society for Music Information Retrieval Conference},
+    year = {2018},
+    month = {23/09/2018},
+    address = {Paris},
+    url = {https://doi.org/10.5281/zenodo.1291834},
+    author = {Eremenko, Vsevolod and Demirel, Emir and Bozkurt, Bar{\i}{\c s} and Xavier Serra}
 }
     """
 
     print(cite_data)
+
+
+if __name__ == '__main__':
+    download()
