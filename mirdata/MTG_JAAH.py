@@ -7,7 +7,6 @@ annotations for 113 jazz songs. Details can be found in https://github.com/MTG/J
 """
 
 
-
 import csv
 import json
 
@@ -278,5 +277,4 @@ International Society for Music Information Retrieval Conference.
     print(cite_data)
 
 
-if __name__ == '__main__':
-    download()
+
