@@ -3,6 +3,7 @@ import hashlib
 import json
 import os
 
+
 MTG_JAAH_INDEX_PATH = '../mirdata/indexes/MTG_JAAH_index.json'
 BEATLES_ANNOTATION_SCHEMA = ['JAMS']
 
