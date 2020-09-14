@@ -63,7 +63,7 @@ click the link provided in the "Module" column.
 | medleydb_pitch_  | | MedleyDB Pitch    | - audio: 🔑         | - :ref:`f0`               | 103    |
 |                  | | Tracking Subset   | - annotations: ✅   | - :ref:`instruments`      |        |
 +------------------+---------------------+---------------------+---------------------------+--------+
-| MTG_JAAH         | | Jazz Audio-Aligned| - audio: ❌         | - :ref:`beats`            | 113    |
+| MTG_JAAH_        | | Jazz Audio-Aligned| - audio: ❌         | - :ref:`beats`            | 113    |
 |                  | | Harmony Dataset.  | - annotations: ✅   | - :ref:`sections`         |        |
 |                  |                     |                     | - :ref:`chords`           |        |
 |                  |                     |                     | - :ref:`key`              |        |
