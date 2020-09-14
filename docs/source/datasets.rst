@@ -29,7 +29,7 @@ click the link provided in the "Module" column.
 | beatles_         | | The Beatles       | - audio: ❌         | - :ref:`beats`            | 180    |
 |                  | | Dataset           | - annotations: ✅   | - :ref:`sections`         |        |
 |                  |                     |                     | - :ref:`key`              |        |
-|                  |                     |                     | - :ref:`chords`              |        |
+|                  |                     |                     | - :ref:`chords`           |        |
 +------------------+---------------------+---------------------+---------------------------+--------+
 | dali_            | DALI                | - audio: 📺         | - :ref:`lyrics`           | 5358   |
 |                  |                     | - annotations: ✅   | - Vocal :ref:`notes`      |        |
