@@ -29,6 +29,7 @@ click the link provided in the "Module" column.
 | beatles_         | | The Beatles       | - audio: ❌         | - :ref:`beats`            | 180    |
 |                  | | Dataset           | - annotations: ✅   | - :ref:`sections`         |        |
 |                  |                     |                     | - :ref:`key`              |        |
+|                  |                     |                     | - :ref:`chords`              |        |
 +------------------+---------------------+---------------------+---------------------------+--------+
 | dali_            | DALI                | - audio: 📺         | - :ref:`lyrics`           | 5358   |
 |                  |                     | - annotations: ✅   | - Vocal :ref:`notes`      |        |
@@ -61,6 +62,14 @@ click the link provided in the "Module" column.
 +------------------+---------------------+---------------------+---------------------------+--------+
 | medleydb_pitch_  | | MedleyDB Pitch    | - audio: 🔑         | - :ref:`f0`               | 103    |
 |                  | | Tracking Subset   | - annotations: ✅   | - :ref:`instruments`      |        |
++------------------+---------------------+---------------------+---------------------------+--------+
+| MTG_JAAH         | | Jazz Audio-Aligned| - audio: ❌         | - :ref:`beats`            | 113    |
+|                  | | Harmony Dataset.  | - annotations: ✅   | - :ref:`sections`         |        |
+|                  |                     |                     | - :ref:`chords`           |        |
+|                  |                     |                     | - :ref:`key`              |        |
+|                  |                     |                     | - :ref:`metre`            |        |
+|                  |                     |                     | - :ref:`tuning`           |        |
+|                  |                     |                     | - :ref:`mbid`             |        |
 +------------------+---------------------+---------------------+---------------------------+--------+
 | orchset_         | Orchset             | - audio: ✅         | - :ref:`melody` :ref:`f0` | 64     |
 |                  |                     | - annotations: ✅   |                           |        |
