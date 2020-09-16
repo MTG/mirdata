@@ -6,10 +6,9 @@ annotations for 113 jazz songs. Details can be found in https://github.com/MTG/J
 
 """
 
-import csv
 import json
-import math
-import re
+
+
 
 import librosa
 import numpy as np
@@ -17,10 +16,9 @@ import os
 import shutil
 
 from mirdata import download_utils
-from mirdata import jams_utils
+
 from mirdata import track
 from mirdata import utils
-import scripts.pychord_tools_utils as chords_utils
 
 DATASET_DIR = 'MTG_JAAH'
 REMOTES = {
@@ -29,7 +27,14 @@ REMOTES = {
         url='https://zenodo.org/record/1290737/files/MTG/JAAH-v0.1.zip?download=1',
         checksum='34f8311a270b9934cf2c9c0d6026ac71',
         destination_dir='',
-    )
+    ),
+    'chords': download_utils.RemoteFileMetadata(
+        filename='JAAH-v0.1.zip',
+        url='https://github.com/MTG/JAAH/blob/master/labs.zip',
+        checksum='34f8311a270b9934cf2c9c0d6026ac71',
+        destination_dir='',
+    ),
+
 }
 
 DATA = utils.LargeData('MTG_JAAH_index.json')
@@ -45,7 +50,7 @@ class Track(track.Track):
 
     Attributes:
         audio_path (str): track audio path
-        title (str): title of the track
+
         track_id (str): track id
 
     """
@@ -65,8 +70,6 @@ class Track(track.Track):
         self.ann_path = os.path.join(self._data_home, self._track_paths['annotations'][0])
         with open(self.ann_path) as json_file:
             self.ann = json.load(json_file)
-        # esto no se si va
-        self.title = self.ann['title']
 
     @utils.cached_property
     def beats(self):
@@ -76,7 +79,22 @@ class Track(track.Track):
             beat_times += part['beats']
         metre = int(self.metre.split('/')[0])
         beat_positions = [p % metre + 1 for p in range(len(beat_times))]
-        print(beat_positions)
+        # data = self.ann
+        # duration = float(data['duration'])
+        # all_beats = []
+        # all_chords = []
+        # chords_utils.process_parts(data['metre'], data, all_beats, all_chords, 'chords')
+        # segments = chords_utils.merge_segments(
+        #     chords_utils.to_beat_chord_segment_list(0, duration, all_beats, all_chords))
+        # start_times = []
+        # end_times = []
+        # chords = []
+        # for s in segments:
+        #     start_times.append(s.start_time)
+        #     end_times.append(s.end_time)
+        #     chords.append(s.symbol)
+        # chord_data = utils.ChordData(np.array([start_times, end_times]).T, chords)
+
         beat_data = utils.BeatData(np.array(beat_times), np.array(beat_positions))
         return beat_data
 
@@ -310,5 +328,12 @@ International Society for Music Information Retrieval Conference.
 
 
 if __name__ == '__main__':
-    data = load()
-    data['1'].chords()
+    dataset = load()
+    print(dataset['0'].beats)
+
+    # for key, value in dataset.items():
+    #     print(key)
+    #     ans = value.beats
+
+
+
