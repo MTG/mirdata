@@ -1,0 +1,1584 @@
+{
+  "0": {
+    "audio": [
+      "./audio/airegin.flac",
+      "d4902fdcea104a98191cb89a51b11b40"
+    ],
+    "annotations": [
+      "./annotations/airegin.json",
+      "87d6a56e11bd3226e39858470593ec52"
+    ],
+    "chordlabs": [
+      "./labs/airegin.lab",
+      "d73b5ecebe229e7d12ca6e9b82b4b8a1"
+    ]
+  },
+  "1": {
+    "audio": [
+      "./audio/all_alone.flac",
+      "0bc964571b2585c4c5fc5104ef3eb928"
+    ],
+    "annotations": [
+      "./annotations/all_alone.json",
+      "c26cbae7042675805f27b9c45b7b5f08"
+    ],
+    "chordlabs": [
+      "./labs/all_alone.lab",
+      "10db40440b05ada3202e68b498b7630a"
+    ]
+  },
+  "2": {
+    "audio": [
+      "./audio/bags_groove.flac",
+      "cfe62aa6d6cba0fb0f4a995a6b1114c7"
+    ],
+    "annotations": [
+      "./annotations/bags_groove.json",
+      "642b2208bfe30a89d882086f239dfab2"
+    ],
+    "chordlabs": [
+      "./labs/bags_groove.lab",
+      "17c63f1e30c6034780d0b96e6a5805f6"
+    ]
+  },
+  "3": {
+    "audio": [
+      "./audio/big_butter_and_eggman.flac",
+      "85dd3baa10bcc6c0757a46dffde6258e"
+    ],
+    "annotations": [
+      "./annotations/big_butter_and_eggman.json",
+      "fbb53969ec16e7b68d4459f146433dc4"
+    ],
+    "chordlabs": [
+      "./labs/big_butter_and_eggman.lab",
+      "a6c306137f0c972a9b65e42e73162ed6"
+    ]
+  },
+  "4": {
+    "audio": [
+      "./audio/bikini.flac",
+      "78fd3e5ef1a57900e0cb889cfb67776d"
+    ],
+    "annotations": [
+      "./annotations/bikini.json",
+      "fe86d36cefb761a8c26f5b59f78320e6"
+    ],
+    "chordlabs": [
+      "./labs/bikini.lab",
+      "6b4803fa5c855c6b8bb231bce55b6cb3"
+    ]
+  },
+  "5": {
+    "audio": [
+      "./audio/black_and_tan_fantasy.flac",
+      "cb473fefc5559a9d6283255158e8318e"
+    ],
+    "annotations": [
+      "./annotations/black_and_tan_fantasy.json",
+      "ad364e51c21ddd8055c1e76ab5f2326e"
+    ],
+    "chordlabs": [
+      "./labs/black_and_tan_fantasy.lab",
+      "9f09143d16064ae155d2c785d7a35ea7"
+    ]
+  },
+  "6": {
+    "audio": [
+      "./audio/black_bottom_stomp.flac",
+      "d068cc0252ddf2150da2f5cc99642f0e"
+    ],
+    "annotations": [
+      "./annotations/black_bottom_stomp.json",
+      "99c30bdc8580ebeaab64661a2cfb2464"
+    ],
+    "chordlabs": [
+      "./labs/black_bottom_stomp.lab",
+      "cae416f85803d477a9e9f4e9f5fa3c6f"
+    ]
+  },
+  "7": {
+    "audio": [
+      "./audio/black_water_blues.flac",
+      "ffb6e175fc7fc95b07f662c2fe2923b2"
+    ],
+    "annotations": [
+      "./annotations/black_water_blues.json",
+      "ecc3e1113e94555b83a34a207a614643"
+    ],
+    "chordlabs": [
+      "./labs/black_water_blues.lab",
+      "de9c597fdad80924c05215f1b2102c69"
+    ]
+  },
+  "8": {
+    "audio": [
+      "./audio/blue_7.flac",
+      "a6c3c90e7ee32c56c255d1019a3fbf95"
+    ],
+    "annotations": [
+      "./annotations/blue_7.json",
+      "9abca970e80fa1d9963122ba3b627624"
+    ],
+    "chordlabs": [
+      "./labs/blue_7.lab",
+      "992686d1f265d6c44483ba3a50a26053"
+    ]
+  },
+  "9": {
+    "audio": [
+      "./audio/blue_horizon.flac",
+      "386e1f4d5cbf3f47ca60a122f2b07903"
+    ],
+    "annotations": [
+      "./annotations/blue_horizon.json",
+      "3d6c4e7010780fade0f612d24e59e65f"
+    ],
+    "chordlabs": [
+      "./labs/blue_horizon.lab",
+      "6a7c18b99facf31b75f320e49604d441"
+    ]
+  },
+  "10": {
+    "audio": [
+      "./audio/blue_serge.flac",
+      "a4be72f15fd877e1d91144ff56226c79"
+    ],
+    "annotations": [
+      "./annotations/blue_serge.json",
+      "27f76a03d037a47b1fe0649479f9f9d7"
+    ],
+    "chordlabs": [
+      "./labs/blue_serge.lab",
+      "9d41c56043daac997459dfd210e9795e"
+    ]
+  },
+  "11": {
+    "audio": [
+      "./audio/blues_for_alice.mp3",
+      "b97884f312de0cbfd0a2c229f17491f0"
+    ],
+    "annotations": [
+      "./annotations/blues_for_alice.json",
+      "4e049542a0bbaaad2002f804593493c0"
+    ],
+    "chordlabs": [
+      "./labs/blues_for_alice.lab",
+      "48b3b040f0bc7a120e2764093793ad5d"
+    ]
+  },
+  "12": {
+    "audio": [
+      "./audio/blues_in_the_closet.flac",
+      "16e2c196a37152b6300130f74af8b3b8"
+    ],
+    "annotations": [
+      "./annotations/blues_in_the_closet.json",
+      "144233c6ac4748c92dbf56956ed9557b"
+    ],
+    "chordlabs": [
+      "./labs/blues_in_the_closet.lab",
+      "482e8b218cf9ccab548f1c17db6aff47"
+    ]
+  },
+  "13": {
+    "audio": [
+      "./audio/body_and_soul(goodman).flac",
+      "1de383f086946715eabedef1abc1c977"
+    ],
+    "annotations": [
+      "./annotations/body_and_soul(goodman).json",
+      "070089f4a112d253230ee92aae7ce7d8"
+    ],
+    "chordlabs": [
+      "./labs/body_and_soul(goodman).lab",
+      "fb01262b4c12b222bc28e55ba12fb8b8"
+    ]
+  },
+  "14": {
+    "audio": [
+      "./audio/body_and_soul(hawkins).flac",
+      "823b7eef32b121030f2331816448f01e"
+    ],
+    "annotations": [
+      "./annotations/body_and_soul(hawkins).json",
+      "d7defede12a64e5500ea4b195f1544dd"
+    ],
+    "chordlabs": [
+      "./labs/body_and_soul(hawkins).lab",
+      "6762f50f2896a56d4011a344a5148cea"
+    ]
+  },
+  "15": {
+    "audio": [
+      "./audio/boplicity.flac",
+      "c1ddd04867d60e216f0b1c1b57badc99"
+    ],
+    "annotations": [
+      "./annotations/boplicity.json",
+      "85a9fb61160019ceae4989a15109e438"
+    ],
+    "chordlabs": [
+      "./labs/boplicity.lab",
+      "e42f01298d4899040996707243e0d758"
+    ]
+  },
+  "16": {
+    "audio": [
+      "./audio/breakfast_feud.flac",
+      "7e5f4343707e5812a9edfa04bafc8496"
+    ],
+    "annotations": [
+      "./annotations/breakfast_feud.json",
+      "f97d9b9e38733054afbd52e64159179d"
+    ],
+    "chordlabs": [
+      "./labs/breakfast_feud.lab",
+      "67ebe7a9790cad40e72358044a7e03a0"
+    ]
+  },
+  "17": {
+    "audio": [
+      "./audio/concerto_for_cootie.flac",
+      "3f67599058ac97e126eaaabdbbf41f42"
+    ],
+    "annotations": [
+      "./annotations/concerto_for_cootie.json",
+      "5b7c9f971905c23b73c83788ac202f59"
+    ],
+    "chordlabs": [
+      "./labs/concerto_for_cootie.lab",
+      "2ee2594641ec6f66a720c41c098ca103"
+    ]
+  },
+  "18": {
+    "audio": [
+      "./audio/cotton_tail.flac",
+      "9e7eb718695fda1e99c17aa56cdd6846"
+    ],
+    "annotations": [
+      "./annotations/cotton_tail.json",
+      "3d0c611a772a2c743bc25fe34e23b3ca"
+    ],
+    "chordlabs": [
+      "./labs/cotton_tail.lab",
+      "6a0f6f7017cdbaad820bc19992a3a628"
+    ]
+  },
+  "19": {
+    "audio": [
+      "./audio/cotton_tail_fitzgerald.flac",
+      "cbfc6cf5797a29012cfe98ea03ea7e18"
+    ],
+    "annotations": [
+      "./annotations/cotton_tail_fitzgerald.json",
+      "67f7f18456bb2722c93f05718d444102"
+    ],
+    "chordlabs": [
+      "./labs/cotton_tail_fitzgerald.lab",
+      "e6e9c2d4a178cf5811e1dc38fb435f81"
+    ]
+  },
+  "20": {
+    "audio": [
+      "./audio/crazeology.flac",
+      "8808f3ee80e4a37e371656b3ca82bc1d"
+    ],
+    "annotations": [
+      "./annotations/crazeology.json",
+      "d9ba12b63dba30a28fb5c4da7b942ba5"
+    ],
+    "chordlabs": [
+      "./labs/crazeology.lab",
+      "22d6bbc2072ed54590c9cee2d85a9489"
+    ]
+  },
+  "21": {
+    "audio": [
+      "./audio/daahoud.flac",
+      "706152b031c16418e58599bf58926cf5"
+    ],
+    "annotations": [
+      "./annotations/daahoud.json",
+      "544998ddfb27a67bd19141f1b355e8e5"
+    ],
+    "chordlabs": [
+      "./labs/daahoud.lab",
+      "8291b77fa3da39c0b5fb7010d0410757"
+    ]
+  },
+  "22": {
+    "audio": [
+      "./audio/dead_man_blues.flac",
+      "ac4a8c27682fe5acc6a58e95feb96aa9"
+    ],
+    "annotations": [
+      "./annotations/dead_man_blues.json",
+      "df475ae4b084d0bae7cc5e1dabb99115"
+    ],
+    "chordlabs": [
+      "./labs/dead_man_blues.lab",
+      "518fde847c81ed2c19fdee9e30e493ce"
+    ]
+  },
+  "23": {
+    "audio": [
+      "./audio/dexter_rides_again.flac",
+      "38462cede4152e6362cee859c483f193"
+    ],
+    "annotations": [
+      "./annotations/dexter_rides_again.json",
+      "677b1509a9035dfbb230d7b06bfc0d1e"
+    ],
+    "chordlabs": [
+      "./labs/dexter_rides_again.lab",
+      "36573184df7f3e75d3f228169e45c82a"
+    ]
+  },
+  "24": {
+    "audio": [
+      "./audio/diminuendo_and_crescendo_in_blue.flac",
+      "a87aedccc89ef29b2aae24373fdcc76b"
+    ],
+    "annotations": [
+      "./annotations/diminuendo_and_crescendo_in_blue.json",
+      "805d639707b7ee51090d914fd15a8922"
+    ],
+    "chordlabs": [
+      "./labs/diminuendo_and_crescendo_in_blue.lab",
+      "d6c3d228913df109b18e9c0baeace529"
+    ]
+  },
+  "25": {
+    "audio": [
+      "./audio/dinah.flac",
+      "a2cb3464a9b2fd7534c8d64310dfd4dd"
+    ],
+    "annotations": [
+      "./annotations/dinah.json",
+      "942e611d0419f162b2cf23f01b73ba11"
+    ],
+    "chordlabs": [
+      "./labs/dinah.lab",
+      "d47f484d7b4a7d2339f2cc4e6d143fdb"
+    ]
+  },
+  "26": {
+    "audio": [
+      "./audio/dinah_fats_waller.flac",
+      "4e56fb39641a208d376c5fc08f85deb7"
+    ],
+    "annotations": [
+      "./annotations/dinah_fats_waller.json",
+      "3769342c7ef1d80888fea6b8eb448fe4"
+    ],
+    "chordlabs": [
+      "./labs/dinah_fats_waller.lab",
+      "796d84c07ed2eb5de34b322c27c0e9e7"
+    ]
+  },
+  "27": {
+    "audio": [
+      "./audio/dinah_red_nichols.flac",
+      "5bf6d6a97a48486166ed2ef2e1dff6a4"
+    ],
+    "annotations": [
+      "./annotations/dinah_red_nichols.json",
+      "0f0c043add35a08e9f3f8a92928d83b8"
+    ],
+    "chordlabs": [
+      "./labs/dinah_red_nichols.lab",
+      "8d65ead3577dd24e0877c97356648990"
+    ]
+  },
+  "28": {
+    "audio": [
+      "./audio/dippermouth_blues.flac",
+      "299afd2c61890a179990e6c90cc3dfbb"
+    ],
+    "annotations": [
+      "./annotations/dippermouth_blues.json",
+      "9fef11a8afea8e73a110697a9cf7a1ae"
+    ],
+    "chordlabs": [
+      "./labs/dippermouth_blues.lab",
+      "f0c9f068025cf9b545a337361aa3aa5b"
+    ]
+  },
+  "29": {
+    "audio": [
+      "./audio/django.flac",
+      "5febbe793914ea4a7cdb8b8765587d83"
+    ],
+    "annotations": [
+      "./annotations/django.json",
+      "7fcefedb049f9f864944baa0a1b16fea"
+    ],
+    "chordlabs": [
+      "./labs/django.lab",
+      "7e43e3bfa37f492b9ec97970dbce3fab"
+    ]
+  },
+  "30": {
+    "audio": [
+      "./audio/doggin_around.flac",
+      "8bb56eb50e7e6d2f2951893c197b02c6"
+    ],
+    "annotations": [
+      "./annotations/doggin_around.json",
+      "3ec78130b60d03216beb5bcf15b28668"
+    ],
+    "chordlabs": [
+      "./labs/doggin_around.lab",
+      "df0d360fc9894efc13f2a8415f0a8e9f"
+    ]
+  },
+  "31": {
+    "audio": [
+      "./audio/east_st_louis.flac",
+      "f2331e9a80f87985910fe90344aa25bf"
+    ],
+    "annotations": [
+      "./annotations/east_st_louis.json",
+      "9b55b2ac0094e71aaf1f1522977e61e9"
+    ],
+    "chordlabs": [
+      "./labs/east_st_louis.lab",
+      "c600b8864d1150c144a313a0a2c435f3"
+    ]
+  },
+  "32": {
+    "audio": [
+      "./audio/embraceable_you.flac",
+      "9c901670dcc44eb8780eee29a78ac58d"
+    ],
+    "annotations": [
+      "./annotations/embraceable_you.json",
+      "ce5a3c2533377fc0438944f069bbb75d"
+    ],
+    "chordlabs": [
+      "./labs/embraceable_you.lab",
+      "146e3c1291eee8226007a43b62c9b10a"
+    ]
+  },
+  "33": {
+    "audio": [
+      "./audio/everybody_loves_my_baby.flac",
+      "2abe5dc39d0b464ca19c7377eac138cb"
+    ],
+    "annotations": [
+      "./annotations/everybody_loves_my_baby.json",
+      "fcb824ee8681b8f70fab14cf78e29022"
+    ],
+    "chordlabs": [
+      "./labs/everybody_loves_my_baby.lab",
+      "88ead0d365c941f4598e22bdaa49edf4"
+    ]
+  },
+  "34": {
+    "audio": [
+      "./audio/evidence.flac",
+      "6029fefa40eafe394537e766b53878c7"
+    ],
+    "annotations": [
+      "./annotations/evidence.json",
+      "fc6544cf3e2bb01f730e03ecd3da2fc6"
+    ],
+    "chordlabs": [
+      "./labs/evidence.lab",
+      "7f13f6daa7c6e3b54622c5ad601ec00d"
+    ]
+  },
+  "35": {
+    "audio": [
+      "./audio/for_dancers_only.flac",
+      "a10f1c10f877a7b5c37e9b596caf0647"
+    ],
+    "annotations": [
+      "./annotations/for_dancers_only.json",
+      "9eaebd437e299301a0025089981c234c"
+    ],
+    "chordlabs": [
+      "./labs/for_dancers_only.lab",
+      "e930bcdc0741af02f998aa8e473c99be"
+    ]
+  },
+  "36": {
+    "audio": [
+      "./audio/four_brothers.flac",
+      "a0fa15304a3749ba15ddb8fe7f54a4bb"
+    ],
+    "annotations": [
+      "./annotations/four_brothers.json",
+      "42d6af9b54627dfa2227ecbfbb6a7b63"
+    ],
+    "chordlabs": [
+      "./labs/four_brothers.lab",
+      "b6e6cab7892ee5005899d1447752fc0d"
+    ]
+  },
+  "37": {
+    "audio": [
+      "./audio/four_or_five_times.flac",
+      "b7bf4a2539c24e4076a7bb30044da7c0"
+    ],
+    "annotations": [
+      "./annotations/four_or_five_times.json",
+      "4a84284837857c03096762cfefdd8cd7"
+    ],
+    "chordlabs": [
+      "./labs/four_or_five_times.lab",
+      "df7f0407afdaae01871e8970b81a7cfb"
+    ]
+  },
+  "38": {
+    "audio": [
+      "./audio/from_monday_on.flac",
+      "9d915c10e044fc23e28b22791488850a"
+    ],
+    "annotations": [
+      "./annotations/from_monday_on.json",
+      "c82ef2485ae5ee1be51d45a8be941091"
+    ],
+    "chordlabs": [
+      "./labs/from_monday_on.lab",
+      "eeb805477baee03f7f6db839ae659a14"
+    ]
+  },
+  "39": {
+    "audio": [
+      "./audio/giant_steps.flac",
+      "92843f9d8dd6698eb9fb95df4693243d"
+    ],
+    "annotations": [
+      "./annotations/giant_steps.json",
+      "7258eab8bb02eafa71b5ca2f6a273fed"
+    ],
+    "chordlabs": [
+      "./labs/giant_steps.lab",
+      "186100b4d1ceb4b63a67b132cd80409f"
+    ]
+  },
+  "40": {
+    "audio": [
+      "./audio/girl_from_ipanema.flac",
+      "ebb2cb04056a8f9e71888a772c52329f"
+    ],
+    "annotations": [
+      "./annotations/girl_from_ipanema.json",
+      "13530eab46f3a7e61d89d3151b4e8f1b"
+    ],
+    "chordlabs": [
+      "./labs/girl_from_ipanema.lab",
+      "5b705fce4050ebeafe48b00b19504220"
+    ]
+  },
+  "41": {
+    "audio": [
+      "./audio/grandpas_spells.flac",
+      "fd4837497312d4a63d21c85d237cc556"
+    ],
+    "annotations": [
+      "./annotations/grandpas_spells.json",
+      "2da3448c83c6d6939f700ef5b45d8979"
+    ],
+    "chordlabs": [
+      "./labs/grandpas_spells.lab",
+      "46c6a391930501719281475a62ed5875"
+    ]
+  },
+  "42": {
+    "audio": [
+      "./audio/haig_and_haig.flac",
+      "fef6e291403fb4929614d1a5bda7a51c"
+    ],
+    "annotations": [
+      "./annotations/haig_and_haig.json",
+      "36fb01332b59fbd60735481af15adde6"
+    ],
+    "chordlabs": [
+      "./labs/haig_and_haig.lab",
+      "310826677eb79f76df8037a135894b5f"
+    ]
+  },
+  "43": {
+    "audio": [
+      "./audio/handful_of_riffs.flac",
+      "d5f4b7e2a9f8cc5bc37e0541c96e2c93"
+    ],
+    "annotations": [
+      "./annotations/handful_of_riffs.json",
+      "eb73f4bf370ab7d43e9fce3844910e9c"
+    ],
+    "chordlabs": [
+      "./labs/handful_of_riffs.lab",
+      "af90cc6735e125b8b6b7049a25b3ba75"
+    ]
+  },
+  "44": {
+    "audio": [
+      "./audio/harlem_congo.flac",
+      "527cc16723b2d9f4858b9308ea519d92"
+    ],
+    "annotations": [
+      "./annotations/harlem_congo.json",
+      "2d118292c0550a2b32fd2cc01dc2fa27"
+    ],
+    "chordlabs": [
+      "./labs/harlem_congo.lab",
+      "a5a0265c344c3c520847216eef2cd4ac"
+    ]
+  },
+  "45": {
+    "audio": [
+      "./audio/he_s_funny_that_way.flac",
+      "84b2253757128fc9dd41780ec167fcee"
+    ],
+    "annotations": [
+      "./annotations/he_s_funny_that_way.json",
+      "32f2a3759470cb1963c23498fb994053"
+    ],
+    "chordlabs": [
+      "./labs/he_s_funny_that_way.lab",
+      "49f7769ade35a0c28cb8104160928670"
+    ]
+  },
+  "46": {
+    "audio": [
+      "./audio/honeysuckle_rose.flac",
+      "44e99798882061ebd4ad11d0b8303fa9"
+    ],
+    "annotations": [
+      "./annotations/honeysuckle_rose.json",
+      "c44613cc8f3ba49a00245ad820533344"
+    ],
+    "chordlabs": [
+      "./labs/honeysuckle_rose.lab",
+      "e68b4b7a8786e629ff81ef4e1920c957"
+    ]
+  },
+  "47": {
+    "audio": [
+      "./audio/honky_tonk_train.flac",
+      "9d8329358a26366dbeb81fc3cb220956"
+    ],
+    "annotations": [
+      "./annotations/honky_tonk_train.json",
+      "9a452f96ca2280763fb9bdca8c9fa608"
+    ],
+    "chordlabs": [
+      "./labs/honky_tonk_train.lab",
+      "d1c2cb4d5faab0af4576945e561e1098"
+    ]
+  },
+  "48": {
+    "audio": [
+      "./audio/hotter_than_that.flac",
+      "b9f9d4488b0bb05a6e020c5f017052bb"
+    ],
+    "annotations": [
+      "./annotations/hotter_than_that.json",
+      "146a8ab9ed32c88f0551a47ea49d5d45"
+    ],
+    "chordlabs": [
+      "./labs/hotter_than_that.lab",
+      "3d6ba0545726a16d22ef2a284d68d02d"
+    ]
+  },
+  "49": {
+    "audio": [
+      "./audio/i_cant_believe_you_are_in_love_with_me.flac",
+      "ce2f2b10c6b32c25835d711fa125185f"
+    ],
+    "annotations": [
+      "./annotations/i_cant_believe_you_are_in_love_with_me.json",
+      "1faa84a68d27f81c84c50f05d68b55b2"
+    ],
+    "chordlabs": [
+      "./labs/i_cant_believe_you_are_in_love_with_me.lab",
+      "ac1f929b2eb04bec13ea0b49fde33547"
+    ]
+  },
+  "50": {
+    "audio": [
+      "./audio/i_cant_get_started.flac",
+      "ff1706bf77d5f10cbee602027d4980f3"
+    ],
+    "annotations": [
+      "./annotations/i_cant_get_started.json",
+      "7949f754daef7a6847eff598b3f70a69"
+    ],
+    "chordlabs": [
+      "./labs/i_cant_get_started.lab",
+      "86f42acaf4345330d36d712be7c10307"
+    ]
+  },
+  "51": {
+    "audio": [
+      "./audio/i_found_a_new_baby.flac",
+      "7b8b8979649d40de40af48d80919e03a"
+    ],
+    "annotations": [
+      "./annotations/i_found_a_new_baby.json",
+      "21da4c6ce600f821845af8da73075aa7"
+    ],
+    "chordlabs": [
+      "./labs/i_found_a_new_baby.lab",
+      "7d3ae0388d5b0f331fe7d2cefa877038"
+    ]
+  },
+  "52": {
+    "audio": [
+      "./audio/i_got_rhythm.flac",
+      "5a0961c5c1c6038eaf3b68fedc5191b1"
+    ],
+    "annotations": [
+      "./annotations/i_got_rhythm.json",
+      "baca18a3045b6b3a1b9be824bf039fd9"
+    ],
+    "chordlabs": [
+      "./labs/i_got_rhythm.lab",
+      "02d29eeb6d0f75debfa62ba29aaa6092"
+    ]
+  },
+  "53": {
+    "audio": [
+      "./audio/i_gotta_right_to_sing_the_blues.flac",
+      "ac3ea561f645285d6e017599d91118c3"
+    ],
+    "annotations": [
+      "./annotations/i_gotta_right_to_sing_the_blues.json",
+      "9bb980eb67275b512ad3ad8abfbd1cc0"
+    ],
+    "chordlabs": [
+      "./labs/i_gotta_right_to_sing_the_blues.lab",
+      "1210ee2d0641c22aae841a466e948362"
+    ]
+  },
+  "54": {
+    "audio": [
+      "./audio/in_a_mellotone.flac",
+      "109c33cf062442c4b8660c26fe7abded"
+    ],
+    "annotations": [
+      "./annotations/in_a_mellotone.json",
+      "86d824fa6dadcd91f6c642534d9dd3e3"
+    ],
+    "chordlabs": [
+      "./labs/in_a_mellotone.lab",
+      "503d5fb958735d99f7d8dc76f1faf3cb"
+    ]
+  },
+  "55": {
+    "audio": [
+      "./audio/in_gloryland.flac",
+      "a31addcad98ce601fbb93ba46920e99b"
+    ],
+    "annotations": [
+      "./annotations/in_gloryland.json",
+      "0b96708a2ec3fb7f207b591427da2956"
+    ],
+    "chordlabs": [
+      "./labs/in_gloryland.lab",
+      "55dd3c10ea800f60bf30530ad51b7fde"
+    ]
+  },
+  "56": {
+    "audio": [
+      "./audio/indiana.flac",
+      "c29c03c0639c03ee789c3096318444b6"
+    ],
+    "annotations": [
+      "./annotations/indiana.json",
+      "d9aed0dfd3f65d1978486495da6e28c6"
+    ],
+    "chordlabs": [
+      "./labs/indiana.lab",
+      "503e29df525bc7336cf55d49789c5e72"
+    ]
+  },
+  "57": {
+    "audio": [
+      "./audio/isfahan.flac",
+      "8337bd806a4d53b0af90f57e0f771224"
+    ],
+    "annotations": [
+      "./annotations/isfahan.json",
+      "7baa24858c37f537beb41c5ff7de3d62"
+    ],
+    "chordlabs": [
+      "./labs/isfahan.lab",
+      "aa6b602a876f111df115df5b534455cd"
+    ]
+  },
+  "58": {
+    "audio": [
+      "./audio/king_porter_stomp.flac",
+      "3c9f043797c68133975fd5d6e9aecef3"
+    ],
+    "annotations": [
+      "./annotations/king_porter_stomp.json",
+      "a23bae2652ac09fca4d67a37f9d360c5"
+    ],
+    "chordlabs": [
+      "./labs/king_porter_stomp.lab",
+      "489a41982dc86b9ebd16e3a13971d804"
+    ]
+  },
+  "59": {
+    "audio": [
+      "./audio/ko-ko(ellington).flac",
+      "564987636b50bfd0f8061072a6202018"
+    ],
+    "annotations": [
+      "./annotations/ko-ko(ellington).json",
+      "069f4af99bed424b24e963dcc5624393"
+    ],
+    "chordlabs": [
+      "./labs/ko-ko(ellington).lab",
+      "21982f6880a5a08fc5cff1022dc4af41"
+    ]
+  },
+  "60": {
+    "audio": [
+      "./audio/lady_bird.flac",
+      "0fe5a35c93b7488b78058dd453d6a921"
+    ],
+    "annotations": [
+      "./annotations/lady_bird.json",
+      "9e566638a071d611bf7a7bd92f777e3b"
+    ],
+    "chordlabs": [
+      "./labs/lady_bird.lab",
+      "c19d0c29c74111f9351c2e542426dbcf"
+    ]
+  },
+  "61": {
+    "audio": [
+      "./audio/lester_leaps_in.flac",
+      "1a86db280c23d31000183bf2bfa541e4"
+    ],
+    "annotations": [
+      "./annotations/lester_leaps_in.json",
+      "718f2691aea2afe5f5c25178946cf218"
+    ],
+    "chordlabs": [
+      "./labs/lester_leaps_in.lab",
+      "6a050529c3d15013db0a64e11f044134"
+    ]
+  },
+  "62": {
+    "audio": [
+      "./audio/livery_stable_blues.flac",
+      "b16e067d8c262c04e0fb477f7a9c7e5e"
+    ],
+    "annotations": [
+      "./annotations/livery_stable_blues.json",
+      "5743a0f07c6ee290c70e72617d93912b"
+    ],
+    "chordlabs": [
+      "./labs/livery_stable_blues.lab",
+      "1e8313a02992d52f771ff9bdd2b5392f"
+    ]
+  },
+  "63": {
+    "audio": [
+      "./audio/lost_your_head_blues.flac",
+      "55c5659b35dd661de8dfd2cb6e103b10"
+    ],
+    "annotations": [
+      "./annotations/lost_your_head_blues.json",
+      "443209f83504860ddc309456efbedb9e"
+    ],
+    "chordlabs": [
+      "./labs/lost_your_head_blues.lab",
+      "9584b8f273625d3de04bb13416114d09"
+    ]
+  },
+  "64": {
+    "audio": [
+      "./audio/manteca.flac",
+      "134dddd5aa69e3cb146505c576a32af0"
+    ],
+    "annotations": [
+      "./annotations/manteca.json",
+      "23a7a88d0c600c96f9b1f5ce4a6453c7"
+    ],
+    "chordlabs": [
+      "./labs/manteca.lab",
+      "8d2ccfb02a6399b3e24a494b34cb49a5"
+    ]
+  },
+  "65": {
+    "audio": [
+      "./audio/maple_leaf_rag(bechet).flac",
+      "979109fca8e5d8adcf64a8f969427b75"
+    ],
+    "annotations": [
+      "./annotations/maple_leaf_rag(bechet).json",
+      "83db865a990e16e02f31f13d040d0ed7"
+    ],
+    "chordlabs": [
+      "./labs/maple_leaf_rag(bechet).lab",
+      "4fa388b05c586bfb6bd00fcd5cbc3fac"
+    ]
+  },
+  "66": {
+    "audio": [
+      "./audio/maple_leaf_rag(braxton).flac",
+      "4b1942abfdcbb1e1b74a9ed620c29ebd"
+    ],
+    "annotations": [
+      "./annotations/maple_leaf_rag(braxton).json",
+      "cb85528e25c3579f7689163b4d27c9ba"
+    ],
+    "chordlabs": [
+      "./labs/maple_leaf_rag(braxton).lab",
+      "0822f03206e63758b3d9fe8e66982e79"
+    ]
+  },
+  "67": {
+    "audio": [
+      "./audio/maple_leaf_rag(hyman).flac",
+      "3c6af7c58f73e57889b62a2fbe0249bc"
+    ],
+    "annotations": [
+      "./annotations/maple_leaf_rag(hyman).json",
+      "f3dea0860668958d953168fc630e543b"
+    ],
+    "chordlabs": [
+      "./labs/maple_leaf_rag(hyman).lab",
+      "7526c77d6b6eb698d84d9e9dfa5e2543"
+    ]
+  },
+  "68": {
+    "audio": [
+      "./audio/mean_to_me.flac",
+      "327bf7eab1a9ae5b59220c73c230db50"
+    ],
+    "annotations": [
+      "./annotations/mean_to_me.json",
+      "5f8332241e0619270b21390871395c97"
+    ],
+    "chordlabs": [
+      "./labs/mean_to_me.lab",
+      "73c57b6276590bbf0071ca30aae8881a"
+    ]
+  },
+  "69": {
+    "audio": [
+      "./audio/minor_swing.flac",
+      "8d7cf409d543e1d7d16b89f381e46c0d"
+    ],
+    "annotations": [
+      "./annotations/minor_swing.json",
+      "1ae9dd5582257e1bd06aa584ecd15edd"
+    ],
+    "chordlabs": [
+      "./labs/minor_swing.lab",
+      "c0bd07cad305239086b923b33d97f636"
+    ]
+  },
+  "70": {
+    "audio": [
+      "./audio/misterioso.flac",
+      "4fcaf2e3d811e3b5b6f8fed6d0d7d111"
+    ],
+    "annotations": [
+      "./annotations/misterioso.json",
+      "446ae9f9e0a834f2222e557eabd2f6f6"
+    ],
+    "chordlabs": [
+      "./labs/misterioso.lab",
+      "c82c67620d28ee62bd6918ca577e448b"
+    ]
+  },
+  "71": {
+    "audio": [
+      "./audio/moanin.flac",
+      "e64d9c4f0f27bb40f81064a0aa7facc0"
+    ],
+    "annotations": [
+      "./annotations/moanin.json",
+      "53558ff4098944da02ac2ec1e8c3930d"
+    ],
+    "chordlabs": [
+      "./labs/moanin.lab",
+      "374efa5bbca21f71b88cab667c3d523c"
+    ]
+  },
+  "72": {
+    "audio": [
+      "./audio/moten_swing.flac",
+      "a95d61538a36aaa9f69dd3552dd7e4b6"
+    ],
+    "annotations": [
+      "./annotations/moten_swing.json",
+      "5a3a695045f25e536ad891b81c4ff622"
+    ],
+    "chordlabs": [
+      "./labs/moten_swing.lab",
+      "f5604f78a445771dc1ff87d41a7bcaf2"
+    ]
+  },
+  "73": {
+    "audio": [
+      "./audio/my_favorite_things.flac",
+      "aef840349bb690bd2496c434208124d0"
+    ],
+    "annotations": [
+      "./annotations/my_favorite_things.json",
+      "98d3300ba8e864a536be090b00dee5ac"
+    ],
+    "chordlabs": [
+      "./labs/my_favorite_things.lab",
+      "b1def260e7f5b1275a81cd2eaaf77a10"
+    ]
+  },
+  "74": {
+    "audio": [
+      "./audio/new_east_st_louis.flac",
+      "40de6aad3eb0aa83109ce8ab8fdc5811"
+    ],
+    "annotations": [
+      "./annotations/new_east_st_louis.json",
+      "e862c9ccf7411fe54a80e79e5708da0f"
+    ],
+    "chordlabs": [
+      "./labs/new_east_st_louis.lab",
+      "66380fcc98b481f55fc1af2ac6dfa533"
+    ]
+  },
+  "75": {
+    "audio": [
+      "./audio/night_in_tunisia.flac",
+      "43b9b8a25db2cfa4b9ed4a8ccec728eb"
+    ],
+    "annotations": [
+      "./annotations/night_in_tunisia.json",
+      "b7567e98aadd56c50b3feed21fcdebf0"
+    ],
+    "chordlabs": [
+      "./labs/night_in_tunisia.lab",
+      "1538e081d2c91d5dbea663e21466f453"
+    ]
+  },
+  "76": {
+    "audio": [
+      "./audio/oh_lady_be_good.flac",
+      "fd5a9bff4b453dde2d610a10c2308c78"
+    ],
+    "annotations": [
+      "./annotations/oh_lady_be_good.json",
+      "0b81538274b7b7c27fa9b41ac776dde0"
+    ],
+    "chordlabs": [
+      "./labs/oh_lady_be_good.lab",
+      "5c019ff17ee373c770b5f45feb6876d5"
+    ]
+  },
+  "77": {
+    "audio": [
+      "./audio/one_by_one.flac",
+      "5454e20139ffb3889c518903013c6bc8"
+    ],
+    "annotations": [
+      "./annotations/one_by_one.json",
+      "3f76a4d0ae9f1c4fccb0b3fa84453453"
+    ],
+    "chordlabs": [
+      "./labs/one_by_one.lab",
+      "c699d0ad1416808de3ae28cc56b887a5"
+    ]
+  },
+  "78": {
+    "audio": [
+      "./audio/one_oclock_jump.flac",
+      "44553537b1148ce7bfebbb355dc997b6"
+    ],
+    "annotations": [
+      "./annotations/one_oclock_jump.json",
+      "59a50e5fc00749e4ed72981707c55ecc"
+    ],
+    "chordlabs": [
+      "./labs/one_oclock_jump.lab",
+      "e6f90395aba3e546109368efb95723bd"
+    ]
+  },
+  "79": {
+    "audio": [
+      "./audio/organ_grinders_swing.flac",
+      "0040e0986c87e21b97a9016e46170ae4"
+    ],
+    "annotations": [
+      "./annotations/organ_grinders_swing.json",
+      "068ee9cab9cb24a3c1554c958d07f328"
+    ],
+    "chordlabs": [
+      "./labs/organ_grinders_swing.lab",
+      "d95b42621f1159284f81f78a07557a72"
+    ]
+  },
+  "80": {
+    "audio": [
+      "./audio/parkers_mood.flac",
+      "b2ff46ef2b577fc85a8cc3e0429dd139"
+    ],
+    "annotations": [
+      "./annotations/parkers_mood.json",
+      "18c34349f1455843c9638a3f75599d77"
+    ],
+    "chordlabs": [
+      "./labs/parkers_mood.lab",
+      "213414cf410fe7302dc8f1474cb855da"
+    ]
+  },
+  "81": {
+    "audio": [
+      "./audio/pentup_house.flac",
+      "870570d0a88a6888554bc484fa218685"
+    ],
+    "annotations": [
+      "./annotations/pentup_house.json",
+      "40554bf0529a502605c8d306b6abe6e8"
+    ],
+    "chordlabs": [
+      "./labs/pentup_house.lab",
+      "ccab2b2bc5e3baec2155a9599d1d32f3"
+    ]
+  },
+  "82": {
+    "audio": [
+      "./audio/potato_head_blues.flac",
+      "d371f1a76040d68a4fa2ec4668409f95"
+    ],
+    "annotations": [
+      "./annotations/potato_head_blues.json",
+      "a10d2962cd25a32cbf9e53fb30043dd9"
+    ],
+    "chordlabs": [
+      "./labs/potato_head_blues.lab",
+      "d8986d3dc01d29bb4f1c1a760a208f67"
+    ]
+  },
+  "83": {
+    "audio": [
+      "./audio/riverboat_shuffle.flac",
+      "5c3db037accb0b6c58468e1ed10ae94e"
+    ],
+    "annotations": [
+      "./annotations/riverboat_shuffle.json",
+      "89d91d67db3d02b3ae927a358176ff4e"
+    ],
+    "chordlabs": [
+      "./labs/riverboat_shuffle.lab",
+      "325b6a5451accce0a67c3440e1acebac"
+    ]
+  },
+  "84": {
+    "audio": [
+      "./audio/rockin_chair.flac",
+      "4706f93a739ba953d4340642b5ec2cbd"
+    ],
+    "annotations": [
+      "./annotations/rockin_chair.json",
+      "01abc9af8894d4bd6df694134353c57a"
+    ],
+    "chordlabs": [
+      "./labs/rockin_chair.lab",
+      "af96071c5ec9c992d245c9d4b00c6ea7"
+    ]
+  },
+  "85": {
+    "audio": [
+      "./audio/september_in_the_rain.flac",
+      "7e914aafad55f929ee91c64f1c7b4653"
+    ],
+    "annotations": [
+      "./annotations/september_in_the_rain.json",
+      "2484f928527420d1cf44c1ffe4597c87"
+    ],
+    "chordlabs": [
+      "./labs/september_in_the_rain.lab",
+      "15453cda2134655df9ba38a454177cc3"
+    ]
+  },
+  "86": {
+    "audio": [
+      "./audio/shaw_nuff.flac",
+      "6a44dc8b92bfa28908e093f8103c2ddf"
+    ],
+    "annotations": [
+      "./annotations/shaw_nuff.json",
+      "ce359ef3f4e84aa68ded91694dc4db89"
+    ],
+    "chordlabs": [
+      "./labs/shaw_nuff.lab",
+      "1863bb3cc402daaf85225b4062bd55bb"
+    ]
+  },
+  "87": {
+    "audio": [
+      "./audio/singin_the_blues.flac",
+      "6ddd1b6464a62bff2fc9b8364f053fd7"
+    ],
+    "annotations": [
+      "./annotations/singin_the_blues.json",
+      "e55b66d60487993f1f01bf3abed7532d"
+    ],
+    "chordlabs": [
+      "./labs/singin_the_blues.lab",
+      "7f17d6f4b5109df54b407c6dd14d71c2"
+    ]
+  },
+  "88": {
+    "audio": [
+      "./audio/st_louis_blues.flac",
+      "cca20eda949ac8494f09ab05f2c7b523"
+    ],
+    "annotations": [
+      "./annotations/st_louis_blues.json",
+      "54c2e66b71bcce7175c48a40085e7eef"
+    ],
+    "chordlabs": [
+      "./labs/st_louis_blues.lab",
+      "0dfac268b750afc73e2719bec3b88a22"
+    ]
+  },
+  "89": {
+    "audio": [
+      "./audio/st_thomas.flac",
+      "b181b15a99b5d702f7cf381a6a23b993"
+    ],
+    "annotations": [
+      "./annotations/st_thomas.json",
+      "c3ca298fb68d6cd445d7e13a624e7ed0"
+    ],
+    "chordlabs": [
+      "./labs/st_thomas.lab",
+      "9080bd96ff154b8e9e7dba60eddff5d0"
+    ]
+  },
+  "90": {
+    "audio": [
+      "./audio/stompin_at_the_savoy.flac",
+      "da3ead57f68cc6d0f8fe29285dfcbc3f"
+    ],
+    "annotations": [
+      "./annotations/stompin_at_the_savoy.json",
+      "57cbcfcec8096daf894a8f2d05197f9d"
+    ],
+    "chordlabs": [
+      "./labs/stompin_at_the_savoy.lab",
+      "c9682b003228e5e6e919c9ce356e073a"
+    ]
+  },
+  "91": {
+    "audio": [
+      "./audio/struttin_with_some_barbecue.flac",
+      "e95441a312e8db6fef59d5c78966686b"
+    ],
+    "annotations": [
+      "./annotations/struttin_with_some_barbecue.json",
+      "2006491677af0fad0c531ce18dd6ba19"
+    ],
+    "chordlabs": [
+      "./labs/struttin_with_some_barbecue.lab",
+      "bfa7a025105ac5801017180330638f4c"
+    ]
+  },
+  "92": {
+    "audio": [
+      "./audio/subconscious_lee.flac",
+      "89a357ecf873d635299aa20be9b2c11e"
+    ],
+    "annotations": [
+      "./annotations/subconscious_lee.json",
+      "bf2d7f702db30aed0df7f220c755ac42"
+    ],
+    "chordlabs": [
+      "./labs/subconscious_lee.lab",
+      "d352542aae1bdf106653cf071ee485a1"
+    ]
+  },
+  "93": {
+    "audio": [
+      "./audio/summertime.flac",
+      "394e9036b2448c3780275b9213c9a6e2"
+    ],
+    "annotations": [
+      "./annotations/summertime.json",
+      "7dcfb7670de823200798175ba97070fe"
+    ],
+    "chordlabs": [
+      "./labs/summertime.lab",
+      "a1681ba1259c78622424aadb4d066f79"
+    ]
+  },
+  "94": {
+    "audio": [
+      "./audio/sweethearts_on_parade.flac",
+      "76fb78a44cf2875c0929a2066367b822"
+    ],
+    "annotations": [
+      "./annotations/sweethearts_on_parade.json",
+      "2eabb82449bc1aaa82ee2762d577b147"
+    ],
+    "chordlabs": [
+      "./labs/sweethearts_on_parade.lab",
+      "022dae2a7c849de7648d0f9495866177"
+    ]
+  },
+  "95": {
+    "audio": [
+      "./audio/swing_that_music.flac",
+      "d236057aa3aa2d14be11c5549a5b317a"
+    ],
+    "annotations": [
+      "./annotations/swing_that_music.json",
+      "c2449eecdeb4674b0e080c9b94bf69f2"
+    ],
+    "chordlabs": [
+      "./labs/swing_that_music.lab",
+      "29987742c4109220e9a0a22be3a3af70"
+    ]
+  },
+  "96": {
+    "audio": [
+      "./audio/thats_a_serious_thing.flac",
+      "4de9277ee59b67d63e048074f850c7bf"
+    ],
+    "annotations": [
+      "./annotations/thats_a_serious_thing.json",
+      "a8d32206557b14be07471713f27bf194"
+    ],
+    "chordlabs": [
+      "./labs/thats_a_serious_thing.lab",
+      "802f008d3bf3e6e4d3ab8c06913757da"
+    ]
+  },
+  "97": {
+    "audio": [
+      "./audio/the_golden_bullet.flac",
+      "4f12ad54e3d5c8b076cd107a2034922e"
+    ],
+    "annotations": [
+      "./annotations/the_golden_bullet.json",
+      "f7f692ee3970579e4cf1a157e528ea1c"
+    ],
+    "chordlabs": [
+      "./labs/the_golden_bullet.lab",
+      "f9f05f12b819545c47d3546bc51e5edb"
+    ]
+  },
+  "98": {
+    "audio": [
+      "./audio/the_man_i_love.flac",
+      "b4a71c6de42f226c4cd2eb2a8e97d6d8"
+    ],
+    "annotations": [
+      "./annotations/the_man_i_love.json",
+      "0e5b57d1c5e3ecba92f5ee47c6ceb93a"
+    ],
+    "chordlabs": [
+      "./labs/the_man_i_love.lab",
+      "bb372e59253b1873f8a4eca5705dd91d"
+    ]
+  },
+  "99": {
+    "audio": [
+      "./audio/the_preacher.flac",
+      "09284d67e025a0d2decf2f830a846221"
+    ],
+    "annotations": [
+      "./annotations/the_preacher.json",
+      "8882c6e4dfe3ed89bb4e2fa1d8f1681e"
+    ],
+    "chordlabs": [
+      "./labs/the_preacher.lab",
+      "245677e466f249bec834ff164f6adf15"
+    ]
+  },
+  "100": {
+    "audio": [
+      "./audio/the_stampede.flac",
+      "729c71cd3cb025e24c8e23f4640faa2c"
+    ],
+    "annotations": [
+      "./annotations/the_stampede.json",
+      "ae1f872e3d84e7aecc20a0e89663fdc1"
+    ],
+    "chordlabs": [
+      "./labs/the_stampede.lab",
+      "3adbdae8acb75812abc56d67542076f4"
+    ]
+  },
+  "101": {
+    "audio": [
+      "./audio/these_foolish_things.flac",
+      "9cc08c51f65a3e86390adad83a56221e"
+    ],
+    "annotations": [
+      "./annotations/these_foolish_things.json",
+      "f042b58d14b4ea525f7ed4a056eb0323"
+    ],
+    "chordlabs": [
+      "./labs/these_foolish_things.lab",
+      "132942e7c6be7fe93c48db95285463ca"
+    ]
+  },
+  "102": {
+    "audio": [
+      "./audio/tricroism.flac",
+      "a04717fd8f73e77fb20c12b0701cd9b4"
+    ],
+    "annotations": [
+      "./annotations/tricroism.json",
+      "70dac6f24241b957fff3df5799d4c071"
+    ],
+    "chordlabs": [
+      "./labs/tricroism.lab",
+      "fb75db88a27092eaa31c90b6dea94aac"
+    ]
+  },
+  "103": {
+    "audio": [
+      "./audio/walkin_shoes.flac",
+      "f32b6d91cfd55ce3f0df5e12adc551f3"
+    ],
+    "annotations": [
+      "./annotations/walkin_shoes.json",
+      "6c429c34bd0ffcd6ff8e6a5481e916f3"
+    ],
+    "chordlabs": [
+      "./labs/walkin_shoes.lab",
+      "481178bd5a35117c9fcbe703995f184a"
+    ]
+  },
+  "104": {
+    "audio": [
+      "./audio/watermelon_man.flac",
+      "7dff38ffa0be3f1ead9f4ce4156ed466"
+    ],
+    "annotations": [
+      "./annotations/watermelon_man.json",
+      "f99e861e6a29b679d0828b6b57172b15"
+    ],
+    "chordlabs": [
+      "./labs/watermelon_man.lab",
+      "03cf22c98bc18912e74a6af9aea63dd4"
+    ]
+  },
+  "105": {
+    "audio": [
+      "./audio/weather_bird.flac",
+      "cf684468ecc34a0cb512090b8ebd00cd"
+    ],
+    "annotations": [
+      "./annotations/weather_bird.json",
+      "f7884e8489f1bd868252fab0dced919e"
+    ],
+    "chordlabs": [
+      "./labs/weather_bird.lab",
+      "d8389701ef0d6a39d22e44096b82ac66"
+    ]
+  },
+  "106": {
+    "audio": [
+      "./audio/west_coast_blues.flac",
+      "949160ea7948609064ec1ffa171d7176"
+    ],
+    "annotations": [
+      "./annotations/west_coast_blues.json",
+      "84faa1e4bea785471c925c54a5884862"
+    ],
+    "chordlabs": [
+      "./labs/west_coast_blues.lab",
+      "16d7b0c6b4c8b143c7c8b8b39074f359"
+    ]
+  },
+  "107": {
+    "audio": [
+      "./audio/west_end_blues.flac",
+      "d3fb934e378deb1023141a9430616baa"
+    ],
+    "annotations": [
+      "./annotations/west_end_blues.json",
+      "077f3a521800c8ef7af1908a431e0700"
+    ],
+    "chordlabs": [
+      "./labs/west_end_blues.lab",
+      "8344532818d5d07a6dc30a3c4f895494"
+    ]
+  },
+  "108": {
+    "audio": [
+      "./audio/when_lights_are_low.flac",
+      "c9bbe97eb69277ef50952406962971e4"
+    ],
+    "annotations": [
+      "./annotations/when_lights_are_low.json",
+      "6b5dfb40b65bef3c139eb4da3c7f4682"
+    ],
+    "chordlabs": [
+      "./labs/when_lights_are_low.lab",
+      "fc0af195e266010f61da05d01ea90e5a"
+    ]
+  },
+  "109": {
+    "audio": [
+      "./audio/work_song.flac",
+      "d696566b7374980112563d990103fe24"
+    ],
+    "annotations": [
+      "./annotations/work_song.json",
+      "9e921625e621c4db86751103bad733d8"
+    ],
+    "chordlabs": [
+      "./labs/work_song.lab",
+      "fbd9c950755284dacbaf42c55431ea4d"
+    ]
+  },
+  "110": {
+    "audio": [
+      "./audio/wrap_your_troubles_in_dreams.flac",
+      "833d1689e522ea202bacc52cf790a103"
+    ],
+    "annotations": [
+      "./annotations/wrap_your_troubles_in_dreams.json",
+      "763a9e8ceb72a03bf2c560fcb664b83f"
+    ],
+    "chordlabs": [
+      "./labs/wrap_your_troubles_in_dreams.lab",
+      "ab8894ee1df554e1b1c821cf78c837b1"
+    ]
+  },
+  "111": {
+    "audio": [
+      "./audio/wrappin_it_up.flac",
+      "e4f78a8dc9eb3ba312c0bc6e38239a61"
+    ],
+    "annotations": [
+      "./annotations/wrappin_it_up.json",
+      "8680773d729f7c1541e4d41569656ae8"
+    ],
+    "chordlabs": [
+      "./labs/wrappin_it_up.lab",
+      "f20d180e8a86d0d93c7fa8e079981232"
+    ]
+  },
+  "112": {
+    "audio": [
+      "./audio/you_d_be_so_nice_to_come_home_to.flac",
+      "ac91f797d6878e4971d85b8206753091"
+    ],
+    "annotations": [
+      "./annotations/you_d_be_so_nice_to_come_home_to.json",
+      "80595051b38693478d1de04d3324155e"
+    ],
+    "chordlabs": [
+      "./labs/you_d_be_so_nice_to_come_home_to.lab",
+      "474875553aae218c800c711cd0d77224"
+    ]
+  }
+}
