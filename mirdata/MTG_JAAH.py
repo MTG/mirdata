@@ -7,6 +7,7 @@ annotations for 113 jazz songs. Details can be found in https://github.com/MTG/J
 """
 
 import json
+from zipfile import ZipFile
 
 
 
@@ -23,18 +24,11 @@ from mirdata import utils
 DATASET_DIR = 'MTG_JAAH'
 REMOTES = {
     'annotations': download_utils.RemoteFileMetadata(
-        filename='JAAH-v0.1.zip',
-        url='https://zenodo.org/record/1290737/files/MTG/JAAH-v0.1.zip?download=1',
-        checksum='34f8311a270b9934cf2c9c0d6026ac71',
-        destination_dir='',
+        filename='MTG-JAAH.zip',
+        url='https://github.com/MTG/JAAH/archive/fb60f8a5bc3af692aa530dec5654ca9cebc6f63b.zip',
+        destination_dir='.',
+        checksum='7b728446516ad6e19532eeee51398a7e'
     ),
-    'chords': download_utils.RemoteFileMetadata(
-        filename='JAAH-v0.1.zip',
-        url='https://github.com/MTG/JAAH/blob/master/labs.zip',
-        checksum='34f8311a270b9934cf2c9c0d6026ac71',
-        destination_dir='',
-    ),
-
 }
 
 DATA = utils.LargeData('MTG_JAAH_index.json')
@@ -215,6 +209,7 @@ def download(data_home=None, force_overwrite=False, cleanup=True):
             > MTG_JAAH/
                 > annotations/
                 > audio/
+                > chordlab/
         and copy the MTG_JAAH folder to {}
     """.format(
         data_home
@@ -227,8 +222,14 @@ def download(data_home=None, force_overwrite=False, cleanup=True):
         force_overwrite=force_overwrite,
         cleanup=cleanup,
     )
-    shutil.move(os.path.join(utils.get_default_dataset_path(DATASET_DIR), 'MTG-JAAH-7686b91', 'annotations'),
-                utils.get_default_dataset_path(DATASET_DIR))
+    ann = os.path.join(utils.get_default_dataset_path(DATASET_DIR), 'JAAH-fb60f8a5bc3af692aa530dec5654ca9cebc6f63b',
+                       'annotations')
+    labs = os.path.join(utils.get_default_dataset_path(DATASET_DIR), 'JAAH-fb60f8a5bc3af692aa530dec5654ca9cebc6f63b',
+                        'labs.zip')
+    shutil.copytree(ann, os.path.join(utils.get_default_dataset_path(DATASET_DIR), 'annotations'))
+    print(labs, utils.get_default_dataset_path(DATASET_DIR))
+    with ZipFile(labs, 'r') as zip_ref:
+        zip_ref.extractall(utils.get_default_dataset_path(DATASET_DIR))
 
 
 def validate(data_home=None, silence=False):
@@ -328,12 +329,14 @@ International Society for Music Information Retrieval Conference.
 
 
 if __name__ == '__main__':
-    dataset = load()
-    print(dataset['0'].beats)
+    download()
+    # dataset = load()
+    # print(dataset['0'].beats)
 
     # for key, value in dataset.items():
     #     print(key)
     #     ans = value.beats
+
 
 
 

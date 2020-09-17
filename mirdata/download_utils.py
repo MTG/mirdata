@@ -147,6 +147,7 @@ def download_from_remote(remote, save_dir, force_overwrite=False):
                 raise e
 
     checksum = md5(download_path)
+    print(checksum)
     if remote.checksum != checksum:
         raise IOError(
             '{} has an MD5 checksum ({}) '
