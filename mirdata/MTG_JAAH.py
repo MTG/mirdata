@@ -5,11 +5,9 @@ The MTG-JAAH Dataset includes beat and metric position, mbid, metre, tuning chor
 annotations for 113 jazz songs. Details can be found in https://github.com/MTG/JAAH .
 
 """
-
+import csv
 import json
 from zipfile import ZipFile
-
-
 
 import librosa
 import numpy as np
@@ -61,101 +59,51 @@ class Track(track.Track):
         self._data_home = data_home
         self._track_paths = DATA.index[track_id]
         self.audio_path = os.path.join(self._data_home, self._track_paths['audio'][0])
+        self.labs_path = os.path.join(self._data_home, self._track_paths['chordlabs'][0])
         self.ann_path = os.path.join(self._data_home, self._track_paths['annotations'][0])
-        with open(self.ann_path) as json_file:
-            self.ann = json.load(json_file)
 
     @utils.cached_property
     def beats(self):
-        """BeatData: human-labeled beat annotation"""
-        beat_times = []
-        for part in self.ann['parts']:
-            beat_times += part['beats']
-        metre = int(self.metre.split('/')[0])
-        beat_positions = [p % metre + 1 for p in range(len(beat_times))]
-        # data = self.ann
-        # duration = float(data['duration'])
-        # all_beats = []
-        # all_chords = []
-        # chords_utils.process_parts(data['metre'], data, all_beats, all_chords, 'chords')
-        # segments = chords_utils.merge_segments(
-        #     chords_utils.to_beat_chord_segment_list(0, duration, all_beats, all_chords))
-        # start_times = []
-        # end_times = []
-        # chords = []
-        # for s in segments:
-        #     start_times.append(s.start_time)
-        #     end_times.append(s.end_time)
-        #     chords.append(s.symbol)
-        # chord_data = utils.ChordData(np.array([start_times, end_times]).T, chords)
-
-        beat_data = utils.BeatData(np.array(beat_times), np.array(beat_positions))
-        return beat_data
+        return load_beats(self.ann_path)
 
     @utils.cached_property
     def chords(self):
-        """ChordData: chord annotation"""
-        data = self.ann
-        duration = float(data['duration'])
-        all_beats = []
-        all_chords = []
-        chords_utils.process_parts(data['metre'], data, all_beats, all_chords, 'chords')
-        segments = chords_utils.merge_segments(
-            chords_utils.to_beat_chord_segment_list(0, duration, all_beats, all_chords))
-        start_times = []
-        end_times = []
-        chords = []
-        for s in segments:
-            start_times.append(s.start_time)
-            end_times.append(s.end_time)
-            chords.append(s.symbol)
-        chord_data = utils.ChordData(np.array([start_times, end_times]).T, chords)
-        return chord_data
-
-    @utils.cached_property
-    def key(self):
-        """KeyData: key annotation"""
-        return self.ann['sandbox']['key']
-
-    @utils.cached_property
-    def artist(self):
-        """title: title annotation"""
-        return self.ann['artist']
-
-    @utils.cached_property
-    def tuning(self):
-        """tuning: tuning annotation"""
-        return self.ann['tuning']
-
-    @utils.cached_property
-    def metre(self):
-        """metre: metre annotation"""
-        return self.ann['metre']
-
-    @utils.cached_property
-    def mbid(self):
-        """mbid: mbid annotation"""
-        return self.ann['mbid']
-
-    @utils.cached_property
-    def duration(self):
-        """duration: duration annotation"""
-        return self.ann['duration']
+        return load_chords(self.labs_path)
 
     @utils.cached_property
     def sections(self):
         """SectionData: section annotation"""
-        start_times = []
-        end_times = []
-        sections = []
-        for part in self.ann['parts']:
-            start_times.append(part['beats'][0])
-            end_times.append(part['beats'][-1])
-            sections.append(part['name'])
-        print(start_times, end_times, sections)
-        section_data = utils.SectionData(np.array([start_times, end_times]).T, sections)
+        return load_sections(self.ann_path)
 
-        return section_data
+    @utils.cached_property
+    def key(self):
+        """KeyData: key annotation"""
+        return load_key(self.ann_path)
+
+    @utils.cached_property
+    def artist(self):
+        """title: title annotation"""
+        return load_artist(self.ann_path)
+
+    @utils.cached_property
+    def tuning(self):
+        """tuning: tuning annotation"""
+        return load_tuning(self.ann_path)
+
+    @utils.cached_property
+    def metre(self):
+        """metre: metre annotation"""
+        return load_metre(self.ann_path)
+
+    @utils.cached_property
+    def mbid(self):
+        """mbid: mbid annotation"""
+        return load_mbid(self.ann_path)
+
+    @utils.cached_property
+    def duration(self):
+        """duration: duration annotation"""
+        return load_duration(self.ann_path)
 
     @property
     def audio(self):
@@ -165,6 +113,100 @@ class Track(track.Track):
     def to_jams(self):
         """Jams: the track's data in jams format"""
         return self.ann
+
+
+def load_beats(path):
+    """BeatData: human-labeled beat annotation"""
+    ann = None
+    with open(path) as json_file:
+        ann = json.load(json_file)
+    beat_times = []
+    for part in ann['parts']:
+        beat_times += part['beats']
+    metre = int(ann['metre'].split('/')[0])
+    beat_positions = [p % metre + 1 for p in range(len(beat_times))]
+
+    beat_data = utils.BeatData(np.array(beat_times), np.array(beat_positions))
+    return beat_data
+
+
+def load_chords(path):
+    """ChordData: chord annotation"""
+    start_times = []
+    end_times = []
+    chords = []
+    delimeter = '\t'
+    with open(path) as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=delimeter)
+        for row in csv_reader:
+            start_times.append(row[0])
+            end_times.append(row[1])
+            chords.append(row[2])
+    return utils.ChordData(np.array([start_times, end_times]).T, chords)
+
+
+def load_sections(path):
+    ann = None
+    with open(path) as json_file:
+        ann = json.load(json_file)
+    start_times = []
+    end_times = []
+    sections = []
+    for part in ann['parts']:
+        start_times.append(part['beats'][0])
+        end_times.append(part['beats'][-1])
+        sections.append(part['name'])
+    print(start_times, end_times, sections)
+    section_data = utils.SectionData(np.array([start_times, end_times]).T, sections)
+    return section_data
+
+
+def load_key(path):
+    """KeyData: key annotation"""
+    ann = None
+    with open(path) as json_file:
+        ann = json.load(json_file)
+    return ann['sandbox']['key']
+
+
+def load_artist(path):
+    """title: title annotation"""
+    ann = None
+    with open(path) as json_file:
+        ann = json.load(json_file)
+    return ann['artist']
+
+
+def load_tuning(path):
+    """tuning: tuning annotation"""
+    ann = None
+    with open(path) as json_file:
+        ann = json.load(json_file)
+    return ann['tuning']
+
+
+def load_metre(path):
+    """metre: metre annotation"""
+    ann = None
+    with open(path) as json_file:
+        ann = json.load(json_file)
+    return ann['metre']
+
+
+def load_mbid(path):
+    """mbid: mbid annotation"""
+    ann = None
+    with open(path) as json_file:
+        ann = json.load(json_file)
+    return ann['mbid']
+
+
+def load_duration(path):
+    """duration: duration annotation"""
+    ann = None
+    with open(path) as json_file:
+        ann = json.load(json_file)
+    return ann['duration']
 
 
 def load_audio(audio_path):
@@ -329,9 +371,9 @@ International Society for Music Information Retrieval Conference.
 
 
 if __name__ == '__main__':
-    download()
-    # dataset = load()
-    # print(dataset['0'].beats)
+    # download()
+    dataset = load()
+    print(dataset['0'].artist)
 
     # for key, value in dataset.items():
     #     print(key)
