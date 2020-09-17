@@ -116,7 +116,15 @@ class Track(track.Track):
 
 
 def load_beats(path):
-    """BeatData: human-labeled beat annotation"""
+    """Load MTG_JAAH format beat data from a file
+
+    Args:
+        path (str): path to beat annotation file
+
+    Returns:
+        (utils.BeatData): loaded beat data
+
+    """
     ann = None
     with open(path) as json_file:
         ann = json.load(json_file)
@@ -131,7 +139,15 @@ def load_beats(path):
 
 
 def load_chords(path):
-    """ChordData: chord annotation"""
+    """Load MTG_JAAH format chord data from a file
+
+    Args:
+        path (str): path to chord annotation file
+
+    Returns:
+        (utils.ChordData): loaded chord data
+
+    """
     start_times = []
     end_times = []
     chords = []
@@ -146,6 +162,15 @@ def load_chords(path):
 
 
 def load_sections(path):
+    """Load MTG_JAAH format section data from a file
+
+        Args:
+            path (str): path to section annotation file
+
+        Returns:
+            (utils.SectionData): loaded section data
+
+    """
     ann = None
     with open(path) as json_file:
         ann = json.load(json_file)
@@ -162,7 +187,15 @@ def load_sections(path):
 
 
 def load_key(path):
-    """KeyData: key annotation"""
+    """Load MTG_JAAH format key data from a file
+
+    Args:
+        path (str): path to key annotation file
+
+    Returns:
+        (str): loaded key data
+
+    """
     ann = None
     with open(path) as json_file:
         ann = json.load(json_file)
@@ -170,7 +203,15 @@ def load_key(path):
 
 
 def load_artist(path):
-    """title: title annotation"""
+    """Load MTG_JAAH format artist data from a file
+
+    Args:
+        path (str): path to artist annotation file
+
+    Returns:
+        (str): loaded artist data
+
+    """
     ann = None
     with open(path) as json_file:
         ann = json.load(json_file)
@@ -178,7 +219,15 @@ def load_artist(path):
 
 
 def load_tuning(path):
-    """tuning: tuning annotation"""
+    """Load MTG_JAAH format tuning data from a file
+
+    Args:
+        path (str): path to tuning annotation file
+
+    Returns:
+        (float): loaded tuning data
+
+    """
     ann = None
     with open(path) as json_file:
         ann = json.load(json_file)
@@ -186,7 +235,15 @@ def load_tuning(path):
 
 
 def load_metre(path):
-    """metre: metre annotation"""
+    """Load MTG_JAAH format metre data from a file
+
+    Args:
+        path (str): path to metre annotation file
+
+    Returns:
+        (str): loaded metre data
+
+    """
     ann = None
     with open(path) as json_file:
         ann = json.load(json_file)
@@ -194,7 +251,15 @@ def load_metre(path):
 
 
 def load_mbid(path):
-    """mbid: mbid annotation"""
+    """Load MTG_JAAH format mbid data from a file
+
+    Args:
+        path (str): path to mbid annotation file
+
+    Returns:
+        (str): loaded mbid data
+
+    """
     ann = None
     with open(path) as json_file:
         ann = json.load(json_file)
@@ -202,7 +267,15 @@ def load_mbid(path):
 
 
 def load_duration(path):
-    """duration: duration annotation"""
+    """Load MTG_JAAH format duration data from a file
+
+    Args:
+        path (str): path to duration annotation file
+
+    Returns:
+        (float): loaded duration data
+
+    """
     ann = None
     with open(path) as json_file:
         ann = json.load(json_file)
@@ -239,7 +312,6 @@ def download(data_home=None, force_overwrite=False, cleanup=True):
             Whether to delete the zip/tar file after extracting.
 
     """
-
     # use the default location: ~/mir_datasets/MTG_JAAH
     if data_home is None:
         data_home = utils.get_default_dataset_path(DATASET_DIR)
