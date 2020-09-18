@@ -130,7 +130,11 @@ def load_beats(path):
         ann = json.load(json_file)
     beat_times = []
     for part in ann['parts']:
-        beat_times += part['beats']
+        if 'parts' not in part:
+            beat_times += part['beats']
+        else:
+            for part2 in part['parts']:
+                beat_times += part2['beats']
     metre = int(ann['metre'].split('/')[0])
     beat_positions = [p % metre + 1 for p in range(len(beat_times))]
 
@@ -178,10 +182,22 @@ def load_sections(path):
     end_times = []
     sections = []
     for part in ann['parts']:
-        start_times.append(part['beats'][0])
-        end_times.append(part['beats'][-1])
-        sections.append(part['name'])
-    print(start_times, end_times, sections)
+        if 'parts' not in part:
+            start_times.append(part['beats'][0])
+            end_times.append(part['beats'][-1])
+            if 'name' in part:
+                sections.append(part['name'])
+            else:
+                sections.append(part['nGme'])
+        else:
+            start_times.append(part['parts'][0]['beats'][0])
+            end_times.append(part['parts'][-1]['beats'][-1])
+            sections.append(part['name'])
+            for part2 in part['parts']:
+                start_times.append(part2['beats'][0])
+                end_times.append(part2['beats'][-1])
+                sections.append(part2['name'])
+
     section_data = utils.SectionData(np.array([start_times, end_times]).T, sections)
     return section_data
 
@@ -442,15 +458,37 @@ International Society for Music Information Retrieval Conference.
     print(cite_data)
 
 
+def beatlab(path='.'):
+    dataset = load()
+
+    for key, t in dataset.items():
+        column1 = t.beats[0]
+        column2 = t.beats[1]
+        with open(os.path.join(path, 'beatlab', t.labs_path.split('/')[-1]), "w") as f:
+            writer = csv.writer(f, delimiter='\t')
+            for i, row in enumerate(column1):
+                writer.writerow(("{:.2f}".format(column1[i]), column2[i]))
+
+
+def seglab(path='.'):
+    dataset = load()
+    count = 0
+    for key, t in dataset.items():
+        count += 1
+        column12 = t.sections[0]
+        column3 = t.sections[1]
+        with open(os.path.join(path, 'seglab', t.labs_path.split('/')[-1]), "w") as f:
+            writer = csv.writer(f, delimiter='\t')
+            for i, row in enumerate(column3):
+                writer.writerow(("{:.2f}".format(column12[i][0]), "{:.2f}".format(column12[i][1]), column3[i]))
+
+
+
+
+
 if __name__ == '__main__':
     # download()
-    dataset = load()
-    print(dataset['0'].artist)
-
-    # for key, value in dataset.items():
-    #     print(key)
-    #     ans = value.beats
-
+    seglab()
 
 
 
