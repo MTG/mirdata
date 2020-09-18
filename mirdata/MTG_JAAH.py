@@ -159,8 +159,8 @@ def load_chords(path):
     with open(path) as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=delimeter)
         for row in csv_reader:
-            start_times.append(row[0])
-            end_times.append(row[1])
+            start_times.append(float(row[0]))
+            end_times.append(float(row[1]))
             chords.append(row[2])
     return utils.ChordData(np.array([start_times, end_times]).T, chords)
 
