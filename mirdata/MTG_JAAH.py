@@ -459,18 +459,24 @@ International Society for Music Information Retrieval Conference.
 
 
 def beatlab(path='.'):
+    """
+    Creates in path the beat annotation files for each track with .lab MIREX format
+    """
     dataset = load()
 
     for key, t in dataset.items():
         column1 = t.beats[0]
         column2 = t.beats[1]
-        with open(os.path.join(path, 'beatlab', t.labs_path.split('/')[-1]), "w") as f:
+        with open(os.path.join(path, t.labs_path.split('/')[-1]), "w") as f:
             writer = csv.writer(f, delimiter='\t')
             for i, row in enumerate(column1):
                 writer.writerow(("{:.2f}".format(column1[i]), column2[i]))
 
 
 def seglab(path='.'):
+    """
+    Creates in path the section annotation files for each track with .lab MIREX format
+    """
     dataset = load()
     count = 0
     for key, t in dataset.items():
