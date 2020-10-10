@@ -5,6 +5,7 @@ from .version import version as __version__
 
 __all__ = [
     'beatles',
+    'cante100',
     'dali',
     'giantsteps_key',
     'groove_midi',

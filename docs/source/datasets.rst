@@ -33,6 +33,9 @@ click the link provided in the "Module" column.
 | dali_            | DALI                | - audio: 📺         | - :ref:`lyrics`           | 5358   |
 |                  |                     | - annotations: ✅   | - Vocal :ref:`notes`      |        |
 +------------------+---------------------+---------------------+---------------------------+--------+
+| cante100_        | cante100            | - audio: 🔑         | - :ref:`F0`               | 100    |
+|                  |                     | - annotations: ✅   | - :ref:`notes`            |        |
++------------------+---------------------+---------------------+---------------------------+--------+
 | groove_midi_     | | Groove MIDI       | - audio: ✅         | - :ref:`beats`            | 1150   |
 |                  | | Dataset           | - midi: ✅          | - :ref:`tempo`            |        |
 |                  |                     |                     | - :ref:`drums`            |        |
@@ -208,6 +211,7 @@ of annotation is implicitly available when Vocal F0_ or Vocal Notes_ annotations
 
 .. _article: https://link.springer.com/article/10.1007/s10844-013-0250-y
 .. _beatles: https://mirdata.readthedocs.io/en/latest/source/mirdata.html#module-mirdata.beatles
+.. _cante100: http://www.cofla-project.com/?page_id=529&lang=es
 .. _dali: https://mirdata.readthedocs.io/en/latest/source/mirdata.html#module-mirdata.dali
 .. _giantsteps_key: https://mirdata.readthedocs.io/en/latest/source/mirdata.html#module-mirdata._giantsteps_key
 .. _groove_midi: https://mirdata.readthedocs.io/en/latest/source/mirdata.html#module-mirdata.groove_midi
