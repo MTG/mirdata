@@ -19,6 +19,14 @@ mirdata.beatles
 .. automodule:: mirdata.beatles
    :members:
 
+
+mirdata.cante100
+^^^^^^^^^^^^^^^
+
+.. automodule:: mirdata.cante100
+   :members:
+
+
 mirdata.dali
 ^^^^^^^^^^^^
 
