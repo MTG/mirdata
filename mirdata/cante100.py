@@ -163,12 +163,11 @@ class Track(track.Track):
     Args:
         track_id (str): track id of the track
         data_home (str): Local path where the dataset is stored.
-            If `None`, looks for the data in the default directory, `~/mir_datasets/Mridangam-Stroke`
+            If `None`, looks for the data in the default directory, `~/mir_datasets/cante100`
 
     Attributes:
         track_id (str): track id
-        # -- Add any of the dataset specific attributes here
-
+        TODO
     """
 
     def __init__(self, track_id, data_home=None):
@@ -182,7 +181,6 @@ class Track(track.Track):
 
         self._data_home = data_home
 
-        # -- add any dataset specific attributes here
         self._track_paths = DATA.index[track_id]
         self.spectrum_path = os.path.join(
             self._data_home, self._track_paths['spectrum'][0]
@@ -196,7 +194,7 @@ class Track(track.Track):
         else:
             self._track_metadata = {
                 'musicBrainzID': None,
-                'artists': None,
+                'artist': None,
                 'title': None,
                 'release': None,
                 'duration': None,
@@ -336,8 +334,7 @@ def download(
             If `None`, looks for the data in the default directory, `~/mir_datasets`
         force_overwrite (bool):
             Whether to overwrite the existing downloaded data
-        partial_download (str):
-            TODO
+        partial_download (str)
         cleanup (bool):
             Whether to delete the zip/tar file after extracting.
 

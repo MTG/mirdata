@@ -21,22 +21,32 @@ def test_track():
     default_trackid = "008"
     track = cante100.Track(default_trackid, data_home=TEST_DATA_HOME)
     expected_attributes = {
+        'artist': 'Toronjo',
+        'duration': 179.0,
         'f0_path': 'tests/resources/mir_datasets/cante100/cante100midi_f0/008_PacoToronjo_'
         + 'Fandangos.f0.csv',
+        'identifier': '4eebe839-82bb-426e-914d-7c4525dd9dad',
         'notes_path': 'tests/resources/mir_datasets/cante100/cante100_automaticTranscription/008_PacoToronjo_'
         + 'Fandangos.notes.csv',
+        'release': 'Atlas del cante flamenco',
         'spectrum_path': 'tests/resources/mir_datasets/cante100/cante100_spectrum/008_PacoToronjo_'
         + 'Fandangos.spectrum.csv',
+        'title': 'Huelva Como Capital',
         'track_id': '008',
     }
-    run_track_tests(track, expected_attributes, {})
+
+    expected_property_types = {
+        'f0': utils.F0Data,
+        'notes': utils.NoteData,
+    }
+
+    run_track_tests(track, expected_attributes, expected_property_types)
 
 
 def test_to_jams():
     default_trackid = "008"
     track = cante100.Track(default_trackid, data_home=TEST_DATA_HOME)
     jam = track.to_jams()
-    # print(jam)
 
     # Validate cante100 jam schema
     assert jam.validate()
@@ -100,14 +110,14 @@ def test_load_f0():
     assert type(f0_data.confidence) is np.ndarray
 
 
-"""
-def main():
-    test_track()
-    test_to_jams()
-    test_load_f0()
-
-
-__name__ = "__main__"
-if __name__ == "__main__":
-    main()
-"""
+def test_load_metadata():
+    data_home = 'tests/resources/mir_datasets/cante100'
+    metadata = cante100._load_metadata(data_home)
+    assert metadata['data_home'] == data_home
+    assert metadata['008'] == {
+        'musicBrainzID': '4eebe839-82bb-426e-914d-7c4525dd9dad',
+        'artist': 'Toronjo',
+        'title': 'Huelva Como Capital',
+        'release': 'Atlas del cante flamenco',
+        'duration': 179
+    }
