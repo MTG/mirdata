@@ -87,6 +87,9 @@ def jams_converter(
                 + 'to compute duration.'
             )
     if spectrum_cante100_path is not None:
+        duration = metadata['duration']
+        print(metadata['title'])
+        """
         if os.path.exists(spectrum_cante100_path):
             with open(spectrum_cante100_path, 'r') as csvfile:
                 reader = csv.reader(csvfile, delimiter=' ', quotechar='\n')
@@ -101,11 +104,12 @@ def jams_converter(
                 + 'for this track cannot be found, and it is required'
                 + 'to compute duration.'
             )
+        """
 
     # metadata
     if metadata is not None:
         for key in metadata:
-            if key == 'duration' and duration is not None and metadata[key] != duration:
+            if key == 'duration' and duration is not None and metadata[key] != duration and audio_path is not None:
                 print(
                     'Warning: duration provided in metadata does not'
                     + 'match the duration computed from the audio file.'

@@ -131,10 +131,10 @@ def _load_metadata(data_home):
     durations = []
     minutes = []
     for minute in root.iter('duration_m'):
-        minutes.append(int(minute.text) * 60)
+        minutes.append(float(minute.text) * 60)
     seconds = []
     for second in root.iter('duration_s'):
-        seconds.append(int(second.text))
+        seconds.append(float(second.text))
     for i in np.arange(len(minutes)):
         durations.append(minutes[i] + seconds[i])
 
@@ -202,13 +202,11 @@ class Track(track.Track):
                 'duration': None,
             }
 
-        """
         self.identifier = self._track_metadata['musicBrainzID']
         self.artist = self._track_metadata['artist']
         self.title = self._track_metadata['title']
         self.release = self._track_metadata['release']
         self.duration = self._track_metadata['duration']
-        """
 
     @property
     def spectrum(self):
