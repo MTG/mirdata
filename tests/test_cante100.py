@@ -37,7 +37,7 @@ def test_track():
 
     expected_property_types = {
         'f0': utils.F0Data,
-        'notes': utils.NoteData,
+        'notes': utils.NoteData
     }
 
     run_track_tests(track, expected_attributes, expected_property_types)
