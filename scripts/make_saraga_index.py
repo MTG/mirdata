@@ -1,10 +1,11 @@
 import argparse
 import hashlib
+import collections
 import json
 import os
 
 
-SALAMI_INDEX_PATH = '../mirdata/indexes/salami_index.json'
+SARAGA_INDEX_PATH = '../mirdata/indexes/saraga_index.json'
 
 
 def md5(file_path):
@@ -27,74 +28,97 @@ def md5(file_path):
     return hash_md5.hexdigest()
 
 
-def make_salami_index(data_path):
-    annotations_dir = os.path.join(
-        data_path, 'Salami', 'salami-data-public-hierarchy-corrections', 'annotations'
-    )
-    audio_dir = os.path.join(data_path, 'Salami', 'audio')
-    annotations_files = os.listdir(annotations_dir)
-    track_ids = sorted([os.path.basename(f).split('.')[0] for f in annotations_files])
+def make_saraga_index(saraga_data_path):
 
-    salami_index = {}
-    for track_id in track_ids:
-        # audio
-        audio_checksum = md5(os.path.join(audio_dir, '{}.mp3'.format(track_id)))
-        annot_checksum, annot_rels = [], []
+    saraga_index = {}
+    for root, dirs, files in os.walk(saraga_data_path):
+        for directory in dirs:  # Hindustani vs. Carnatic
+            for root_, dirs_, files_ in os.walk(os.path.join(saraga_data_path, directory)):
+                for directory_ in dirs_:  # IDs
+                    for root__, dirs__, files__ in os.walk(os.path.join(saraga_data_path, directory, directory_)):
 
-        # using existing annotations (version 2.0)
-        for f in ['uppercase.txt', 'lowercase.txt']:
-            for a in ['1', '2']:
-                if os.path.exists(
-                    os.path.join(
-                        annotations_dir,
-                        track_id,
-                        'parsed',
-                        'textfile{}_{}'.format(a, f),
-                    )
-                ):
-                    annot_checksum.append(
-                        md5(
-                            os.path.join(
-                                annotations_dir,
-                                track_id,
-                                'parsed',
-                                'textfile' + a + '_' + f,
-                            )
-                        )
-                    )
-                    annot_rels.append(
-                        os.path.join(
-                            'salami-data-public-hierarchy-corrections',
-                            'annotations',
-                            track_id,
-                            'parsed',
-                            'textfile{}_{}'.format(a, f),
-                        )
-                    )
-                else:
-                    annot_checksum.append(None)
-                    annot_rels.append(None)
+                        # Declare track attributes
+                        audio = (None, None)
+                        ctonic = (None, None)
+                        pitch = (None, None)
+                        pitch_v = (None, None)
+                        bpm = (None, None)
+                        tempo = (None, None)
+                        sama = (None, None)
+                        sections = (None, None)
+                        phrases = (None, None)
+                        metadata = (None, None)
 
-        salami_index[track_id] = {
-            'audio': (os.path.join('audio', '{}.mp3'.format(track_id)), audio_checksum),
-            'annotator_1_uppercase': (annot_rels[0], annot_checksum[0]),
-            'annotator_1_lowercase': (annot_rels[2], annot_checksum[2]),
-            'annotator_2_uppercase': (annot_rels[1], annot_checksum[1]),
-            'annotator_2_lowercase': (annot_rels[3], annot_checksum[3]),
-        }
+                        for file in files__:
+                            index = str(directory) + '_' + directory_
+                            if '.mp3' in file:
+                                audio_path = os.path.join(directory, directory_, file)
+                                audio_checksum = md5(os.path.join(saraga_data_path, audio_path))
+                                audio = (audio_path, audio_checksum)
+                            if 'ctonic' in file:
+                                ctonic_path = os.path.join(directory, directory_, file)
+                                ctonic_checksum = md5(os.path.join(saraga_data_path, ctonic_path))
+                                ctonic = (ctonic_path, ctonic_checksum)
+                            if 'pitch.' in file:
+                                pitch_path = os.path.join(directory, directory_, file)
+                                pitch_checksum = md5(os.path.join(saraga_data_path, pitch_path))
+                                pitch = (pitch_path, pitch_checksum)
+                            if 'pitch_' in file:
+                                pitch_v_path = os.path.join(directory, directory_, file)
+                                pitch_v_checksum = md5(os.path.join(saraga_data_path, pitch_v_path))
+                                pitch_v = (pitch_v_path, pitch_v_checksum)
+                            if 'bpm' in file:
+                                bpm_path = os.path.join(directory, directory_, file)
+                                bpm_checksum = md5(os.path.join(saraga_data_path, bpm_path))
+                                bpm = (bpm_path, bpm_checksum)
+                            if 'tempo' in file:
+                                tempo_path = os.path.join(directory, directory_, file)
+                                tempo_checksum = md5(os.path.join(saraga_data_path, tempo_path))
+                                tempo = (tempo_path, tempo_checksum)
+                            if 'sama' in file:
+                                sama_path = os.path.join(directory, directory_, file)
+                                sama_checksum = md5(os.path.join(saraga_data_path, sama_path))
+                                sama = (sama_path, sama_checksum)
+                            if 'sections-manual' in file:
+                                sections_path = os.path.join(directory, directory_, file)
+                                sections_checksum = md5(os.path.join(saraga_data_path, sections_path))
+                                sections = (sections_path, sections_checksum)
+                            if 'phrase' in file:
+                                phrases_path = os.path.join(directory, directory_, file)
+                                phrases_checksum = md5(os.path.join(saraga_data_path, phrases_path))
+                                phrases = (phrases_path, phrases_checksum)
+                            if '.json' in file:
+                                metadata_path = os.path.join(directory, directory_, file)
+                                metadata_checksum = md5(os.path.join(saraga_data_path, metadata_path))
+                                metadata = (metadata_path, metadata_checksum)
 
-    with open(SALAMI_INDEX_PATH, 'w') as fhandle:
-        json.dump(salami_index, fhandle, indent=2)
+                            saraga_index[index] = {
+                                'audio': audio,
+                                'ctonic': ctonic,
+                                'pitch': pitch,
+                                'pitch_vocal': pitch_v,
+                                'bpm': bpm,
+                                'tempo': tempo,
+                                'sama': sama,
+                                'sections': sections,
+                                'phrases': phrases,
+                                'metadata': metadata
+                            }
+
+    with open(SARAGA_INDEX_PATH, 'w') as fhandle:
+        json.dump(saraga_index, fhandle, indent=2)
 
 
 def main(args):
-    make_salami_index(args.salami_data_path)
+    print("creating index...")
+    make_saraga_index(args.saraga_data_path)
+    print("done!")
 
 
 if __name__ == '__main__':
-    PARSER = argparse.ArgumentParser(description='Make Salami index file.')
+    PARSER = argparse.ArgumentParser(description='Make Saraga index file.')
     PARSER.add_argument(
-        'salami_data_path', type=str, help='Path to Salami data folder.'
+        'saraga_data_path', type=str, help='Path to Saraga data folder.'
     )
 
     main(PARSER.parse_args())
