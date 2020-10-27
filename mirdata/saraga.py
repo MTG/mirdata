@@ -35,23 +35,9 @@ def _load_metadata(metadata_path):
         return None
 
     with open(metadata_path) as f:
-        data = json.load(f)
-        metadata = {}
-        # Carnatic track
-        if 'raaga' in data.keys():
-            if data['raaga']:
-                metadata['raaga'] = data['raaga'][0]['name']
-            if data['work']:
-                metadata['mbid'] = data['work'][0]['mbid']
-                metadata['title'] = data['work'][0]['title']
-            if data['album_artists']:
-                metadata['artists'] = data['album_artists'][0]['name']
-
-        # Hindustani tracks
-        # if 'raags' in data.keys():
-        # TODO
-
+        metadata = json.load(f)
         data_home = metadata_path.split('/' + metadata_path.split('/')[-3])[0]
+        metadata['track_id'] = str(metadata_path.split('/')[-3]) + '_' + str(metadata_path.split('/')[-2])
         metadata['data_home'] = data_home
 
         return metadata
@@ -117,24 +103,69 @@ class Track(track.Track):
         )
 
         # Flag to separate between carnatinc and hindustani tracks
-        self.style = str(self.track_id.split('_')[0])
+        self.iam_style = str(self.track_id.split('_')[0])
 
-        metadata = DATA.metadata(self.metadata_path)
-        if metadata is not None and track_id in metadata.keys():
-            self._track_metadata = metadata[track_id]
-        else:
-            # annotations with missing metadata
-            self._track_metadata = {
-                'raaga': None,
-                'mbid': None,
-                'title': None,
-                'artists': None,
-            }
+        # CARNATIC MUSIC TRACKS
+        if self.iam_style == 'carnatic':
+            metadata = DATA.metadata(self.metadata_path)
+            if metadata is not None and track_id == metadata['track_id']:
+                self._track_metadata = metadata
+            else:
+                # annotations with missing metadata
+                self._track_metadata = {
+                    'raaga': None,
+                    'form': None,
+                    'title': None,
+                    'work': None,
+                    'length': None,
+                    'taala': None,
+                    'album_artists': None,
+                    'mbid': None,
+                    'artists': None,
+                    'concert': None
+                }
 
-        self.raaga = self._track_metadata['raaga']
-        self.identifier = self._track_metadata['mbid']
-        self.title = self._track_metadata['title']
-        self.artists = self._track_metadata['artists']
+            self.raaga = self._track_metadata['raaga']
+            self.form = self._track_metadata['form']
+            self.title = self._track_metadata['title']
+            self.work = self._track_metadata['work']
+            self.taala = self._track_metadata['taala']
+            self.album_artists = self._track_metadata['album_artists']
+            self.mbid = self._track_metadata['mbid']
+            self.artists = self._track_metadata['artists']
+            self.concert = self._track_metadata['concert']
+
+        # HINDUSTANI MUSIC TRACKS
+        if self.iam_style == 'hindustani':
+            metadata = DATA.metadata(self.metadata_path)
+            if metadata is not None and track_id == metadata['track_id']:
+                self._track_metadata = metadata
+            else:
+                # annotations with missing metadata
+                self._track_metadata = {
+                    'title': None,
+                    'raags': None,
+                    'length': None,
+                    'album_artists': None,
+                    'forms': None,
+                    'mbid': None,
+                    'artists': None,
+                    'release': None,
+                    'works': None,
+                    'taals': None,
+                    'layas': None
+                }
+
+            self.title = self._track_metadata['title']
+            self.raags = self._track_metadata['raags']
+            self.album_artists = self._track_metadata['album_artists']
+            self.forms = self._track_metadata['forms']
+            self.mbid = self._track_metadata['mbid']
+            self.artists = self._track_metadata['artists']
+            self.release = self._track_metadata['release']
+            self.works = self._track_metadata['works']
+            self.taals = self._track_metadata['taals']
+            self.layas = self._track_metadata['layas']
 
     @utils.cached_property
     def tonic(self):
@@ -164,12 +195,14 @@ class Track(track.Track):
             return None
         return load_bpm(self.bpm_path)
 
+    '''
     @utils.cached_property
     def tempo(self):
         """TempoData: tempo annotations"""
         if self.tempo_path is None:
             return None
         return load_tempo(self.tempo_path)
+    '''
 
     @utils.cached_property
     def sama(self):
@@ -205,11 +238,8 @@ class Track(track.Track):
             tempo_data=[(self.bpm, 'bpm tempo')],
             section_data=[(self.sama, 'sama'), (self.sections, 'sections'), (self.phrases, 'phrases')],
             metadata={
-                'raaga': self.raaga,
-                'identifier': self.identifier,
-                'title': self.title,
-                'artists': self.artists,
-                'tonic': self.tonic
+                'tonic': self.tonic,
+                'piece metadata': self._track_metadata
             }
         )
 
@@ -319,7 +349,7 @@ def load_tonic(tonic_path):
             If `None`, looks for the data in the default directory, `~/mir_datasets`
 
     Returns:
-        (int): {`tonic`: tonic annotation}
+        (int): Tonic annotation in Hz
     """
     if not os.path.exists(tonic_path):
         raise IOError("tonic_path {} does not exist".format(tonic_path))
@@ -515,23 +545,28 @@ TODO
     print(cite_data)
 
 
-'''
 def main():
     data_home = '/Users/genisplaja/Desktop/genis-datasets/saraga1.0'
     ids = track_ids()
     data = load(data_home)
 
-    example_track = data[ids[0]]
-    metadata = _load_metadata(example_track.metadata_path)
-    print(metadata)
-    print(example_track.tonic)
-    print(example_track.pitch)
-    print(example_track.bpm)
-    print(example_track.sama)
-    print(example_track.sections)
-    print(example_track.phrases)
+    track_carnatic = data[ids[0]]
+    track_hindustani = data[ids[-1]]
+    metadata_carnatic = _load_metadata(track_carnatic.metadata_path)
+    metadata_hindustani = _load_metadata(track_hindustani.metadata_path)
+    print(metadata_carnatic)
+    print(track_carnatic)
+    print(metadata_hindustani)
+    print(track_hindustani)
+    '''
+    print(track_carnatic.tonic)
+    print(track_carnatic.pitch)
+    print(track_carnatic.bpm)
+    print(track_carnatic.sama)
+    print(track_carnatic.sections)
+    print(track_carnatic.phrases)
+    '''
 
 
 if __name__ == '__main__':
     main()
-'''
