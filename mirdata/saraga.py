@@ -14,7 +14,9 @@ from mirdata import jams_utils
 from mirdata import track
 from mirdata import utils
 
+
 DATASET_DIR = 'Saraga'
+
 
 REMOTES = {
     'all': download_utils.RemoteFileMetadata(
@@ -59,7 +61,7 @@ DATA = utils.LargeData('saraga_index.json', _load_metadata)
 
 
 class Track(track.Track):
-    """salami Track class
+    """Saraga Track class
 
     Args:
         track_id (str): track id of the track
@@ -67,8 +69,7 @@ class Track(track.Track):
             If `None`, looks for the data in the default directory, `~/mir_datasets`
 
     Attributes:
-
-
+        TODO
     """
 
     def __init__(self, track_id, data_home=None):
@@ -82,6 +83,9 @@ class Track(track.Track):
 
         self._data_home = data_home
         self._track_paths = DATA.index[track_id]
+
+        # Audio path
+        self.audio_path = os.path.join(self._data_home, self._track_paths['audio'][0])
 
         # Annotation paths
         self.ctonic_path = utils.none_path_join(
@@ -127,11 +131,14 @@ class Track(track.Track):
                 'artists': None,
             }
 
-        self.audio_path = os.path.join(self._data_home, self._track_paths['audio'][0])
+        self.raaga = self._track_metadata['raaga']
+        self.identifier = self._track_metadata['mbid']
+        self.title = self._track_metadata['title']
+        self.artists = self._track_metadata['artists']
 
     @utils.cached_property
     def tonic(self):
-        """String: tonic annotation"""
+        """Integer: tonic annotation"""
         if self.ctonic_path is None:
             return None
         return load_tonic(self.ctonic_path)
@@ -148,11 +155,11 @@ class Track(track.Track):
         """F0Data: pitch vocal annotations"""
         if self.pitch_vocal_path is None:
             return None
-        return load_pitch_vocal(self.pitch_vocal_path)
+        return load_pitch(self.pitch_vocal_path)
 
     @utils.cached_property
     def bpm(self):
-        """SectionData: annotations in hierarchy level 1 from annotator 2"""
+        """TempoData: tempo annotations"""
         if self.bpm_path is None:
             return None
         return load_bpm(self.bpm_path)
@@ -194,7 +201,16 @@ class Track(track.Track):
         """Jams: the track's data in jams format"""
         return jams_utils.jams_converter(
             audio_path=self.audio_path,
-            metadata=self._track_metadata,
+            f0_data=[(self.pitch, 'pitch'), (self.pitch_vocal, 'pitch vocal')],
+            tempo_data=[(self.bpm, 'bpm tempo')],
+            section_data=[(self.sama, 'sama'), (self.sections, 'sections'), (self.phrases, 'phrases')],
+            metadata={
+                'raaga': self.raaga,
+                'identifier': self.identifier,
+                'title': self.title,
+                'artists': self.artists,
+                'tonic': self.tonic
+            }
         )
 
 
@@ -232,17 +248,7 @@ def download(data_home=None, force_overwrite=False, cleanup=True):
     if data_home is None:
         data_home = utils.get_default_dataset_path(DATASET_DIR)
 
-    info_message = """
-        Unfortunately the audio files of the Salami dataset are not available
-        for download. If you have the Salami dataset, place the contents into a
-        folder called Salami with the following structure:
-            > Salami/
-                > salami-data-public-hierarchy-corrections/
-                > audio/
-        and copy the Salami folder to {}
-    """.format(
-        data_home
-    )
+    info_message = 'TODO'
 
     download_utils.downloader(
         data_home,
@@ -305,106 +311,160 @@ def load(data_home=None):
     return data
 
 
-def load_tonic(sections_path):
+def load_tonic(tonic_path):
     """Load tonic
 
     Args:
-        data_home (str): Local path where the dataset is stored.
+        tonic_path (str): Local path where the tonic path is stored.
             If `None`, looks for the data in the default directory, `~/mir_datasets`
 
     Returns:
-        (dict): {`track_id`: track data}
-
+        (int): {`tonic`: tonic annotation}
     """
+    if not os.path.exists(tonic_path):
+        raise IOError("tonic_path {} does not exist".format(tonic_path))
+
+    with open(tonic_path, 'r') as reader:
+        return reader.readline()
 
 
 def load_pitch(pitch_path):
-    """Load tonic
+    """Load pitch
 
     Args:
-        data_home (str): Local path where the dataset is stored.
+        pitch path (str): Local path where the pitch annotation is stored.
             If `None`, looks for the data in the default directory, `~/mir_datasets`
 
     Returns:
-        (dict): {`track_id`: track data}
-
+        F0Data: pitch annotation
     """
+    if not os.path.exists(pitch_path):
+        raise IOError("melody_path {} does not exist".format(pitch_path))
 
+    times = []
+    freqs = []
+    with open(pitch_path, 'r') as reader:
+        for line in reader.readlines():
+            times.append(float(line.split('\t')[0]))
+            freqs.append(float(line.split('\t')[1]))
 
-def load_pitch_vocal(pitch_vocal_path):
-    """Load tonic
-
-    Args:
-        data_home (str): Local path where the dataset is stored.
-            If `None`, looks for the data in the default directory, `~/mir_datasets`
-
-    Returns:
-        (dict): {`track_id`: track data}
-
-    """
+    times = np.array(times)
+    freqs = np.array(freqs)
+    confidence = (freqs > 0).astype(float)
+    return utils.F0Data(times, freqs, confidence)
 
 
 def load_bpm(bpm_path):
-    """Load tonic
+    """Load bpm tempo
 
     Args:
-        data_home (str): Local path where the dataset is stored.
+        bpm_path (str): Local path where the bpm tempo is stored.
             If `None`, looks for the data in the default directory, `~/mir_datasets`
 
     Returns:
-        (dict): {`track_id`: track data}
-
+        TempoData: bpm tempo annotation
     """
+    if not os.path.exists(bpm_path):
+        raise IOError("bpm_path {} does not exist".format(bpm_path))
+
+    tempo = []
+    start_times = []
+    duration = []
+    confidence = []
+    with open(bpm_path, 'r') as reader:
+        for line in reader.readlines():
+            tempo.append(float(line.split(',')[0]))
+            start_times.append(float(line.split(',')[1]))
+            duration.append(float(line.split(',')[2]) - float(line.split(',')[1]))
+            confidence.append(1.) if line.split(',')[0] is not None else confidence.append(0.)
+
+    if not tempo:
+        return None
+
+    return utils.TempoData(
+        np.array(start_times),
+        np.array(duration),
+        np.array(tempo),
+        np.array(confidence)
+    )
 
 
+'''
 def load_tempo(tempo_path):
-    """Load tonic
+    """Load tempo
 
     Args:
-        data_home (str): Local path where the dataset is stored.
+        tempo_path (str): Local path where the tempo annotation is stored.
             If `None`, looks for the data in the default directory, `~/mir_datasets`
 
     Returns:
         (dict): {`track_id`: track data}
 
     """
+'''
 
 
 def load_sama(sama_path):
-    """Load tonic
+    """Load sama
 
     Args:
-        data_home (str): Local path where the dataset is stored.
+        sama_path (str): Local path where the sama annotation is stored.
             If `None`, looks for the data in the default directory, `~/mir_datasets`
 
     Returns:
-        (dict): {`track_id`: track data}
+        SectionData: sama annotation
 
     """
+    if not os.path.exists(sama_path):
+        raise IOError("sama_path {} does not exist".format(sama_path))
+
+    timestamps = []
+    sama_cycles = []
+    intervals = []
+    with open(sama_path, 'r') as reader:
+        for line in reader.readlines():
+            timestamps.append(float(line))
+
+    for i in np.arange(1, len(timestamps)):
+        intervals.append([timestamps[i], timestamps[i-1]])
+        sama_cycles.append('Sama cycle ' + str(i))
+
+    if not intervals:
+        return None
+
+    return utils.SectionData(
+            np.array(intervals),
+            np.array(sama_cycles)
+        )
 
 
 def load_sections(sections_path):
-    if sections_path is None:
-        return None
+    """Load sections
 
+    Args:
+        sections_path (str): Local path where the section annotation is stored.
+            If `None`, looks for the data in the default directory, `~/mir_datasets`
+
+    Returns:
+        SectionData: section annotation
+
+    """
     if not os.path.exists(sections_path):
         raise IOError("sections_path {} does not exist".format(sections_path))
 
-    times = []
-    secs = []
-    with open(sections_path, 'r') as fhandle:
-        reader = csv.reader(fhandle, delimiter='\t')
-        for line in reader:
-            times.append(float(line[0]))
-            secs.append(line[1])
-    times = np.array(times)
-    secs = np.array(secs)
+    intervals = []
+    section_labels = []
+    with open(sections_path, 'r') as reader:
+        for line in reader.readlines():
+            intervals.append([float(line.split('\t')[0]), float(line.split('\t')[0]) + float(line.split('\t')[2])])
+            section_labels.append(str(line.split('\t')[3].split('\n')[0]) + ' (' + str(line.split('\t')[1]) + ')')
 
-    # remove sections with length == 0
-    times_revised = np.delete(times, np.where(np.diff(times) == 0))
-    secs_revised = np.delete(secs, np.where(np.diff(times) == 0))
+    if not intervals:
+        return None
+
     return utils.SectionData(
-        np.array([times_revised[:-1], times_revised[1:]]).T, list(secs_revised[:-1])
+        np.array(intervals),
+        np.array(section_labels)
     )
 
 
@@ -412,14 +472,33 @@ def load_phrases(phrases_path):
     """Load tonic
 
     Args:
-        data_home (str): Local path where the dataset is stored.
+        phrases_path (str): Local path where the phrase annotation is stored.
             If `None`, looks for the data in the default directory, `~/mir_datasets`
 
     Returns:
-        (dict): {`track_id`: track data}
+        EventData: phrases annotation
 
     """
-    print('hola')
+    if not os.path.exists(phrases_path):
+        raise IOError("sections_path {} does not exist".format(phrases_path))
+
+    start_times = []
+    end_times = []
+    events = []
+    with open(phrases_path, 'r') as reader:
+        for line in reader.readlines():
+            start_times.append(float(line.split('\t')[0]))
+            end_times.append(float(line.split('\t')[0]) + float(line.split('\t')[2]))
+            events.append(str(line.split('\t')[3].split('\n')[0]) + ' (' + str(line.split('\t')[1]) + ')')
+
+    if not start_times:
+        return None
+
+    return utils.EventData(
+        np.array(start_times),
+        np.array(end_times),
+        np.array(events)
+    )
 
 
 def cite():
@@ -427,34 +506,32 @@ def cite():
 
     cite_data = """
 ===========  MLA ===========
-Smith, Jordan Bennett Louis, et al.,
-"Design and creation of a large-scale database of structural annotations",
-12th International Society for Music Information Retrieval Conference (2011)
+TODO
 
 ========== Bibtex ==========
-@inproceedings{smith2011salami,
-    title={Design and creation of a large-scale database of structural annotations.},
-    author={Smith, Jordan Bennett Louis and Burgoyne, John Ashley and
-          Fujinaga, Ichiro and De Roure, David and Downie, J Stephen},
-    booktitle={12th International Society for Music Information Retrieval Conference},
-    year={2011},
-    series = {ISMIR},
-}
+@inproceedings{TODO}
 """
 
     print(cite_data)
 
 
+'''
 def main():
     data_home = '/Users/genisplaja/Desktop/genis-datasets/saraga1.0'
     ids = track_ids()
     data = load(data_home)
 
     example_track = data[ids[0]]
-    print(example_track.metadata_path)
     metadata = _load_metadata(example_track.metadata_path)
     print(metadata)
+    print(example_track.tonic)
+    print(example_track.pitch)
+    print(example_track.bpm)
+    print(example_track.sama)
+    print(example_track.sections)
+    print(example_track.phrases)
 
 
 if __name__ == '__main__':
     main()
+'''
