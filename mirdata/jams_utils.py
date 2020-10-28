@@ -35,7 +35,7 @@ def jams_converter(
         the audio file will be read to compute the duration. If None,
         'duration' must be a field in the metadata dictionary, or the
         resulting jam object will not validate.
-    spectrum_path (str or None):
+    spectrum_cante100_path (str or None):
         A path to the corresponding spectrum file, or None.
     beat_data (list or None):
         A list of tuples of (BeatData, str), where str describes the annotation (e.g. 'beats_1').
@@ -87,24 +87,8 @@ def jams_converter(
                 + 'to compute duration.'
             )
     if spectrum_cante100_path is not None:
-        duration = metadata['duration']
-        print(metadata['title'])
-        """
-        if os.path.exists(spectrum_cante100_path):
-            with open(spectrum_cante100_path, 'r') as csvfile:
-                reader = csv.reader(csvfile, delimiter=' ', quotechar='\n')
-                time_stamps = []
-                for row in reader:
-                    time_stamps.append(float(row[0]))
-
-                duration = time_stamps[-1] + (abs(time_stamps[-1] - time_stamps[-2]))
-        else:
-            raise OSError(
-                'jams conversion failed because the spectrum file '
-                + 'for this track cannot be found, and it is required'
-                + 'to compute duration.'
-            )
-        """
+        if audio_path is None:
+            duration = metadata['duration']
 
     # metadata
     if metadata is not None:
