@@ -23,6 +23,8 @@ def test_track():
     expected_attributes = {
         'artist': 'Toronjo',
         'duration': 179.0,
+        'audio_path': 'tests/resources/mir_datasets/cante100/cante100audio/008_PacoToronjo_'
+        + 'Fandangos.mp3',
         'f0_path': 'tests/resources/mir_datasets/cante100/cante100midi_f0/008_PacoToronjo_'
         + 'Fandangos.f0.csv',
         'identifier': '4eebe839-82bb-426e-914d-7c4525dd9dad',
@@ -36,11 +38,15 @@ def test_track():
     }
 
     expected_property_types = {
-        'f0': utils.F0Data,
+        'melody': utils.F0Data,
         'notes': utils.NoteData
     }
 
     run_track_tests(track, expected_attributes, expected_property_types)
+
+    audio, sr = track.audio
+    assert sr == 22050
+    assert audio.shape == (2, 3956358)
 
 
 def test_to_jams():

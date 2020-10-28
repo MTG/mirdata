@@ -1,5 +1,9 @@
 {
   "001": {
+    "audio": [
+      "cante100audio/001_FernandoTerremoto_Fandangos.mp3",
+      "df344813865278a9c7c96750589d66b1"
+    ],
     "spectrum": [
       "cante100_spectrum/001_FernandoTerremoto_Fandangos.spectrum.csv",
       "40766f2388f98d8cc65b9e8529c856ba"
@@ -14,6 +18,10 @@
     ]
   },
   "002": {
+    "audio": [
+      "cante100audio/002_ManuelSotoSordera_Fandangos.mp3",
+      "87a390575a2db77e69a1792cb9a63e25"
+    ],
     "spectrum": [
       "cante100_spectrum/002_ManuelSotoSordera_Fandangos.spectrum.csv",
       "8e5c155fb222fd3ede98373145719e64"
@@ -28,6 +36,10 @@
     ]
   },
   "003": {
+    "audio": [
+      "cante100audio/003_RafaelRomero_Fandangos.mp3",
+      "96e21944f61f5e127759c00725cfd298"
+    ],
     "spectrum": [
       "cante100_spectrum/003_RafaelRomero_Fandangos.spectrum.csv",
       "2d9d6ab13be871bedc95a18c293813ca"
@@ -42,6 +54,10 @@
     ]
   },
   "004": {
+    "audio": [
+      "cante100audio/004_ManuelSotoSordera_Fandangos.mp3",
+      "0146929b7c8740e467c91e7162735e8b"
+    ],
     "spectrum": [
       "cante100_spectrum/004_ManuelSotoSordera_Fandangos.spectrum.csv",
       "17b5dc22d11da87d31e4120102361ef2"
@@ -56,6 +72,10 @@
     ]
   },
   "005": {
+    "audio": [
+      "cante100audio/005_Fosforito_Fandangos.mp3",
+      "b3fcd922c5c87066032aeb43a3546ecf"
+    ],
     "spectrum": [
       "cante100_spectrum/005_Fosforito_Fandangos.spectrum.csv",
       "b5ee8c9dc43b29dec7d202b8d78a32af"
@@ -70,6 +90,10 @@
     ]
   },
   "006": {
+    "audio": [
+      "cante100audio/006_Camaron_Fandangos.mp3",
+      "c3afeeb7f0d60b80fe166e31a6824c44"
+    ],
     "spectrum": [
       "cante100_spectrum/006_Camaron_Fandangos.spectrum.csv",
       "cec01f8c9bfae86081bc2294a56eab93"
@@ -84,6 +108,10 @@
     ]
   },
   "007": {
+    "audio": [
+      "cante100audio/007_PacoToronjo_Fandangos.mp3",
+      "76a13ab9d4bb72fe9ca4d42a48717808"
+    ],
     "spectrum": [
       "cante100_spectrum/007_PacoToronjo_Fandangos.spectrum.csv",
       "2e411bed9d4a70cb81cde76173e1863e"
@@ -98,6 +126,10 @@
     ]
   },
   "008": {
+    "audio": [
+      "cante100audio/008_PacoToronjo_Fandangos.mp3",
+      "b5dad642d72a4ca4f6a09d6b48068a78"
+    ],
     "spectrum": [
       "cante100_spectrum/008_PacoToronjo_Fandangos.spectrum.csv",
       "8b884013ea30a208da7df94423fbb42c"
@@ -112,6 +144,10 @@
     ]
   },
   "009": {
+    "audio": [
+      "cante100audio/009_ChatoDeLaIsla_Fandangos.mp3",
+      "085058829b8734455c2d6c6cd8659493"
+    ],
     "spectrum": [
       "cante100_spectrum/009_ChatoDeLaIsla_Fandangos.spectrum.csv",
       "a8abea5520fdcbb6a7169d87a4b732a9"
@@ -126,6 +162,10 @@
     ]
   },
   "010": {
+    "audio": [
+      "cante100audio/010_ManoloCaracol_Fandangos.mp3",
+      "1cc4b0657b9819a4907bd4343b2e10b3"
+    ],
     "spectrum": [
       "cante100_spectrum/010_ManoloCaracol_Fandangos.spectrum.csv",
       "e0510ad6fc9ab07c19fbc4e617d9bca7"
@@ -140,6 +180,10 @@
     ]
   },
   "011": {
+    "audio": [
+      "cante100audio/011_AntonioMairena_TientosTangos.mp3",
+      "b654ffcbda5ec26929128960f5bfbb0c"
+    ],
     "spectrum": [
       "cante100_spectrum/011_AntonioMairena_TientosTangos.spectrum.csv",
       "bdaa75b51b51599f29d9e6e6446c3a3d"
@@ -154,6 +198,10 @@
     ]
   },
   "012": {
+    "audio": [
+      "cante100audio/012_AurelioSelles_TientosTangos.mp3",
+      "804b2a8b2fa0af5bdc62c95aa251fbcb"
+    ],
     "spectrum": [
       "cante100_spectrum/012_AurelioSelles_TientosTangos.spectrum.csv",
       "88fc9f1f0f6a31007856162151ebaace"
@@ -168,6 +216,10 @@
     ]
   },
   "013": {
+    "audio": [
+      "cante100audio/013_ManuelSotoSordera_TientosTangos.mp3",
+      "05a32bcc39e13d79af6e211c2ddab4e2"
+    ],
     "spectrum": [
       "cante100_spectrum/013_ManuelSotoSordera_TientosTangos.spectrum.csv",
       "2568460363acbc5f94adad4e4ef7d8bc"
@@ -182,6 +234,10 @@
     ]
   },
   "014": {
+    "audio": [
+      "cante100audio/014_FernandoTerremoto_TientosTangos.mp3",
+      "e052050c0e78e18ba037558516648ec4"
+    ],
     "spectrum": [
       "cante100_spectrum/014_FernandoTerremoto_TientosTangos.spectrum.csv",
       "adddbb47d4cf56ee0e9342ce79f77e06"
@@ -196,6 +252,10 @@
     ]
   },
   "015": {
+    "audio": [
+      "cante100audio/015_LuisTorresJoselero_TientosTangos.mp3",
+      "7ed8f1846ea3d542e2ada3da592a15db"
+    ],
     "spectrum": [
       "cante100_spectrum/015_LuisTorresJoselero_TientosTangos.spectrum.csv",
       "ccdb0af9e9c611dc2f5a255b642982d9"
@@ -210,6 +270,10 @@
     ]
   },
   "016": {
+    "audio": [
+      "cante100audio/016_DiegoClavel_TientosTangos.mp3",
+      "8ab22f8644ed3896acfd4c2283594927"
+    ],
     "spectrum": [
       "cante100_spectrum/016_DiegoClavel_TientosTangos.spectrum.csv",
       "e2f262284ea2112aa2589bbe1f387eee"
@@ -224,6 +288,10 @@
     ]
   },
   "017": {
+    "audio": [
+      "cante100audio/017_ManuelSotoSordera_TientosTangos.mp3",
+      "a48e97035ac4ae8d80c56f7089e60912"
+    ],
     "spectrum": [
       "cante100_spectrum/017_ManuelSotoSordera_TientosTangos.spectrum.csv",
       "66bcee1cfdae21e10da6540c0ae372dd"
@@ -238,6 +306,10 @@
     ]
   },
   "018": {
+    "audio": [
+      "cante100audio/018_GabrielMoreno_TientosTangos.mp3",
+      "260e29ad08d709b9322b4ee3d95085c1"
+    ],
     "spectrum": [
       "cante100_spectrum/018_GabrielMoreno_TientosTangos.spectrum.csv",
       "c75d52579f5dd6063dd1d3f6978d70ba"
@@ -252,6 +324,10 @@
     ]
   },
   "019": {
+    "audio": [
+      "cante100audio/019_Fosforito_TientosTangos.mp3",
+      "9e17822fc2640150fbdacb27a1ed285a"
+    ],
     "spectrum": [
       "cante100_spectrum/019_Fosforito_TientosTangos.spectrum.csv",
       "3cc1b1950862d197e0761fac3854deb7"
@@ -266,6 +342,10 @@
     ]
   },
   "020": {
+    "audio": [
+      "cante100audio/020_Camaron_TientosTangos.mp3",
+      "87fe54fadf5bdda6437f2635b782dba4"
+    ],
     "spectrum": [
       "cante100_spectrum/020_Camaron_TientosTangos.spectrum.csv",
       "eec772665374241be91e98e073e464b1"
@@ -280,6 +360,10 @@
     ]
   },
   "021": {
+    "audio": [
+      "cante100audio/021_JuanTalega_Soleares.mp3",
+      "21eaf4affaaedf7f0e57920dd4cbde87"
+    ],
     "spectrum": [
       "cante100_spectrum/021_JuanTalega_Soleares.spectrum.csv",
       "8e0cab0f17ac79e2af1bd601390bbee5"
@@ -294,6 +378,10 @@
     ]
   },
   "022": {
+    "audio": [
+      "cante100audio/022_TioGregorioBorrico_Soleares.mp3",
+      "5139e5674689bf358f6fd4f837aa91f1"
+    ],
     "spectrum": [
       "cante100_spectrum/022_TioGregorioBorrico_Soleares.spectrum.csv",
       "28c24460b9b0e0059aaae79e389f4964"
@@ -308,6 +396,10 @@
     ]
   },
   "023": {
+    "audio": [
+      "cante100audio/023_PerrateDeUtrera_Soleares.mp3",
+      "6af82820ae5010334ff3016e0025644e"
+    ],
     "spectrum": [
       "cante100_spectrum/023_PerrateDeUtrera_Soleares.spectrum.csv",
       "45d60a95d7383dbd5bf61eca5603a42f"
@@ -322,6 +414,10 @@
     ]
   },
   "024": {
+    "audio": [
+      "cante100audio/024_LuisTorresJoselero_Soleares.mp3",
+      "943d0b12563a167d9e7503458cd92274"
+    ],
     "spectrum": [
       "cante100_spectrum/024_LuisTorresJoselero_Soleares.spectrum.csv",
       "1eee0d86a0f1ba4bc953d9b49e491fba"
@@ -336,6 +432,10 @@
     ]
   },
   "025": {
+    "audio": [
+      "cante100audio/025_SantiagoDanday_Soleares.mp3",
+      "f59f1ebe4d5b006bb7362ba8089e63a9"
+    ],
     "spectrum": [
       "cante100_spectrum/025_SantiagoDanday_Soleares.spectrum.csv",
       "078312b47ef3ce43c93ffe48d74de0b2"
@@ -350,6 +450,10 @@
     ]
   },
   "026": {
+    "audio": [
+      "cante100audio/026_FernandoTerremoto_Soleares.mp3",
+      "1fcdb737be15731fd1aebda2e677a09b"
+    ],
     "spectrum": [
       "cante100_spectrum/026_FernandoTerremoto_Soleares.spectrum.csv",
       "d65c75e5d0c50ead7f4997326d8f1e59"
@@ -364,6 +468,10 @@
     ]
   },
   "027": {
+    "audio": [
+      "cante100audio/027_ManuelSotoSordero_Soleares.mp3",
+      "2a22738b199293968324f1028a48525e"
+    ],
     "spectrum": [
       "cante100_spectrum/027_ManuelSotoSordero_Soleares.spectrum.csv",
       "54eea221f0168396b6696de08232fdf7"
@@ -378,6 +486,10 @@
     ]
   },
   "028": {
+    "audio": [
+      "cante100audio/028_TiaAnicaLaPirinaca_Soleares.mp3",
+      "cae69692da91cd4b9743c52c2fb398d9"
+    ],
     "spectrum": [
       "cante100_spectrum/028_TiaAnicaLaPirinaca_Soleares.spectrum.csv",
       "3c057c25b4aa09427bbb5fd16050bd51"
@@ -392,6 +504,10 @@
     ]
   },
   "029": {
+    "audio": [
+      "cante100audio/029_JoseMenese_Soleares.mp3",
+      "08181382bd1818d436f24b5f4689208d"
+    ],
     "spectrum": [
       "cante100_spectrum/029_JoseMenese_Soleares.spectrum.csv",
       "a74d97f1b5205c132297ba9afd37f2b1"
@@ -406,6 +522,10 @@
     ]
   },
   "030": {
+    "audio": [
+      "cante100audio/030_AntonioMairena_Soleares.mp3",
+      "5809357381f038e2d48dafce799664d2"
+    ],
     "spectrum": [
       "cante100_spectrum/030_AntonioMairena_Soleares.spectrum.csv",
       "c73793d652d87c0f20d75b887d81b065"
@@ -420,6 +540,10 @@
     ]
   },
   "031": {
+    "audio": [
+      "cante100audio/031_ManuelAgujetas_Seguiriyas.mp3",
+      "ed77c7b51e46747cf870c482965d4545"
+    ],
     "spectrum": [
       "cante100_spectrum/031_ManuelAgujetas_Seguiriyas.spectrum.csv",
       "38345e0f4ccab4f11e5964c01f7add09"
@@ -434,6 +558,10 @@
     ]
   },
   "032": {
+    "audio": [
+      "cante100audio/032_FernandoTerremoto_Seguiriyas.mp3",
+      "ce22aa0c214c1d6c8212c2af174c46f4"
+    ],
     "spectrum": [
       "cante100_spectrum/032_FernandoTerremoto_Seguiriyas.spectrum.csv",
       "a6d16c5e9bae8d1f33c3b6f793558cfc"
@@ -448,6 +576,10 @@
     ]
   },
   "033": {
+    "audio": [
+      "cante100audio/033_ManuelAgujetas_Seguiriyas.mp3",
+      "54904414973855596004638b2422bd43"
+    ],
     "spectrum": [
       "cante100_spectrum/033_ManuelAgujetas_Seguiriyas.spectrum.csv",
       "120ed9244f9b8c1b73cb1fe16f3a3f34"
@@ -462,6 +594,10 @@
     ]
   },
   "034": {
+    "audio": [
+      "cante100audio/034_JoseMenese_Seguiriyas.mp3",
+      "9e3a66aa987eb861ea9c2b4366fd5504"
+    ],
     "spectrum": [
       "cante100_spectrum/034_JoseMenese_Seguiriyas.spectrum.csv",
       "e44b22f17863106fb9f619b29ed585e1"
@@ -476,6 +612,10 @@
     ]
   },
   "035": {
+    "audio": [
+      "cante100audio/035_DiegoClavel_Seguiriyas.mp3",
+      "37004520ea5df3f2730448e83e2afcf7"
+    ],
     "spectrum": [
       "cante100_spectrum/035_DiegoClavel_Seguiriyas.spectrum.csv",
       "bd480562985486f60f583966729ea4e3"
@@ -490,6 +630,10 @@
     ]
   },
   "036": {
+    "audio": [
+      "cante100audio/036_JuanTalega_Seguiriyas.mp3",
+      "b0dbd4129c240fd87db0cdc10f05c10f"
+    ],
     "spectrum": [
       "cante100_spectrum/036_JuanTalega_Seguiriyas.spectrum.csv",
       "ae14084e302da2d2dae0ce67badf2416"
@@ -504,6 +648,10 @@
     ]
   },
   "037": {
+    "audio": [
+      "cante100audio/037_TomasTorre_Seguiriyas.mp3",
+      "3ee7ba13959a4e1157582712e9b79117"
+    ],
     "spectrum": [
       "cante100_spectrum/037_TomasTorre_Seguiriyas.spectrum.csv",
       "b788f26e0d2a520b2c69dab6d7a294a0"
@@ -518,6 +666,10 @@
     ]
   },
   "038": {
+    "audio": [
+      "cante100audio/038_TiaAnicaLaPirinaca_Seguiriyas.mp3",
+      "4576a7371c0e946263b142c456c07957"
+    ],
     "spectrum": [
       "cante100_spectrum/038_TiaAnicaLaPirinaca_Seguiriyas.spectrum.csv",
       "b9fe38d11f93840e7f322b6035cf0fe3"
@@ -532,6 +684,10 @@
     ]
   },
   "039": {
+    "audio": [
+      "cante100audio/039_AntonioMairena_Seguiriyas.mp3",
+      "5809357381f038e2d48dafce799664d2"
+    ],
     "spectrum": [
       "cante100_spectrum/039_AntonioMairena_Seguiriyas.spectrum.csv",
       "c73793d652d87c0f20d75b887d81b065"
@@ -546,6 +702,10 @@
     ]
   },
   "040": {
+    "audio": [
+      "cante100audio/040_AurelioSelles_Seguiriyas.mp3",
+      "6a62d262114c275098503fc38e270030"
+    ],
     "spectrum": [
       "cante100_spectrum/040_AurelioSelles_Seguiriyas.spectrum.csv",
       "0fbfa64a298c251c1a779c96824df2ae"
@@ -560,6 +720,10 @@
     ]
   },
   "041": {
+    "audio": [
+      "cante100audio/041_ElLebrijano_Alegrias.mp3",
+      "f90071da528fa9bdcb15b881a0de7a00"
+    ],
     "spectrum": [
       "cante100_spectrum/041_ElLebrijano_Alegrias.spectrum.csv",
       "0e7aa368d664352f84203a8396a24541"
@@ -574,6 +738,10 @@
     ]
   },
   "042": {
+    "audio": [
+      "cante100audio/042_AntonioMairena_Alegrias.mp3",
+      "a46c607d2d10d1e323f2c0954ffddf79"
+    ],
     "spectrum": [
       "cante100_spectrum/042_AntonioMairena_Alegrias.spectrum.csv",
       "b125154b7fe2e1b261dba7c4d0a48775"
@@ -588,6 +756,10 @@
     ]
   },
   "043": {
+    "audio": [
+      "cante100audio/043_ElBeniDeCadiz_Alegrias.mp3",
+      "89d11a95eac1676a1e00931425d0a5d7"
+    ],
     "spectrum": [
       "cante100_spectrum/043_ElBeniDeCadiz_Alegrias.spectrum.csv",
       "f7ed77c3003c021d4885218f98019101"
@@ -602,6 +774,10 @@
     ]
   },
   "044": {
+    "audio": [
+      "cante100audio/044_ManuelSotoSordera_Alegrias.mp3",
+      "27a047e243c57c6170b7e123b8b6854e"
+    ],
     "spectrum": [
       "cante100_spectrum/044_ManuelSotoSordera_Alegrias.spectrum.csv",
       "d95cd61ca3e3a5d1057b1de8e8948724"
@@ -616,6 +792,10 @@
     ]
   },
   "045": {
+    "audio": [
+      "cante100audio/045_AntonioMairena_Alegrias.mp3",
+      "2cd439ca4f7466d5977d0ecd4d1d9f7e"
+    ],
     "spectrum": [
       "cante100_spectrum/045_AntonioMairena_Alegrias.spectrum.csv",
       "52340e1e96b914609187219046b15ceb"
@@ -630,6 +810,10 @@
     ]
   },
   "046": {
+    "audio": [
+      "cante100audio/046_ManuelSotoSordera_Alegrias.mp3",
+      "249ea478a38ef6adb3337ace7f81e56c"
+    ],
     "spectrum": [
       "cante100_spectrum/046_ManuelSotoSordera_Alegrias.spectrum.csv",
       "738c4e2e8d3267aad28619d2479b778d"
@@ -644,6 +828,10 @@
     ]
   },
   "047": {
+    "audio": [
+      "cante100audio/047_ManuelAgujetas_Alegrias.mp3",
+      "114ad107fb1bba14b4624245f420db48"
+    ],
     "spectrum": [
       "cante100_spectrum/047_ManuelAgujetas_Alegrias.spectrum.csv",
       "c01a1cbc5d8fb86cef93272537e3b244"
@@ -658,6 +846,10 @@
     ]
   },
   "048": {
+    "audio": [
+      "cante100audio/048_MariaVargas_Alegrias.mp3",
+      "fb5dda54c854f02276f87f176400bb8a"
+    ],
     "spectrum": [
       "cante100_spectrum/048_MariaVargas_Alegrias.spectrum.csv",
       "947967ebf44ebdac2b5b7dd9e31973c7"
@@ -672,6 +864,10 @@
     ]
   },
   "049": {
+    "audio": [
+      "cante100audio/049_Camaron_Alegrias.mp3",
+      "b2247fbc323f5c758dc8454d6a321e6b"
+    ],
     "spectrum": [
       "cante100_spectrum/049_Camaron_Alegrias.spectrum.csv",
       "c4b70473467eb7dd60addfeb0fe26a81"
@@ -686,6 +882,10 @@
     ]
   },
   "050": {
+    "audio": [
+      "cante100audio/050_Fosforito_Alegrias.mp3",
+      "21e0a72a49e9f75214f93eaa7daac96e"
+    ],
     "spectrum": [
       "cante100_spectrum/050_Fosforito_Alegrias.spectrum.csv",
       "d43d9de5bfe69ddbac7c4aeb28ba031c"
@@ -700,6 +900,10 @@
     ]
   },
   "051": {
+    "audio": [
+      "cante100audio/051_BernardaDeUtrera_Buerias.mp3",
+      "e769474df6fc9416b5fb8049bcfc3d6d"
+    ],
     "spectrum": [
       "cante100_spectrum/051_BernardaDeUtrera_Buerias.spectrum.csv",
       "40bbdfd91c1a1b48e40ad1420a23b015"
@@ -714,6 +918,10 @@
     ]
   },
   "052": {
+    "audio": [
+      "cante100audio/052_ElTurronero_Bulerias.mp3",
+      "c0e56d7e89a5e00f7e3a649845752e59"
+    ],
     "spectrum": [
       "cante100_spectrum/052_ElTurronero_Bulerias.spectrum.csv",
       "2c0ae051e2e40aa9627b4ff56b1c731e"
@@ -728,6 +936,10 @@
     ]
   },
   "053": {
+    "audio": [
+      "cante100audio/053_FernandoTerremoto_Bulerias.mp3",
+      "77c07229fd397667c96c4a47f7b2e409"
+    ],
     "spectrum": [
       "cante100_spectrum/053_FernandoTerremoto_Bulerias.spectrum.csv",
       "61cb51fe36f4ada64fee5e78e1b94610"
@@ -742,6 +954,10 @@
     ]
   },
   "054": {
+    "audio": [
+      "cante100audio/054_FernandaDeUtrera_Bulerias.mp3",
+      "010065a533f2518adcf3c0e8bfbc27e5"
+    ],
     "spectrum": [
       "cante100_spectrum/054_FernandaDeUtrera_Bulerias.spectrum.csv",
       "429ec9779dc03a86b4b9b7a594921cf1"
@@ -756,6 +972,10 @@
     ]
   },
   "055": {
+    "audio": [
+      "cante100audio/055_PericonDeCadiz_Bulerias.mp3",
+      "40da92e64a2e76fe17a2e1c5817a7e7e"
+    ],
     "spectrum": [
       "cante100_spectrum/055_PericonDeCadiz_Bulerias.spectrum.csv",
       "6d258dc8984a5ed7c28ef48d12f447a9"
@@ -770,6 +990,10 @@
     ]
   },
   "056": {
+    "audio": [
+      "cante100audio/056_LaPerlaDeCadiz_Bulerias.mp3",
+      "9612694f8de6b5e1705bb9444bf4f21e"
+    ],
     "spectrum": [
       "cante100_spectrum/056_LaPerlaDeCadiz_Bulerias.spectrum.csv",
       "178c6e7422c6ad8ffa349dbfbaf9fa72"
@@ -784,6 +1008,10 @@
     ]
   },
   "057": {
+    "audio": [
+      "cante100audio/057_TerremotoDeJerez_Bulerias.mp3",
+      "8d41c6377d4baf779ed47e8347d1ab74"
+    ],
     "spectrum": [
       "cante100_spectrum/057_TerremotoDeJerez_Bulerias.spectrum.csv",
       "2709474e4a6643236878b462ad26e770"
@@ -798,6 +1026,10 @@
     ]
   },
   "058": {
+    "audio": [
+      "cante100audio/058_LaPaqueraDeJerez_Bulerias.mp3",
+      "f839eee5eb547f25a8286a535a28cb16"
+    ],
     "spectrum": [
       "cante100_spectrum/058_LaPaqueraDeJerez_Bulerias.spectrum.csv",
       "0041f91822be57ce2a2b1d867a7fb6ca"
@@ -812,6 +1044,10 @@
     ]
   },
   "059": {
+    "audio": [
+      "cante100audio/059_AntonioMairena_Buleria.mp3",
+      "8342241c92627fdad160fc66a3f927b8"
+    ],
     "spectrum": [
       "cante100_spectrum/059_AntonioMairena_Buleria.spectrum.csv",
       "d92c4c03cae0b151c161dac5cf34867b"
@@ -826,6 +1062,10 @@
     ]
   },
   "060": {
+    "audio": [
+      "cante100audio/060_CarmenLinares_Bulerias.mp3",
+      "1d3e10290cf6bd53e014458a9c247e15"
+    ],
     "spectrum": [
       "cante100_spectrum/060_CarmenLinares_Bulerias.spectrum.csv",
       "95725f03028cd621ce5b8ffc166e2cf6"
@@ -840,6 +1080,10 @@
     ]
   },
   "061": {
+    "audio": [
+      "cante100audio/061_FernandoTerremoto_CantesMineros.mp3",
+      "171589331e6c00845ca93e8f4056d6d7"
+    ],
     "spectrum": [
       "cante100_spectrum/061_FernandoTerremoto_CantesMineros.spectrum.csv",
       "84867e0313ed89ec12c28ddb6b16d10b"
@@ -854,6 +1098,10 @@
     ]
   },
   "062": {
+    "audio": [
+      "cante100audio/062_JoseMenese_CantesMineros.mp3",
+      "3f066965160b4268ae824693f088dd09"
+    ],
     "spectrum": [
       "cante100_spectrum/062_JoseMenese_CantesMineros.spectrum.csv",
       "0e6cc1eb07c8e696e8e93d7b39caa9f8"
@@ -868,6 +1116,10 @@
     ]
   },
   "063": {
+    "audio": [
+      "cante100audio/063_ElLebrijano_CantesMineros.mp3",
+      "81268166569e6b45779190c1184b1329"
+    ],
     "spectrum": [
       "cante100_spectrum/063_ElLebrijano_CantesMineros.spectrum.csv",
       "f27b58251887167ab19ab261e0601e96"
@@ -882,6 +1134,10 @@
     ]
   },
   "064": {
+    "audio": [
+      "cante100audio/064_Camaron_CantesMineros.mp3",
+      "31e471df1f73d33aac03563f821cb969"
+    ],
     "spectrum": [
       "cante100_spectrum/064_Camaron_CantesMineros.spectrum.csv",
       "c84c84b7f8024b4f09aa244672aae568"
@@ -896,6 +1152,10 @@
     ]
   },
   "065": {
+    "audio": [
+      "cante100audio/065_Fosforito_CantesMineros.mp3",
+      "4f480efc6a75685b2f4046b98b279a98"
+    ],
     "spectrum": [
       "cante100_spectrum/065_Fosforito_CantesMineros.spectrum.csv",
       "c813c4f5a4b87e90bb7cd9bc0cfcaa19"
@@ -910,6 +1170,10 @@
     ]
   },
   "066": {
+    "audio": [
+      "cante100audio/066_AntonioPinana_CantesMineros.mp3",
+      "16d3d8705b1354e84d2adc9d7f635c5b"
+    ],
     "spectrum": [
       "cante100_spectrum/066_AntonioPinana_CantesMineros.spectrum.csv",
       "fd2776f1b4e13d271f15cb77310a2ca5"
@@ -924,6 +1188,10 @@
     ]
   },
   "067": {
+    "audio": [
+      "cante100audio/067_AntonioPinana_CantesMineros.mp3",
+      "8ce4c9dddccaf9e8ab93c51c041a63b6"
+    ],
     "spectrum": [
       "cante100_spectrum/067_AntonioPinana_CantesMineros.spectrum.csv",
       "09dd0d5d590c29a1593199eb2c1d4dfe"
@@ -938,6 +1206,10 @@
     ]
   },
   "068": {
+    "audio": [
+      "cante100audio/068_JuanitoValderrama_CantesMineros.mp3",
+      "88110764984b97471a9a389d917aca66"
+    ],
     "spectrum": [
       "cante100_spectrum/068_JuanitoValderrama_CantesMineros.spectrum.csv",
       "b9186050474b7a0d36398ec940318629"
@@ -952,6 +1224,10 @@
     ]
   },
   "069": {
+    "audio": [
+      "cante100audio/069_EnriqueOrozco_CantesMineros.mp3",
+      "e575f9857c35b1e968bd6e1d939dc22a"
+    ],
     "spectrum": [
       "cante100_spectrum/069_EnriqueOrozco_CantesMineros.spectrum.csv",
       "254b870bc0e3cf34791e147b45bd5617"
@@ -966,6 +1242,10 @@
     ]
   },
   "070": {
+    "audio": [
+      "cante100audio/070_LuisDeCordoba_CantesMineros.mp3",
+      "e7f2eeaa668898de22c264b00ada5a3c"
+    ],
     "spectrum": [
       "cante100_spectrum/070_LuisDeCordoba_CantesMineros.spectrum.csv",
       "f9da7ba1717df5d4fa462ce5428f007c"
@@ -980,6 +1260,10 @@
     ]
   },
   "071": {
+    "audio": [
+      "cante100audio/071_PericonDeCadiz_CantesAmericanos.mp3",
+      "3bcf56fb59f379d4e8c19f9d67691c29"
+    ],
     "spectrum": [
       "cante100_spectrum/071_PericonDeCadiz_CantesAmericanos.spectrum.csv",
       "0165614846733864a45fc5f6d320887b"
@@ -994,6 +1278,10 @@
     ]
   },
   "072": {
+    "audio": [
+      "cante100audio/072_AngelDeAlora_CantesAmericanos.mp3",
+      "ada922f7b20e5410e9acc6e6b2cc2802"
+    ],
     "spectrum": [
       "cante100_spectrum/072_AngelDeAlora_CantesAmericanos.spectrum.csv",
       "80e9a6517a7da58ad93c59c53e12666d"
@@ -1008,6 +1296,10 @@
     ]
   },
   "073": {
+    "audio": [
+      "cante100audio/073_Camaron_CantesAmericanos.mp3",
+      "52d60db9ef423e53b6f9fa2149addd99"
+    ],
     "spectrum": [
       "cante100_spectrum/073_Camaron_CantesAmericanos.spectrum.csv",
       "624b136d3f0ad0e62f6cdfc1fb8caf1a"
@@ -1022,6 +1314,10 @@
     ]
   },
   "074": {
+    "audio": [
+      "cante100audio/074_PepeMarchena_CantesAmericanos.mp3",
+      "354c5f5298d5b95a925494d75368fd43"
+    ],
     "spectrum": [
       "cante100_spectrum/074_PepeMarchena_CantesAmericanos.spectrum.csv",
       "d3de566def7023aab839ee13feafc1df"
@@ -1036,6 +1332,10 @@
     ]
   },
   "075": {
+    "audio": [
+      "cante100audio/075_PepeDeLaMatrona_CantesAmericanos.mp3",
+      "b19b044cf92ffa7bd185b7173cd90188"
+    ],
     "spectrum": [
       "cante100_spectrum/075_PepeDeLaMatrona_CantesAmericanos.spectrum.csv",
       "736eee021ff1816ff9273654b81bce1d"
@@ -1050,6 +1350,10 @@
     ]
   },
   "076": {
+    "audio": [
+      "cante100audio/076_LuisDeCordoba_CantesAmericanos.mp3",
+      "18884b00d63a5954fa6b44119cce0712"
+    ],
     "spectrum": [
       "cante100_spectrum/076_LuisDeCordoba_CantesAmericanos.spectrum.csv",
       "41b462c2c329ad2a5cb6cbb93eba1e7c"
@@ -1064,6 +1368,10 @@
     ]
   },
   "077": {
+    "audio": [
+      "cante100audio/077_JunaitoCalderrama_CantesAmericanos.mp3",
+      "5481ec9deb0f1dbaba9678b4dab2d9e2"
+    ],
     "spectrum": [
       "cante100_spectrum/077_JunaitoCalderrama_CantesAmericanos.spectrum.csv",
       "b772e350e274c555751f2016b6db717b"
@@ -1078,6 +1386,10 @@
     ]
   },
   "078": {
+    "audio": [
+      "cante100audio/078_Juanito Valderrama_CantesAmericanos.mp3",
+      "6895f6ef1751976824f481c93738b16f"
+    ],
     "spectrum": [
       "cante100_spectrum/078_Juanito Valderrama_CantesAmericanos.spectrum.csv",
       "9bce4b92e8e05f8f00f1753ef7b5fb6f"
@@ -1092,6 +1404,10 @@
     ]
   },
   "079": {
+    "audio": [
+      "cante100audio/079_Pepe Aznalcollar _CantesAmericanos.mp3",
+      "e4979ef74b72fd8c46e825596c1e1246"
+    ],
     "spectrum": [
       "cante100_spectrum/079_Pepe Aznalcollar _CantesAmericanos.spectrum.csv",
       "993ca598c56d1080015549ec3b33a155"
@@ -1106,6 +1422,10 @@
     ]
   },
   "080": {
+    "audio": [
+      "cante100audio/080_RafaelRomero _CantesAmericanos.mp3",
+      "3bcf56fb59f379d4e8c19f9d67691c29"
+    ],
     "spectrum": [
       "cante100_spectrum/080_RafaelRomero _CantesAmericanos.spectrum.csv",
       "24d591ce01241f753df65f45a8e965d7"
@@ -1120,6 +1440,10 @@
     ]
   },
   "081": {
+    "audio": [
+      "cante100audio/081_AntonioMairena_MalaguenasGranainas.mp3",
+      "2c5d5ebb85dc372a05009493849421f7"
+    ],
     "spectrum": [
       "cante100_spectrum/081_AntonioMairena_MalaguenasGranainas.spectrum.csv",
       "1ee29f0ea33588efb306897b2374c839"
@@ -1134,6 +1458,10 @@
     ]
   },
   "082": {
+    "audio": [
+      "cante100audio/082_LuisCaballero_MalagenasGranainas.mp3",
+      "17e14966677389213c6344214003368b"
+    ],
     "spectrum": [
       "cante100_spectrum/082_LuisCaballero_MalagenasGranainas.spectrum.csv",
       "bcc1bd695abca44a5d4fbafb5c561eca"
@@ -1148,6 +1476,10 @@
     ]
   },
   "083": {
+    "audio": [
+      "cante100audio/083_BernardoElDeLosLobitos_MalaguenasGranainas.mp3",
+      "5a272e7d1f19d6aa83363b49bffc26cb"
+    ],
     "spectrum": [
       "cante100_spectrum/083_BernardoElDeLosLobitos_MalaguenasGranainas.spectrum.csv",
       "b59a587069e1a6553d15c998753c964d"
@@ -1162,6 +1494,10 @@
     ]
   },
   "084": {
+    "audio": [
+      "cante100audio/084_BernardoElDeLosLobitos_MalaguenasGranainas.mp3",
+      "544fca7be274ea09bf96b841c0578e14"
+    ],
     "spectrum": [
       "cante100_spectrum/084_BernardoElDeLosLobitos_MalaguenasGranainas.spectrum.csv",
       "13c1530cb52b81fa4f2a7d4513288ebb"
@@ -1176,6 +1512,10 @@
     ]
   },
   "085": {
+    "audio": [
+      "cante100audio/085_GabrielMoreno_MalaguenasGranainas.mp3",
+      "97e193f1c8dc1295fce6d4898abb04f2"
+    ],
     "spectrum": [
       "cante100_spectrum/085_GabrielMoreno_MalaguenasGranainas.spectrum.csv",
       "556f822477eb73f607f80175e4e11b21"
@@ -1190,6 +1530,10 @@
     ]
   },
   "086": {
+    "audio": [
+      "cante100audio/086_JacintoAlmaden_MalaguenasGranainas.mp3",
+      "e9aa6c8b4fdc7480453131870bb337f3"
+    ],
     "spectrum": [
       "cante100_spectrum/086_JacintoAlmaden_MalaguenasGranainas.spectrum.csv",
       "8db5ae42a57bf5537b45c54aca02ab88"
@@ -1204,6 +1548,10 @@
     ]
   },
   "087": {
+    "audio": [
+      "cante100audio/087_Cobitos_MalaguenasGranainas.mp3",
+      "df0bd7e80f05ad5456fca90c022595df"
+    ],
     "spectrum": [
       "cante100_spectrum/087_Cobitos_MalaguenasGranainas.spectrum.csv",
       "7dcd442dff7830ccbeab16125c0fe538"
@@ -1218,6 +1566,10 @@
     ]
   },
   "088": {
+    "audio": [
+      "cante100audio/088_JacintoAlmaden_MalaguenasGranainas.mp3",
+      "7f4c081e42e5efad005fc9d461e39fa4"
+    ],
     "spectrum": [
       "cante100_spectrum/088_JacintoAlmaden_MalaguenasGranainas.spectrum.csv",
       "c5a0bd60fa642de8bd78e9b629ca797f"
@@ -1232,6 +1584,10 @@
     ]
   },
   "089": {
+    "audio": [
+      "cante100audio/089_JoseVidal_MalaguenasGranainas.mp3",
+      "bc4a24a95e8584efcfe54ca1b9845205"
+    ],
     "spectrum": [
       "cante100_spectrum/089_JoseVidal_MalaguenasGranainas.spectrum.csv",
       "23b3a067c354ad0a74e2110b3a7f27e4"
@@ -1246,6 +1602,10 @@
     ]
   },
   "090": {
+    "audio": [
+      "cante100audio/090_AntonioDeCanillas_MalaguenasGranainas.mp3",
+      "44856803abbb63315f865b02dfda0b02"
+    ],
     "spectrum": [
       "cante100_spectrum/090_AntonioDeCanillas_MalaguenasGranainas.spectrum.csv",
       "18bc2a3a166d2e454c9900e8199d34bf"
@@ -1260,6 +1620,10 @@
     ]
   },
   "091": {
+    "audio": [
+      "cante100audio/091_PepeDeLaMatrona_Tonas.mp3",
+      "a1be55df888bc63e7d09b4d15222fff4"
+    ],
     "spectrum": [
       "cante100_spectrum/091_PepeDeLaMatrona_Tonas.spectrum.csv",
       "0f55c4d37830a19623c0b65c066f02c3"
@@ -1274,6 +1638,10 @@
     ]
   },
   "092": {
+    "audio": [
+      "cante100audio/092_AntonioMairenaTonas.mp3",
+      "779b69d4811b64bc4512a69870c26f9b"
+    ],
     "spectrum": [
       "cante100_spectrum/092_AntonioMairenaTonas.spectrum.csv",
       "33e928a0269900664d623e16fcec7363"
@@ -1288,6 +1656,10 @@
     ]
   },
   "093": {
+    "audio": [
+      "cante100audio/093_Gabriel Moreno_Tonas.mp3",
+      "fc629454c5c3309342989e6e42c9f13b"
+    ],
     "spectrum": [
       "cante100_spectrum/093_Gabriel Moreno_Tonas.spectrum.csv",
       "1a69620306a5396a98768411105ae787"
@@ -1302,6 +1674,10 @@
     ]
   },
   "094": {
+    "audio": [
+      "cante100audio/094_RamonMedrano_Tonas.mp3",
+      "a18e0f2dedfcba43dfd53bd6c88e94c1"
+    ],
     "spectrum": [
       "cante100_spectrum/094_RamonMedrano_Tonas.spectrum.csv",
       "eae5a0fe955d7b1506ddac68e3c2c918"
@@ -1316,6 +1692,10 @@
     ]
   },
   "095": {
+    "audio": [
+      "cante100audio/095_ElBorrico_Tonas.mp3",
+      "64964a7cf3e250a6948d32bdf81c1935"
+    ],
     "spectrum": [
       "cante100_spectrum/095_ElBorrico_Tonas.spectrum.csv",
       "8b30a4227d85f622371cce3f2f3347d6"
@@ -1330,6 +1710,10 @@
     ]
   },
   "096": {
+    "audio": [
+      "cante100audio/096_AntonioMairena_Tonas.mp3",
+      "b6eca9993958f86dd96b8b2f72438797"
+    ],
     "spectrum": [
       "cante100_spectrum/096_AntonioMairena_Tonas.spectrum.csv",
       "730b6181ec05ed6bfe77034f462e0f4c"
@@ -1344,6 +1728,10 @@
     ]
   },
   "097": {
+    "audio": [
+      "cante100audio/097_DiegoClavel_Tonas.mp3",
+      "c7ad6f898f8408b8d2dd2f7c371900d5"
+    ],
     "spectrum": [
       "cante100_spectrum/097_DiegoClavel_Tonas.spectrum.csv",
       "c72b3a6eb52992ae3eaf0750a6bc1de2"
@@ -1358,6 +1746,10 @@
     ]
   },
   "098": {
+    "audio": [
+      "cante100audio/098_ManuelAgujetas_Tonas.mp3",
+      "cf57d8a71fa60dfb256b6cc8129aa878"
+    ],
     "spectrum": [
       "cante100_spectrum/098_ManuelAgujetas_Tonas.spectrum.csv",
       "c836334b3cd0a5abbb63d0d0132df262"
@@ -1372,6 +1764,10 @@
     ]
   },
   "099": {
+    "audio": [
+      "cante100audio/099_JoseMenese_Tonas.mp3",
+      "ad6c79acb8aab43accb83702a1f99254"
+    ],
     "spectrum": [
       "cante100_spectrum/099_JoseMenese_Tonas.spectrum.csv",
       "a743193c2a551b629e0f55b661efd5e5"
@@ -1386,6 +1782,10 @@
     ]
   },
   "100": {
+    "audio": [
+      "cante100audio/100_ManoloZapata_Tonas.mp3",
+      "ece4f3e1c93a76e6aea36d91814e00a0"
+    ],
     "spectrum": [
       "cante100_spectrum/100_ManoloZapata_Tonas.spectrum.csv",
       "20128cd90d7a0a0bc225338fb09cb1e8"

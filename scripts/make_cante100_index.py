@@ -45,15 +45,16 @@ def make_cante100_index(cante100_data_path):
                         file_name = file.split('.')[0]
 
                         # data
+                        audio_name = str(file_name) + '.mp3'
                         spectrum_name = str(file_name) + '.spectrum.csv'
                         f0_name = str(file_name) + '.f0.csv'
                         notes_name = str(file_name) + '.notes.csv'
-                        # more data...?
 
                         cante100_dict[file_id] = [
+                            os.path.join('cante100audio', audio_name),
                             os.path.join(directory, spectrum_name),
                             os.path.join('cante100midi_f0', f0_name),
-                            os.path.join('cante100_automaticTranscription', notes_name),
+                            os.path.join('cante100_automaticTranscription', notes_name)
                         ]
 
     cante100_dict_ord = collections.OrderedDict(sorted(cante100_dict.items()))
@@ -62,14 +63,16 @@ def make_cante100_index(cante100_data_path):
     cante100_index = {}
     for index, inst in cante100_dict_ord.items():
         print(index)
-        spectrum_checksum = md5(os.path.join(cante100_data_path, inst[0]))
-        f0_checksum = md5(os.path.join(cante100_data_path, inst[1]))
-        notes_checksum = md5(os.path.join(cante100_data_path, inst[2]))
+        audio_checksum = md5(os.path.join(cante100_data_path, inst[0]))
+        spectrum_checksum = md5(os.path.join(cante100_data_path, inst[1]))
+        f0_checksum = md5(os.path.join(cante100_data_path, inst[2]))
+        notes_checksum = md5(os.path.join(cante100_data_path, inst[3]))
 
         cante100_index[index] = {
-            'spectrum': (inst[0], spectrum_checksum),
-            'f0': (inst[1], f0_checksum),
-            'notes': (inst[2], notes_checksum),
+            'audio': (inst[0], audio_checksum),
+            'spectrum': (inst[1], spectrum_checksum),
+            'f0': (inst[2], f0_checksum),
+            'notes': (inst[3], notes_checksum)
         }
 
     with open(CANTE100_INDEX_PATH, 'w') as fhandle:

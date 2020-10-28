@@ -1,48 +1,50 @@
-#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 """
 cante100 Loader
 
 TODO FIX DESCRIPTION
 
-The Mridangam Stroke dataset is a collection of individual strokes of
-the Mridangam in various tonics. The dataset comprises of 10 different
-strokes played on Mridangams with 6 different tonic values. The audio
-examples were recorded from a professional Carnatic percussionist in a
-semi-anechoic studio conditions by Akshay Anantapadmanabhan.
+The cante100 dataset contains 100 tracks taken from the COFLA corpus. We defined 10 style
+families of which 10 tracks each are included. Apart from the style family, we manually
+annotated the sections of the track in which the vocals are present. In addition, we
+provide a number of low-level descriptors and the fundamental frequency corresponding to
+the predominant melody for each track. The meta-information includes editoral meta-data
+and the musicBrainz ID.
 
-Total audio samples: 7162
+Total tracks: 100
 
-Used microphones:
-* SM-58 microphones
-* H4n ZOOM recorder.
+cante100 audio is only available upon request. To download the audio request access in
+this link: https://zenodo.org/record/1324183/files/cante100audio.zip?download=1. Then
+unzip the audio into the cante100 general dataset folder for the rest of annotations
+and files.
 
 Audio specifications
 * Sampling frequency: 44.1 kHz
 * Bit-depth: 16 bit
-* Audio format: .wav
+* Audio format: .mp3
 
-The dataset can be used for training models for each Mridangam stroke. The
-presentation of the dataset took place on the IEEE International Conference
-on Acoustics, Speech and Signal Processing (ICASSP 2013) on May 2013.
-You can read the full publication here: https://repositori.upf.edu/handle/10230/25756
+cante100 dataset has spectrum available, in csv format. Spectrum is available to download
+without request needed, so at first instance, cante100 loader uses the spectrum of the tracks.
 
-Mridangam Dataset is annotated by storing the informat of each track in their filenames.
-The structure of the filename is:
-<TrackID>__<AuthorName>__<StrokeName>-<Tonic>-<InstanceNum>.wav
+The available annotations are:
+- F0 (predominant melody)
+- Automatic transcription of notes (of singing voice)
 
-The dataset is made available by CompMusic under a Creative Commons
-Attribution 3.0 Unported (CC BY 3.0) License.
+CANTE100 LICENSE COPIED FROM ZENODO PAGE:
+The provided datasets are offered free of charge for internal non-commercial use.
+We do not grant any rights for redistribution or modification. All data collections were gathered
+by the COFLA team.
+© COFLA 2015. All rights reserved.
 
-For more details, please visit: https://compmusic.upf.edu/mridangam-stroke-dataset
+For more details, please visit: http://www.cofla-project.com/?page_id=134
 
 """
 
 import logging
+import librosa
 import os
 import csv
 import numpy as np
-import librosa
 import xml.etree.ElementTree as ET
 
 from mirdata import download_utils
@@ -73,6 +75,18 @@ REMOTES = {
         checksum='47fea64c744f9fe678ae5642a8f0ee8e',  # the md5 checksum
         destination_dir=None,  # relative path for where to unzip the data, or None
     ),
+    'metadata': download_utils.RemoteFileMetadata(
+        filename='cante100Meta.xml',
+        url='https://zenodo.org/record/1322542/files/cante100Meta.xml?download=1',
+        checksum='6cce186ce77a06541cdb9f0a671afb46',  # the md5 checksum
+        destination_dir=None,  # relative path for where to unzip the data, or None
+    ),
+    'README': download_utils.RemoteFileMetadata(
+        filename='cante100_README.txt',
+        url='https://zenodo.org/record/1322542/files/cante100_README.txt?download=1',
+        checksum='184209b7e7d816fa603f0c7f481c0aae',  # the md5 checksum
+        destination_dir=None,  # relative path for where to unzip the data, or None
+    )
 }
 
 
@@ -182,6 +196,9 @@ class Track(track.Track):
         self._data_home = data_home
 
         self._track_paths = DATA.index[track_id]
+        self.audio_path = os.path.join(
+            self._data_home, self._track_paths['audio'][0]
+        )
         self.spectrum_path = os.path.join(
             self._data_home, self._track_paths['spectrum'][0]
         )
@@ -207,23 +224,29 @@ class Track(track.Track):
         self.duration = self._track_metadata['duration']
 
     @property
-    def spectrum(self):
+    def audio(self):
         """(np.ndarray, float): audio signal, sample rate"""
+        return load_audio(self.audio_path)
+
+    @property
+    def spectrum(self):
+        """(np.ndarray, float): spectrum"""
         return load_spectrum(self.spectrum_path)
 
-    @property
+    @utils.cached_property
     def melody(self):
-        """(np.ndarray, float): audio signal, sample rate"""
+        """F0Data: audio signal, sample rate"""
         return load_melody(self.f0_path)
 
-    @property
+    @utils.cached_property
     def notes(self):
-        """(np.ndarray, float): audio signal, sample rate"""
+        """NoteData: audio signal, sample rate"""
         return load_notes(self.notes_path)
 
     def to_jams(self):
         """Jams: the track's data in jams format"""
         return jams_utils.jams_converter(
+            audio_path=self.audio_path,
             spectrum_cante100_path=self.spectrum_path,
             f0_data=[(self.melody, 'pitch_contour')],
             note_data=[(self.notes, 'note_hz')],
@@ -232,14 +255,13 @@ class Track(track.Track):
 
 
 def load_spectrum(spectrum_path):
-    """Load a cante100 dataset audio file.
+    """Load a cante100 dataset spectrum file.
 
     Args:
         spectrum_path (str): path to audio file
 
     Returns:
-        y (np.ndarray): the mono audio signal
-        sr (float): The sample rate of the audio file
+        np.array: spectrum
 
     """
     if not os.path.exists(spectrum_path):
@@ -261,18 +283,17 @@ def load_spectrum(spectrum_path):
 
 
 def load_melody(f0_path):
-    """Load a cante100 dataset audio file.
+    """Load cante100 f0 annotations
 
     Args:
         f0_path (str): path to audio file
 
     Returns:
-        y (np.ndarray): the mono audio signal
-        sr (float): The sample rate of the audio file
+        F0Data: predominant melody
 
     """
     if not os.path.exists(f0_path):
-        raise IOError("audio_path {} does not exist".format(f0_path))
+        raise IOError("f0_path {} does not exist".format(f0_path))
 
     times = []
     freqs = []
@@ -286,23 +307,21 @@ def load_melody(f0_path):
     freqs = np.array(freqs)
     confidence = (freqs > 0).astype(float)
 
-    melody_data = utils.F0Data(times, freqs, confidence)
-
-    return melody_data
+    return utils.F0Data(times, freqs, confidence)
 
 
 def load_notes(notes_path):
-    """Load note data from the midi file.
+    """Load note data from the annotation files
 
     Args:
         notes_path (str): path to notes file
 
     Returns:
-        note_data (NoteData)
+        NoteData: note annotations
 
     """
     if not os.path.exists(notes_path):
-        raise IOError("audio_path {} does not exist".format(notes_path))
+        raise IOError("notes_path {} does not exist".format(notes_path))
 
     intervals = []
     pitches = []
@@ -311,22 +330,21 @@ def load_notes(notes_path):
         reader = csv.reader(csvfile, delimiter=',', quotechar='\n')
         for row in reader:
             intervals.append([row[0], float(row[0]) + float(row[1])])
+            # Convert midi value to frequency
             pitches.append((440 / 32) * (2 ** ((int(row[2]) - 9) / 12)))
             confidence.append(1.0)
 
-    note_data = utils.NoteData(
+    return utils.NoteData(
         np.array(intervals, dtype='float'),
         np.array(pitches, dtype='float'),
         np.array(confidence, dtype='float'),
     )
 
-    return note_data
-
 
 def download(
     data_home=None, partial_download=None, force_overwrite=False, cleanup=True
 ):
-    """Download the cante100 dataset.
+    """Download the cante100 dataset (just the annotations)
 
     Args:
         data_home (str):
@@ -342,10 +360,19 @@ def download(
     if data_home is None:
         data_home = utils.get_default_dataset_path(DATASET_DIR)
 
+    info_message = (
+        '''
+        cante100 audio is only available upon request. However, this loader supports
+        audio loading. Just request the audio in this link:
+        https://zenodo.org/record/1324183/files/cante100audio.zip?download=1, and then
+        unzip the audio folder inside the general dataset cante100 folder.
+        '''
+    )
+
     download_utils.downloader(
         data_home,
         remotes=REMOTES,
-        info_message='TODO',
+        info_message=info_message,
         partial_download=partial_download,
         force_overwrite=force_overwrite,
         cleanup=cleanup,
@@ -382,6 +409,23 @@ def track_ids():
     return list(DATA.index.keys())
 
 
+def load_audio(audio_path):
+    """Load a cante100 audio file.
+
+    Args:
+        audio_path (str): path to audio file
+
+    Returns:
+        y (np.ndarray): the mono audio signal
+        sr (float): The sample rate of the audio file
+
+    """
+    if not os.path.exists(audio_path):
+        raise IOError("audio_path {} does not exist".format(audio_path))
+    audio, sr = librosa.load(audio_path, sr=22050, mono=False)
+    return audio, sr
+
+
 def load(data_home=None):
     """Load cante100 dataset
 
@@ -405,9 +449,41 @@ def cite():
 
     cite_data = """
 =========== MLA ===========
+Nadine Kroher, José Miguel Díaz-Báñez, Joaquin Mora, & Emilia Gómez. (2018). 
+cante100 Metadata(Version 1.0) [Data set]. 
+Zenodo. http://doi.org/10.5281/zenodo.1322542
 
+Nadine Kroher, José Miguel Díaz-Báñez, Joaquin Mora, & Emilia Gómez. (2018). 
+cante100 Audio (Version 1.0) [Data set]. 
+Zenodo. http://doi.org/10.5281/zenodo.1324183
 ========== Bibtex ==========
+@dataset{nadine_kroher_2018_1322542,
+  author       = {Nadine Kroher and
+                  José Miguel Díaz-Báñez and
+                  Joaquin Mora and
+                  Emilia Gómez},
+  title        = {cante100 Metadata},
+  month        = jul,
+  year         = 2018,
+  publisher    = {Zenodo},
+  version      = {1.0},
+  doi          = {10.5281/zenodo.1322542},
+  url          = {https://doi.org/10.5281/zenodo.1322542}
+}
 
+@dataset{nadine_kroher_2018_1324183,
+  author       = {Nadine Kroher and
+                  José Miguel Díaz-Báñez and
+                  Joaquin Mora and
+                  Emilia Gómez},
+  title        = {cante100 Audio},
+  month        = jul,
+  year         = 2018,
+  publisher    = {Zenodo},
+  version      = {1.0},
+  doi          = {10.5281/zenodo.1324183},
+  url          = {https://doi.org/10.5281/zenodo.1324183}
+}
 """
 
     print(cite_data)
