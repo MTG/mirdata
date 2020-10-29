@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import numpy as np
-from mirdata import salami, utils
+from mirdata import saraga, utils
 from tests.test_utils import run_track_tests
 
 
@@ -9,7 +9,7 @@ def test_track():
 
     default_trackid = 'carnatic_1'
     data_home = 'tests/resources/mir_datasets/Saraga'
-    track = salami.Track(default_trackid, data_home=data_home)
+    track = saraga.Track(default_trackid, data_home=data_home)
 
     expected_attributes = {
         'track_id': 'carnatic_1',
@@ -59,7 +59,7 @@ def test_track():
         'audio': (np.ndarray, float),
         'bpm': utils.TempoData,
         # 'tempo': TempoData
-        'phrases': utils.SectionData,
+        'phrases': utils.EventData,
         'pitch': utils.F0Data,
         'pitch_vocal': utils.F0Data,
         'sama': utils.SectionData,
@@ -77,9 +77,10 @@ def test_track():
 
 def test_to_jams():
 
-    data_home = 'tests/resources/mir_datasets/Salami'
-    track = salami.Track('2', data_home=data_home)
+    data_home = '../tests/resources/mir_datasets/Saraga'
+    track = saraga.Track('carnatic_1', data_home=data_home)
     jam = track.to_jams()
+    print(jam)
 
     segments = jam.search(namespace='multi_segment')[0]['data']
     assert [segment.time for segment in segments] == [
@@ -183,5 +184,18 @@ def test_load_metadata():
         'genre': 'Alternative_Pop___Rock',
     }
 
-    none_metadata = salami._load_metadata('asdf/asdf')
+    none_metadata = saraga._load_metadata('asdf/asdf')
     assert none_metadata is None
+
+
+def main():
+    data_home = '../tests/resources/mir_datasets/Saraga/saraga1.0'
+    ids = saraga.track_ids()
+    data = saraga.load(data_home)
+
+    track_carnatic = data['carnatic_1']
+    test_to_jams()
+
+
+if __name__ == '__main__':
+    main()

@@ -54,43 +54,43 @@ def make_saraga_index(saraga_data_path):
                             if '.mp3' in file:
                                 audio_path = os.path.join(directory, directory_, file)
                                 audio_checksum = md5(os.path.join(saraga_data_path, audio_path))
-                                audio = (audio_path, audio_checksum)
+                                audio = (os.path.join('saraga1.0/', audio_path), audio_checksum)
                             if 'ctonic' in file:
                                 ctonic_path = os.path.join(directory, directory_, file)
                                 ctonic_checksum = md5(os.path.join(saraga_data_path, ctonic_path))
-                                ctonic = (ctonic_path, ctonic_checksum)
+                                ctonic = (os.path.join('saraga1.0/', ctonic_path), ctonic_checksum)
                             if 'pitch.' in file:
                                 pitch_path = os.path.join(directory, directory_, file)
                                 pitch_checksum = md5(os.path.join(saraga_data_path, pitch_path))
-                                pitch = (pitch_path, pitch_checksum)
+                                pitch = (os.path.join('saraga1.0/', pitch_path), pitch_checksum)
                             if 'pitch_' in file:
                                 pitch_v_path = os.path.join(directory, directory_, file)
                                 pitch_v_checksum = md5(os.path.join(saraga_data_path, pitch_v_path))
-                                pitch_v = (pitch_v_path, pitch_v_checksum)
+                                pitch_v = (os.path.join('saraga1.0/', pitch_v_path), pitch_v_checksum)
                             if 'bpm' in file:
                                 bpm_path = os.path.join(directory, directory_, file)
                                 bpm_checksum = md5(os.path.join(saraga_data_path, bpm_path))
-                                bpm = (bpm_path, bpm_checksum)
+                                bpm = (os.path.join('saraga1.0/', bpm_path), bpm_checksum)
                             if 'tempo' in file:
                                 tempo_path = os.path.join(directory, directory_, file)
                                 tempo_checksum = md5(os.path.join(saraga_data_path, tempo_path))
-                                tempo = (tempo_path, tempo_checksum)
+                                tempo = (os.path.join('saraga1.0/', tempo_path), tempo_checksum)
                             if 'sama' in file:
                                 sama_path = os.path.join(directory, directory_, file)
                                 sama_checksum = md5(os.path.join(saraga_data_path, sama_path))
-                                sama = (sama_path, sama_checksum)
+                                sama = (os.path.join('saraga1.0/', sama_path), sama_checksum)
                             if 'sections-manual' in file:
                                 sections_path = os.path.join(directory, directory_, file)
                                 sections_checksum = md5(os.path.join(saraga_data_path, sections_path))
-                                sections = (sections_path, sections_checksum)
+                                sections = (os.path.join('saraga1.0/', sections_path), sections_checksum)
                             if 'phrase' in file:
                                 phrases_path = os.path.join(directory, directory_, file)
                                 phrases_checksum = md5(os.path.join(saraga_data_path, phrases_path))
-                                phrases = (phrases_path, phrases_checksum)
+                                phrases = (os.path.join('saraga1.0/', phrases_path), phrases_checksum)
                             if '.json' in file:
                                 metadata_path = os.path.join(directory, directory_, file)
                                 metadata_checksum = md5(os.path.join(saraga_data_path, metadata_path))
-                                metadata = (metadata_path, metadata_checksum)
+                                metadata = (os.path.join('saraga1.0/', metadata_path), metadata_checksum)
 
                             saraga_index[index] = {
                                 'audio': audio,

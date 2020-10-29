@@ -4,10 +4,10 @@
 """
 import csv
 import librosa
-import logging
 import numpy as np
 import os
 import json
+import logging
 
 from mirdata import download_utils
 from mirdata import jams_utils
@@ -236,7 +236,8 @@ class Track(track.Track):
             audio_path=self.audio_path,
             f0_data=[(self.pitch, 'pitch'), (self.pitch_vocal, 'pitch vocal')],
             tempo_data=[(self.bpm, 'bpm tempo')],
-            section_data=[(self.sama, 'sama'), (self.sections, 'sections'), (self.phrases, 'phrases')],
+            section_data=[(self.sama, 'sama'), (self.sections, 'sections')],
+            event_data=[(self.phrases, 'phrases')],
             metadata={
                 'tonic': self.tonic,
                 'piece metadata': self._track_metadata
@@ -545,6 +546,7 @@ TODO
     print(cite_data)
 
 
+'''
 def main():
     data_home = '/Users/genisplaja/Desktop/genis-datasets/saraga1.0'
     ids = track_ids()
@@ -566,3 +568,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+'''
