@@ -7,106 +7,72 @@ from tests.test_utils import run_track_tests
 
 def test_track():
 
-    default_trackid = '2'
-    data_home = 'tests/resources/mir_datasets/Salami'
+    default_trackid = 'carnatic_1'
+    data_home = 'tests/resources/mir_datasets/Saraga'
     track = salami.Track(default_trackid, data_home=data_home)
 
     expected_attributes = {
-        'track_id': '2',
-        'audio_path': 'tests/resources/mir_datasets/Salami/' + 'audio/2.mp3',
-        'sections_annotator1_uppercase_path': 'tests/resources/mir_datasets/Salami/'
-        + 'salami-data-public-hierarchy-corrections/annotations/2/parsed/textfile1_uppercase.txt',
-        'sections_annotator1_lowercase_path': 'tests/resources/mir_datasets/Salami/'
-        + 'salami-data-public-hierarchy-corrections/annotations/2/parsed/textfile1_lowercase.txt',
-        'sections_annotator2_uppercase_path': 'tests/resources/mir_datasets/Salami/'
-        + 'salami-data-public-hierarchy-corrections/annotations/2/parsed/textfile2_uppercase.txt',
-        'sections_annotator2_lowercase_path': 'tests/resources/mir_datasets/Salami/'
-        + 'salami-data-public-hierarchy-corrections/annotations/2/parsed/textfile2_lowercase.txt',
-        'source': 'Codaich',
-        'annotator_1_id': '5',
-        'annotator_2_id': '8',
-        'duration': 264,
-        'title': 'For_God_And_Country',
-        'artist': 'The_Smashing_Pumpkins',
-        'annotator_1_time': '37',
-        'annotator_2_time': '45',
-        'broad_genre': 'popular',
-        'genre': 'Alternative_Pop___Rock',
+        'track_id': 'carnatic_1',
+        'iam_style': "carnatic",
+        'audio_path': 'tests/resources/mir_datasets/Saraga/saraga1.0/' +
+                      'carnatic/1/Cherthala Ranganatha Sharma - Bhuvini Dasudane.mp3',
+        'ctonic_path': 'tests/resources/mir_datasets/Saraga/saraga1.0/' +
+                       'carnatic/1/Cherthala Ranganatha Sharma - Bhuvini Dasudane.ctonic.txt',
+        'pitch_path': 'tests/resources/mir_datasets/Saraga/saraga1.0/' +
+                      'carnatic/1/Cherthala Ranganatha Sharma - Bhuvini Dasudane.pitch.txt',
+        'pitch_vocal_path': None,
+        'bpm_path': 'tests/resources/mir_datasets/Saraga/saraga1.0/' +
+                    'carnatic/1/Cherthala Ranganatha Sharma - Bhuvini Dasudane.bpm-manual.txt',
+        'tempo_path': 'tests/resources/mir_datasets/Saraga/saraga1.0/' +
+                      'carnatic/1/Cherthala Ranganatha Sharma - Bhuvini Dasudane.tempo-manual.txt',
+        'sama_path': 'tests/resources/mir_datasets/Saraga/saraga1.0/' +
+                     'carnatic/1/Cherthala Ranganatha Sharma - Bhuvini Dasudane.sama-manual.txt',
+        'sections_path': 'tests/resources/mir_datasets/Saraga/saraga1.0/' +
+                         'carnatic/1/Cherthala Ranganatha Sharma - Bhuvini Dasudane.sections-manual-p.txt',
+        'phrases_path': 'tests/resources/mir_datasets/Saraga/saraga1.0/' +
+                        'carnatic/1/Cherthala Ranganatha Sharma - Bhuvini Dasudane.mphrases-manual.txt',
+        'metadata_path': 'tests/resources/mir_datasets/Saraga/saraga1.0/' +
+                         'carnatic/1/Cherthala Ranganatha Sharma - Bhuvini Dasudane.json',
+        'raaga': [{'uuid': '42dd0ccb-f92a-4622-ae5d-a3be571b4939', 'name': 'Śrīranjani'}],
+        'form': [{'name': 'Kriti'}],
+        'title': "Bhuvini Dasudane",
+        'work': [{'mbid': '4d05ce9b-c45e-4c85-9eca-941d68b61132', 'title': 'Bhuvini Dasudane'}],
+        'taala': [{'uuid': 'c788c38a-b53a-48cb-b7bf-d11769260c4d', 'name': 'Ādi'}],
+        'album_artists': [{'mbid': 'e09b0542-84e1-45ad-b09a-a05a9ad0cb83', 'name': 'Cherthala Ranganatha Sharma'}],
+        'mbid': "9f5a5452-14cb-4af0-9289-4833854ee60d",
+        'artists': [{'instrument': {'mbid': 'c5aa7d98-c14d-4ff1-8afb-f8743c62496c', 'name': 'Ghatam'}, 'attributes': '',
+                     'lead': False, 'artist': {'mbid': '19f93366-5d58-47f1-bc4f-9225ac7af6ba', 'name': 'N Guruprasad'}},
+                    {'instrument': {'mbid': 'f689271c-37bc-4c49-92a3-a14b15ee5d0e', 'name': 'Mridangam'},
+                     'attributes': '', 'lead': False,
+                     'artist': {'mbid': '39c1d741-6154-418b-bf4b-12c77ba13873', 'name': 'Srimushnam V Raja Rao'}},
+                    {'instrument': {'mbid': '089f123c-0f7d-4105-a64e-49de81ca8fa4', 'name': 'Violin'}, 'attributes': '',
+                     'lead': False,
+                     'artist': {'mbid': 'a2df55e3-d141-4767-862e-77adca691d4b', 'name': 'B.U. Ganesh Prasad'}},
+                    {'instrument': {'mbid': 'd92884b7-ee0c-46d5-96f3-918196ba8c5b', 'name': 'Voice'},
+                     'attributes': 'lead vocals', 'lead': True,
+                     'artist': {'mbid': 'e09b0542-84e1-45ad-b09a-a05a9ad0cb83', 'name': 'Cherthala Ranganatha Sharma'}
+                     }],
+        'concert': [{'mbid': '0816586d-c83e-4c79-a0aa-9b0e578f408d', 'title': 'Cherthala Ranganatha Sharma at Arkay'}],
     }
 
     expected_property_types = {
-        'sections_annotator_1_uppercase': utils.SectionData,
-        'sections_annotator_1_lowercase': utils.SectionData,
-        'sections_annotator_2_uppercase': utils.SectionData,
-        'sections_annotator_2_lowercase': utils.SectionData,
+        'audio': (np.ndarray, float),
+        'bpm': utils.TempoData,
+        # 'tempo': TempoData
+        'phrases': utils.SectionData,
+        'pitch': utils.F0Data,
+        'pitch_vocal': utils.F0Data,
+        'sama': utils.SectionData,
+        'sections': utils.SectionData,
+        'tonic': int,
     }
 
     run_track_tests(track, expected_attributes, expected_property_types)
 
     # test audio loading functions
-    y, sr = track.audio
+    audio, sr = track.audio
     assert sr == 44100
-    assert y.shape == (89856,)
-
-    # Test file with missing annotations
-    track = salami.Track('192', data_home=data_home)
-
-    # test attributes
-    assert track.source == 'Codaich'
-    assert track.annotator_1_id == '16'
-    assert track.annotator_2_id == '14'
-    assert track.duration == 209
-    assert track.title == 'Sull__aria'
-    assert track.artist == 'Compilations'
-    assert track.annotator_1_time == '20'
-    assert track.annotator_2_time == ''
-    assert track.broad_genre == 'classical'
-    assert track.genre == 'Classical_-_Classical'
-    assert track.track_id == '192'
-    assert track._data_home == data_home
-
-    assert track._track_paths == {
-        'audio': ['audio/192.mp3', 'd954d5dc9f17d66155d3310d838756b8'],
-        'annotator_1_uppercase': [
-            'salami-data-public-hierarchy-corrections/annotations/192/parsed/textfile1_uppercase.txt',
-            '4d268cfd27fe011dbe579f25f8d125ce',
-        ],
-        'annotator_1_lowercase': [
-            'salami-data-public-hierarchy-corrections/annotations/192/parsed/textfile1_lowercase.txt',
-            '6640237e7844d0d9d37bf21cf96a2690',
-        ],
-        'annotator_2_uppercase': [None, None],
-        'annotator_2_lowercase': [None, None],
-    }
-
-    # test that cached properties don't fail and have the expected type
-    assert type(track.sections_annotator_1_uppercase) is utils.SectionData
-    assert type(track.sections_annotator_1_lowercase) is utils.SectionData
-    assert track.sections_annotator_2_uppercase is None
-    assert track.sections_annotator_2_lowercase is None
-
-    # Test file with missing annotations
-    track = salami.Track('1015', data_home=data_home)
-
-    assert track._track_paths == {
-        'audio': ['audio/1015.mp3', '811a4a6b46f0c15a61bfb299b21ebdc4'],
-        'annotator_1_uppercase': [None, None],
-        'annotator_1_lowercase': [None, None],
-        'annotator_2_uppercase': [
-            'salami-data-public-hierarchy-corrections/annotations/1015/parsed/textfile2_uppercase.txt',
-            'e4a268342a45fdffd8ec9c3b8287ad8b',
-        ],
-        'annotator_2_lowercase': [
-            'salami-data-public-hierarchy-corrections/annotations/1015/parsed/textfile2_lowercase.txt',
-            '201642fcea4a27c60f7b48de46a82234',
-        ],
-    }
-
-    # test that cached properties don't fail and have the expected type
-    assert track.sections_annotator_1_uppercase is None
-    assert track.sections_annotator_1_lowercase is None
-    assert type(track.sections_annotator_2_uppercase) is utils.SectionData
-    assert type(track.sections_annotator_2_lowercase) is utils.SectionData
+    assert audio.shape == (89856,)
 
 
 def test_to_jams():

@@ -499,7 +499,7 @@ def load_sections(sections_path):
 
 
 def load_phrases(phrases_path):
-    """Load tonic
+    """Load phrases
 
     Args:
         phrases_path (str): Local path where the phrase annotation is stored.
@@ -550,22 +550,18 @@ def main():
     ids = track_ids()
     data = load(data_home)
 
-    track_carnatic = data[ids[0]]
+    track_carnatic = data['carnatic_1']
     track_hindustani = data[ids[-1]]
     metadata_carnatic = _load_metadata(track_carnatic.metadata_path)
     metadata_hindustani = _load_metadata(track_hindustani.metadata_path)
     print(metadata_carnatic)
     print(track_carnatic)
-    print(metadata_hindustani)
-    print(track_hindustani)
-    '''
     print(track_carnatic.tonic)
     print(track_carnatic.pitch)
     print(track_carnatic.bpm)
     print(track_carnatic.sama)
     print(track_carnatic.sections)
     print(track_carnatic.phrases)
-    '''
 
 
 if __name__ == '__main__':
