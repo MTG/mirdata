@@ -26,6 +26,7 @@ CUSTOM_TEST_TRACKS = {
     'rwc_jazz': 'RM-J004',
     'rwc_popular': 'RM-P001',
     'salami': '2',
+    'saraga': 'carnatic_1',
     'tinysol': 'Fl-ord-C4-mf-N-T14d',
 }
 

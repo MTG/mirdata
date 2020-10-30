@@ -4,6 +4,8 @@ import numpy as np
 from mirdata import saraga, utils
 from tests.test_utils import run_track_tests
 
+TEST_DATA_HOME = '/Users/genisplaja/Desktop/genis-datasets/'
+
 
 def test_track():
 
@@ -20,7 +22,8 @@ def test_track():
                        'carnatic/1/Cherthala Ranganatha Sharma - Bhuvini Dasudane.ctonic.txt',
         'pitch_path': 'tests/resources/mir_datasets/Saraga/saraga1.0/' +
                       'carnatic/1/Cherthala Ranganatha Sharma - Bhuvini Dasudane.pitch.txt',
-        'pitch_vocal_path': None,
+        'pitch_vocal_path': 'tests/resources/mir_datasets/Saraga/saraga1.0/' +
+                      'carnatic/1/Cherthala Ranganatha Sharma - Bhuvini Dasudane.pitch-vocal.txt',
         'bpm_path': 'tests/resources/mir_datasets/Saraga/saraga1.0/' +
                     'carnatic/1/Cherthala Ranganatha Sharma - Bhuvini Dasudane.bpm-manual.txt',
         'tempo_path': 'tests/resources/mir_datasets/Saraga/saraga1.0/' +
@@ -64,7 +67,7 @@ def test_track():
         'pitch_vocal': utils.F0Data,
         'sama': utils.SectionData,
         'sections': utils.SectionData,
-        'tonic': int,
+        'tonic': float,
     }
 
     run_track_tests(track, expected_attributes, expected_property_types)
@@ -72,128 +75,75 @@ def test_track():
     # test audio loading functions
     audio, sr = track.audio
     assert sr == 44100
-    assert audio.shape == (89856,)
 
 
 def test_to_jams():
 
-    data_home = '../tests/resources/mir_datasets/Saraga'
-    track = saraga.Track('carnatic_1', data_home=data_home)
+    data_home = 'tests/resources/mir_datasets/Saraga'
+    track = saraga.Track('carnatic_1', data_home=TEST_DATA_HOME)
+    metadata = saraga._load_metadata(track.metadata_path)
     jam = track.to_jams()
-    print(jam)
 
-    segments = jam.search(namespace='multi_segment')[0]['data']
-    assert [segment.time for segment in segments] == [
-        0.0,
-        0.0,
-        0.464399092,
-        0.464399092,
-        5.191269841,
-        14.379863945,
-        254.821632653,
-        258.900453514,
-        263.205419501,
-        263.205419501,
-    ]
-    assert [segment.duration for segment in segments] == [
-        0.464399092,
-        0.464399092,
-        13.915464853,
-        4.726870749000001,
-        249.630362812,
-        248.82555555599998,
-        4.078820860999997,
-        4.304965987000003,
-        1.6797959180000248,
-        1.6797959180000248,
-    ]
-    assert [segment.value for segment in segments] == [
-        {'label': 'Silence', 'level': 0},
-        {'label': 'Silence', 'level': 1},
-        {'label': 'A', 'level': 0},
-        {'label': 'b', 'level': 1},
-        {'label': 'b', 'level': 1},
-        {'label': 'B', 'level': 0},
-        {'label': 'ab', 'level': 1},
-        {'label': 'ab', 'level': 1},
-        {'label': 'Silence', 'level': 0},
-        {'label': 'Silence', 'level': 1},
-    ]
-    assert [segment.confidence for segment in segments] == [
-        None,
-        None,
-        None,
-        None,
-        None,
-        None,
-        None,
-        None,
-        None,
-        None,
-    ]
+    # Tonic
+    assert jam['sandbox'].tonic == 201.740890
 
-    assert jam['file_metadata']['title'] == 'For_God_And_Country'
-    assert jam['file_metadata']['artist'] == 'The_Smashing_Pumpkins'
-
-
-def test_load_sections():
-    # load a file which exists
-    sections_path = (
-        'tests/resources/mir_datasets/Salami/'
-        + 'salami-data-public-hierarchy-corrections/annotations/2/parsed/textfile1_uppercase.txt'
-    )
-    section_data = salami.load_sections(sections_path)
-
-    # check types
-    assert type(section_data) == utils.SectionData
-    assert type(section_data.intervals) is np.ndarray
-    assert type(section_data.labels) is list
-
-    # check valuess
-    assert np.array_equal(
-        section_data.intervals[:, 0],
-        np.array([0.0, 0.464399092, 14.379863945, 263.205419501]),
-    )
-    assert np.array_equal(
-        section_data.intervals[:, 1],
-        np.array([0.464399092, 14.379863945, 263.205419501, 264.885215419]),
-    )
-    assert np.array_equal(
-        section_data.labels, np.array(['Silence', 'A', 'B', 'Silence'])
-    )
-
-    # load none
-    section_data_none = salami.load_sections(None)
-    assert section_data_none is None
-
-
-def test_load_metadata():
-    data_home = 'tests/resources/mir_datasets/Salami'
-    metadata = salami._load_metadata(data_home)
-    assert metadata['data_home'] == data_home
-    assert metadata['2'] == {
-        'source': 'Codaich',
-        'annotator_1_id': '5',
-        'annotator_2_id': '8',
-        'duration': 264,
-        'title': 'For_God_And_Country',
-        'artist': 'The_Smashing_Pumpkins',
-        'annotator_1_time': '37',
-        'annotator_2_time': '45',
-        'class': 'popular',
-        'genre': 'Alternative_Pop___Rock',
+    # Pitch
+    pitch = jam.search(namespace='pitch_contour')[0]['data']
+    assert len(pitch) == 69603
+    assert pitch[0].time == 0
+    assert pitch[0].duration == 0.0
+    assert pitch[0].value == {
+        'index': 0, 'frequency': 0.0, 'voiced': False
     }
+    assert pitch[0].confidence == 0.0
 
-    none_metadata = saraga._load_metadata('asdf/asdf')
-    assert none_metadata is None
+    assert pitch[3000].time == 13.3333333
+    assert pitch[3000].duration == 0.0
+    assert pitch[3000].value == {
+        'index': 0, 'frequency': 223.8473663, 'voiced': True
+    }
+    assert pitch[3000].confidence == 1.0
+
+    pitch_vocal = jam.search(namespace='pitch_contour')[1]['data']
+    assert len(pitch_vocal) == 69603
+    assert pitch_vocal[0].time == 0
+    assert pitch_vocal[0].duration == 0.0
+    assert pitch_vocal[0].value == {
+        'index': 0, 'frequency': 0.0, 'voiced': False
+    }
+    assert pitch_vocal[0].confidence == 0.0
+
+    assert pitch_vocal[3000].time == 13.3333333
+    assert pitch_vocal[3000].duration == 0.0
+    assert pitch_vocal[3000].value == {
+        'index': 0, 'frequency': 223.8473663, 'voiced': True
+    }
+    assert pitch_vocal[3000].confidence == 1.0
+
+    # Tempo TODO
+
+    # Sama
+    sama = jam.search(namespace='segment_open')[0]['data']
+    # assert
+
+    # Sections
+    sections = jam.search(namespace='segment_open')[1]['data']
+
+    # Phrases
+    phrases = jam.search(namespace='tag_open')[0]['data']
+
+    # Metadata
+    metadata = jam['sandbox'].metadata
 
 
 def main():
-    data_home = '../tests/resources/mir_datasets/Saraga/saraga1.0'
+    data_home = TEST_DATA_HOME
+    # data_home = '../tests/resources/mir_datasets/Saraga/saraga1.0'
     ids = saraga.track_ids()
     data = saraga.load(data_home)
 
     track_carnatic = data['carnatic_1']
+    # print(track_carnatic.sama)
     test_to_jams()
 
 

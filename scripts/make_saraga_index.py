@@ -63,7 +63,7 @@ def make_saraga_index(saraga_data_path):
                                 pitch_path = os.path.join(directory, directory_, file)
                                 pitch_checksum = md5(os.path.join(saraga_data_path, pitch_path))
                                 pitch = (os.path.join('saraga1.0/', pitch_path), pitch_checksum)
-                            if 'pitch_' in file:
+                            if 'pitch-vocal' in file:
                                 pitch_v_path = os.path.join(directory, directory_, file)
                                 pitch_v_checksum = md5(os.path.join(saraga_data_path, pitch_v_path))
                                 pitch_v = (os.path.join('saraga1.0/', pitch_v_path), pitch_v_checksum)

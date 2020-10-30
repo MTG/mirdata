@@ -234,13 +234,13 @@ class Track(track.Track):
         """Jams: the track's data in jams format"""
         return jams_utils.jams_converter(
             audio_path=self.audio_path,
-            f0_data=[(self.pitch, 'pitch'), (self.pitch_vocal, 'pitch vocal')],
-            tempo_data=[(self.bpm, 'bpm tempo')],
+            f0_data=[(self.pitch, 'pitch'), (self.pitch_vocal, 'pitch_vocal')],
+            # tempo_data=[(self.bpm, 'bpm tempo')],
             section_data=[(self.sama, 'sama'), (self.sections, 'sections')],
             event_data=[(self.phrases, 'phrases')],
             metadata={
                 'tonic': self.tonic,
-                'piece metadata': self._track_metadata
+                'metadata': self._track_metadata
             }
         )
 
@@ -259,7 +259,7 @@ def load_audio(audio_path):
     if not os.path.exists(audio_path):
         raise IOError("audio_path {} does not exist".format(audio_path))
 
-    return librosa.load(audio_path, sr=None, mono=True)
+    return librosa.load(audio_path, sr=44100, mono=False)
 
 
 def download(data_home=None, force_overwrite=False, cleanup=True):
@@ -356,7 +356,7 @@ def load_tonic(tonic_path):
         raise IOError("tonic_path {} does not exist".format(tonic_path))
 
     with open(tonic_path, 'r') as reader:
-        return reader.readline()
+        return float(reader.readline().split('\n')[0])
 
 
 def load_pitch(pitch_path):
@@ -457,7 +457,7 @@ def load_sama(sama_path):
             timestamps.append(float(line))
 
     for i in np.arange(1, len(timestamps)):
-        intervals.append([timestamps[i], timestamps[i-1]])
+        intervals.append([timestamps[i-1], timestamps[i]])
         sama_cycles.append('Sama cycle ' + str(i))
 
     if not intervals:
@@ -548,14 +548,15 @@ TODO
 
 '''
 def main():
-    data_home = '/Users/genisplaja/Desktop/genis-datasets/saraga1.0'
+    data_home = '/Users/genisplaja/Desktop/genis-datasets/'
     ids = track_ids()
     data = load(data_home)
 
     track_carnatic = data['carnatic_1']
-    track_hindustani = data[ids[-1]]
+    # track_hindustani = data[ids[-1]]
+    print(track_carnatic.metadata_path)
     metadata_carnatic = _load_metadata(track_carnatic.metadata_path)
-    metadata_hindustani = _load_metadata(track_hindustani.metadata_path)
+    # print(track_carnatic)
     print(metadata_carnatic)
     print(track_carnatic)
     print(track_carnatic.tonic)
@@ -564,6 +565,10 @@ def main():
     print(track_carnatic.sama)
     print(track_carnatic.sections)
     print(track_carnatic.phrases)
+    y, sr = track_carnatic.audio
+    size = np.shape(y)[1]
+    print(size/44100)
+    print(sr)
 
 
 if __name__ == '__main__':
