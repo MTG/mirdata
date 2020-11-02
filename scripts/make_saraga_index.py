@@ -79,7 +79,7 @@ def make_saraga_index(saraga_data_path):
                                 sama_path = os.path.join(directory, directory_, file)
                                 sama_checksum = md5(os.path.join(saraga_data_path, sama_path))
                                 sama = (os.path.join('saraga1.0/', sama_path), sama_checksum)
-                            if 'sections-manual' in file:
+                            if 'sections-manual.txt' in file:
                                 sections_path = os.path.join(directory, directory_, file)
                                 sections_checksum = md5(os.path.join(saraga_data_path, sections_path))
                                 sections = (os.path.join('saraga1.0/', sections_path), sections_checksum)

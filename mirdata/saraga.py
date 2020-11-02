@@ -8,11 +8,32 @@ import numpy as np
 import os
 import json
 import logging
+import six
+from six.moves.urllib import parse as urllibparse
+
+import requests
+import requests.adapters
 
 from mirdata import download_utils
 from mirdata import jams_utils
 from mirdata import track
 from mirdata import utils
+
+logger = logging.getLogger("dunya")
+
+HOSTNAME = "https://dunya.compmusic.upf.edu"
+TOKEN = 'a79d018dd20964751a1ac5c2cd26876c0a10521a'
+session = requests.Session()
+session.mount('http://', requests.adapters.HTTPAdapter(max_retries=5))
+session.mount('https://', requests.adapters.HTTPAdapter(max_retries=5))
+
+
+class HTTPError(Exception):
+    pass
+
+
+class ConnectionError(Exception):
+    pass
 
 
 DATASET_DIR = 'Saraga'
@@ -369,6 +390,9 @@ def load_pitch(pitch_path):
     Returns:
         F0Data: pitch annotation
     """
+    if pitch_path is None:
+        return None
+
     if not os.path.exists(pitch_path):
         raise IOError("melody_path {} does not exist".format(pitch_path))
 
@@ -378,6 +402,9 @@ def load_pitch(pitch_path):
         for line in reader.readlines():
             times.append(float(line.split('\t')[0]))
             freqs.append(float(line.split('\t')[1]))
+
+    if not times:
+        return None
 
     times = np.array(times)
     freqs = np.array(freqs)
@@ -446,6 +473,9 @@ def load_sama(sama_path):
         SectionData: sama annotation
 
     """
+    if sama_path is None:
+        return None
+
     if not os.path.exists(sama_path):
         raise IOError("sama_path {} does not exist".format(sama_path))
 
@@ -458,14 +488,14 @@ def load_sama(sama_path):
 
     for i in np.arange(1, len(timestamps)):
         intervals.append([timestamps[i-1], timestamps[i]])
-        sama_cycles.append('Sama cycle ' + str(i))
+        sama_cycles.append('sama cycle ' + str(i))
 
     if not intervals:
         return None
 
     return utils.SectionData(
             np.array(intervals),
-            np.array(sama_cycles)
+            sama_cycles
         )
 
 
@@ -480,6 +510,9 @@ def load_sections(sections_path):
         SectionData: section annotation
 
     """
+    if sections_path is None:
+        return None
+
     if not os.path.exists(sections_path):
         raise IOError("sections_path {} does not exist".format(sections_path))
 
@@ -488,14 +521,14 @@ def load_sections(sections_path):
     with open(sections_path, 'r') as reader:
         for line in reader.readlines():
             intervals.append([float(line.split('\t')[0]), float(line.split('\t')[0]) + float(line.split('\t')[2])])
-            section_labels.append(str(line.split('\t')[3].split('\n')[0]) + ' (' + str(line.split('\t')[1]) + ')')
+            section_labels.append(str(line.split('\t')[3].split('\n')[0]) + '_' + str(line.split('\t')[1]))
 
     if not intervals:
         return None
 
     return utils.SectionData(
         np.array(intervals),
-        np.array(section_labels)
+        section_labels
     )
 
 
@@ -510,6 +543,9 @@ def load_phrases(phrases_path):
         EventData: phrases annotation
 
     """
+    if phrases_path is None:
+        return None
+
     if not os.path.exists(phrases_path):
         raise IOError("sections_path {} does not exist".format(phrases_path))
 
@@ -520,7 +556,7 @@ def load_phrases(phrases_path):
         for line in reader.readlines():
             start_times.append(float(line.split('\t')[0]))
             end_times.append(float(line.split('\t')[0]) + float(line.split('\t')[2]))
-            events.append(str(line.split('\t')[3].split('\n')[0]) + ' (' + str(line.split('\t')[1]) + ')')
+            events.append(str(line.split('\t')[3].split('\n')[0]) + '_' + str(line.split('\t')[1]))
 
     if not start_times:
         return None
@@ -528,7 +564,7 @@ def load_phrases(phrases_path):
     return utils.EventData(
         np.array(start_times),
         np.array(end_times),
-        np.array(events)
+        events
     )
 
 
@@ -546,30 +582,144 @@ TODO
     print(cite_data)
 
 
+# Functions to download multitrack files from Dunya API
+def file_for_document(recordingid, thetype, subtype=None, part=None, version=None):
+    """Get the most recent derived file given a filetype.
+    :param recordingid: Musicbrainz recording ID
+    :param thetype: the computed filetype
+    :param subtype: a subtype if the module has one
+    :param part: the file part if the module has one
+    :param version: a specific version, otherwise the most recent one will be used
+    :returns: The contents of the most recent version of the derived file
+    """
+    path = "document/by-id/%s/%s" % (recordingid, thetype)
+    args = {}
+    if subtype:
+        args["subtype"] = subtype
+    if part:
+        args["part"] = part
+    if version:
+        args["v"] = version
+    return _dunya_query_file(path, **args)
+
+
+def set_hostname(hostname):
+    """ Change the hostname of the dunya API endpoint.
+
+    Arguments:
+        hostname: The new dunya hostname to set. If you want to access over http or a different port,
+         include them in the hostname, e.g. `http://localhost:8000`
+
+    """
+    global HOSTNAME
+    HOSTNAME = hostname
+
+
+def set_token(token):
+    """ Set an access token. You must call this before you can make
+    any other calls.
+
+    Arguments:
+        token: your access token
+
+    """
+    global TOKEN
+    TOKEN = token
+
+
+def _get_paged_json(path, **kwargs):
+    extra_headers = None
+    if 'extra_headers' in kwargs:
+        extra_headers = kwargs.get('extra_headers')
+        del kwargs['extra_headers']
+    nxt = _make_url(path, **kwargs)
+    logger.debug("initial paged to %s", nxt)
+    ret = []
+    while nxt:
+        res = _dunya_url_query(nxt, extra_headers=extra_headers)
+        res = res.json()
+        ret.extend(res.get("results", []))
+        nxt = res.get("next")
+    return ret
+
+
+def _dunya_url_query(url, extra_headers=None):
+    logger.debug("query to '%s'" % url)
+    if not TOKEN:
+        raise ConnectionError("You need to authenticate with `set_token`")
+
+    headers = {"Authorization": "Token %s" % TOKEN}
+    if extra_headers:
+        headers.update(extra_headers)
+
+    g = session.get(url, headers=headers)
+    try:
+        g.raise_for_status()
+    except requests.exceptions.HTTPError as e:
+        raise HTTPError(e)
+    return g
+
+
+def _dunya_post(url, data=None, files=None):
+    data = data or {}
+    files = files or {}
+    logger.debug("post to '%s'" % url)
+    if not TOKEN:
+        raise ConnectionError("You need to authenticate with `set_token`")
+    headers = {"Authorization": "Token %s" % TOKEN}
+    p = requests.post(url, headers=headers, data=data, files=files)
+    try:
+        p.raise_for_status()
+    except requests.exceptions.HTTPError as e:
+        raise HTTPError(e)
+    return p
+
+
+def _make_url(path, **kwargs):
+    if "://" in HOSTNAME:
+        protocol, hostname = HOSTNAME.split("://")
+    else:
+        protocol = "http"
+        hostname = HOSTNAME
+
+    if not kwargs:
+        kwargs = {}
+    for key, value in kwargs.items():
+        if isinstance(value, six.text_type):
+            kwargs[key] = value.encode('utf8')
+    url = urllibparse.urlunparse((
+        protocol,
+        hostname,
+        '%s' % path,
+        '',
+        urllibparse.urlencode(kwargs),
+        ''
+    ))
+    return url
+
+
+def _dunya_query_json(path, **kwargs):
+    """Make a query to dunya and expect the results to be JSON"""
+    g = _dunya_url_query(_make_url(path, **kwargs))
+    return g.json() if g else None
+
+
+def _dunya_query_file(path, **kwargs):
+    """Make a query to dunya and return the raw result"""
+    g = _dunya_url_query(_make_url(path, **kwargs))
+    if g:
+        cl = g.headers.get('content-length')
+        content = g.content
+        if cl and int(cl) != len(content):
+            logger.warning("Indicated content length is not the same as returned content. Some data may be missing")
+        return content
+    else:
+        return None
+
+
 '''
 def main():
-    data_home = '/Users/genisplaja/Desktop/genis-datasets/'
-    ids = track_ids()
-    data = load(data_home)
-
-    track_carnatic = data['carnatic_1']
-    # track_hindustani = data[ids[-1]]
-    print(track_carnatic.metadata_path)
-    metadata_carnatic = _load_metadata(track_carnatic.metadata_path)
-    # print(track_carnatic)
-    print(metadata_carnatic)
-    print(track_carnatic)
-    print(track_carnatic.tonic)
-    print(track_carnatic.pitch)
-    print(track_carnatic.bpm)
-    print(track_carnatic.sama)
-    print(track_carnatic.sections)
-    print(track_carnatic.phrases)
-    y, sr = track_carnatic.audio
-    size = np.shape(y)[1]
-    print(size/44100)
-    print(sr)
-
+    file = file_for_document('6d4e58d1-e565-4987-b7a5-c63a4e9d3f90', 'mp3')
 
 if __name__ == '__main__':
     main()
